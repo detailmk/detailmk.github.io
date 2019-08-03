@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="utf-8">
+  
+
+  
+  <title>JAVASE复习 | coder--编写代码,制造魔法</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="方法​    定义,使用 ​    return,参数,调用 ​    方法重载 ​    递归 面向对象​    封装 ​    继承 ​    多态 ​     ​    构造器  this和super ​    This（）：当前类的实例,一个类，如果继承了父类，那么通过this既可以访问当前类的属性和方法，也可以访问父类的属性和方法，但是当子类重写了父类的方法之后，super.方法名,访问">
+<meta name="keywords" content="javase">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JAVASE复习">
+<meta property="og:url" content="http://yoursite.com/2019/07/19/JAVASE复习/index.html">
+<meta property="og:site_name" content="coder--编写代码,制造魔法">
+<meta property="og:description" content="方法​    定义,使用 ​    return,参数,调用 ​    方法重载 ​    递归 面向对象​    封装 ​    继承 ​    多态 ​     ​    构造器  this和super ​    This（）：当前类的实例,一个类，如果继承了父类，那么通过this既可以访问当前类的属性和方法，也可以访问父类的属性和方法，但是当子类重写了父类的方法之后，super.方法名,访问">
+<meta property="og:locale" content="default">
+<meta property="og:image" content="http://yoursite.com/2019/07/19/JAVASE复习/JAVASE%E5%A4%8D%E4%B9%A0%5C%E6%8D%95%E8%8E%B7.JPG">
+<meta property="og:updated_time" content="2019-07-23T13:23:40.082Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="JAVASE复习">
+<meta name="twitter:description" content="方法​    定义,使用 ​    return,参数,调用 ​    方法重载 ​    递归 面向对象​    封装 ​    继承 ​    多态 ​     ​    构造器  this和super ​    This（）：当前类的实例,一个类，如果继承了父类，那么通过this既可以访问当前类的属性和方法，也可以访问父类的属性和方法，但是当子类重写了父类的方法之后，super.方法名,访问">
+<meta name="twitter:image" content="http://yoursite.com/2019/07/19/JAVASE复习/JAVASE%E5%A4%8D%E4%B9%A0%5C%E6%8D%95%E8%8E%B7.JPG">
+  
+    <link rel="alternate" href="/atom.xml" title="coder--编写代码,制造魔法" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+</html>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">coder--编写代码,制造魔法</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-JAVASE复习" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/07/19/JAVASE复习/" class="article-date">
+  <time datetime="2019-07-19T11:04:38.000Z" itemprop="datePublished">2019-07-19</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      JAVASE复习
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="方法"><a href="#方法" class="headerlink" title="方法"></a>方法</h2><p>​    定义,使用</p>
+<p>​    return,参数,调用</p>
+<p>​    方法重载</p>
+<p>​    递归</p>
+<h2 id="面向对象"><a href="#面向对象" class="headerlink" title="面向对象"></a>面向对象</h2><p>​    封装</p>
+<p>​    继承</p>
+<p>​    多态</p>
+<p>​    </p>
+<p>​    构造器</p>
+<ul>
+<li><p>this和super</p>
+<p>​    This（）：当前类的实例,一个类，如果继承了父类，那么通过this既可以访问当前类的属性和方法，也可以访问父类的属性和方法，但是当子类重写了父类的方法之后，super.方法名,访问的是父类的方法，this.方法名访问的是子类的方法</p>
+<p>​    super父类实例,在构造方法中，super()必须要写在构造的第一句</p>
+</li>
+<li><p>权限修饰符</p>
+<p> Public:任何位置都可访问</p>
+<p> Private：当前类内部</p>
+<p> Protected: 不同包的子类、当前包内都可用</p>
+<p> Default、friendly/不写时:同一包内</p>
+</li>
+</ul>
+<ul>
+<li><p>static</p>
+<ol>
+<li><p>静态方法中是不能调用非静态的属性或者方法,</p>
+</li>
+<li><p>非静态的方法中是可以调用静态的成员和方法的</p>
+</li>
+</ol>
+</li>
+</ul>
+<p>​    block</p>
+<ul>
+<li><p>重写和重载</p>
+<p>重写override:1 发生在子类中</p>
+<p>​                     2 方法名、参数列表、返回值类型必须相同</p>
+<p>​                     3 访问修饰符大于等于父类的</p>
+<p>重载overload：1 发生在同一个类中</p>
+<p>​                           2 方法名必须相同 ，参数列表必须不同</p>
+<p>​                           3 与访问修饰符、返回值类型无关</p>
+<p>重载的作用：实现方法名的复用</p>
+</li>
+<li><p>final</p>
+<p>Final修饰的属性是常量</p>
+<p>Final修饰的方法不可以重写</p>
+<p>Final修饰的类不可以继承</p>
+</li>
+<li><p>接口和抽象类之间的区别</p>
+<p>1) 抽象类只能被单继承，接口可以被多实现</p>
+<p>2) 接口只有定义,抽象类可以有定义和实现</p>
+</li>
+</ul>
+<p>​    </p>
+<h2 id="异常"><a href="#异常" class="headerlink" title="异常"></a>异常</h2><p>一些常见的异常</p>
+<p>runtime exception:：NullPointerException、ArrayIndexOutOfBoundsException、 ClassCastException</p>
+<ul>
+<li><p>运行时异常:java JVM抛出的异常，代码中不用处理。是在代码运行过程中产生的</p>
+</li>
+<li><p>非运行时异常：就是编译的时候产生的异常</p>
+</li>
+</ul>
+<p>内部类:</p>
+<p>​    匿名内部类</p>
+<p>​    Lambda</p>
+<p>设计模式:单例模式,静态代理</p>
+<ul>
+<li>throws与throw区别</li>
+</ul>
+<p>throws 捕获并向外抛出异常 throw抛出异常 </p>
+<h2 id="常用类"><a href="#常用类" class="headerlink" title="常用类"></a>常用类</h2><p>​    String ***</p>
+<ul>
+<li><p>String,StringBuilder,StringBuffer区别?</p>
+<p>String:String由final关键字修饰，所以长度是不可变</p>
+<p>StringBuffer:可变可修改的 线程安全</p>
+<p>StringBuilder 性能高 执行速度快</p>
+</li>
+<li><p>String常用方法</p>
+<p><img src="JAVASE%E5%A4%8D%E4%B9%A0%5C%E6%8D%95%E8%8E%B7.JPG" alt></p>
+</li>
+</ul>
+<p>​        对象问题</p>
+<p>​    基本数据类型的包装类型:</p>
+<ul>
+<li>int 和 Integer之间的区别?<ol>
+<li>Int是基本数据类型，不是对象，占一个内存空间，没有方法。与其同类的有long,char,doble</li>
+<li>Integer是封装类，具有方法及属性。与其同类的有Long,Double.Float</li>
+</ol>
+</li>
+</ul>
+<p>​        有了基本数据类型为什么要有包装类型?</p>
+<p>​        为什么要有包装类型还要有基本数据类型?</p>
+<p>​        自动拆装箱</p>
+<p>​        Integer对象比较问题</p>
+<h2 id="IO流"><a href="#IO流" class="headerlink" title="IO流"></a>IO流</h2><p>节点流</p>
+<h3 id="字节流-InputStream-OutputStream"><a href="#字节流-InputStream-OutputStream" class="headerlink" title="字节流***  InputStream OutputStream()"></a>字节流***  InputStream OutputStream()</h3><p>字符流</p>
+<p>功能流(节点流)</p>
+<p>转换流</p>
+<p>基本数据类型流</p>
+<p>对象流</p>
+<h2 id="容器"><a href="#容器" class="headerlink" title="容器"></a>容器</h2><h3 id="ArrayList"><a href="#ArrayList" class="headerlink" title="ArrayList  ***"></a>ArrayList  ***</h3><p>底层实现结构: 数组结构实现</p>
+<ul>
+<li><p>优点: 通过索引遍历,随机获取效率高</p>
+</li>
+<li><p>缺点: 增加,删除效率低(遇到数组的拷贝问题)</p>
+</li>
+<li><p>扩容:  int newCapacity = oldCapacity + (oldCapacity &gt;&gt; 1);</p>
+<p>​        使用copyOf方法进行动态扩容,每次扩容原容量的1.5倍</p>
+<p>​        默认容量为10–&gt;add</p>
+</li>
+</ul>
+<h3 id="HashMap"><a href="#HashMap" class="headerlink" title="HashMap  ***"></a>HashMap  ***</h3><p>底层实现:哈希表(数组+链表+红黑树)</p>
+<p>特点:查询,增加,修改效率高   </p>
+<p>扩容:默认初始容量是 16，加载因子是 0.75。,当数据个数达到初始容量*加载因子个数的时候就扩容 ,扩容原容量的2倍</p>
+<ul>
+<li><p>数组和容器的区别?</p>
+<p>数组:存储多个数据的容器</p>
+<p>1.数据类型要求一致</p>
+<p>2.有序有索引</p>
+<p>3.定长</p>
+<p>容器: 存储0~多个数据</p>
+<p>存储任意类型的数据,容器的大小可以随着内容的数量进行增减</p>
+</li>
+<li><p>Collection和Collections的区别</p>
+<p>​    Collection是容器的超级接口</p>
+<p>​    Collections是操作容器的工具类(sort(),reverse(),shuffle()随机排序,fill(list,obj)对象填充)</p>
+</li>
+<li><p>Set和List的区别</p>
+<p>​    Set 中的数据没有顺序，不可重复</p>
+<p>​    List 中的数据有顺序，可重复。 </p>
+</li>
+<li><p>ArrayList,LinkedList,Vector之间的区别</p>
+</li>
+</ul>
+<ol>
+<li>ArrayList<br>底层实现结构: 数组结构实现<br>优点: 通过索引遍历,随机获取效率高<br>缺点: 增加,删除效率低(遇到数组的拷贝问题)<br>扩容:  int newCapacity = oldCapacity + (oldCapacity &gt;&gt; 1);使用copyOf方法进行动态扩容,每次扩容原容量的1.5倍<br>默认容量为10–&gt;add</li>
+<li>Vector<br>与ArrayList底层实现和特点相同<br>不同: 1)线程安全的,ArrayList线程不安全   2)扩容是原容量的2倍</li>
+<li>LinkedList<br>底层实现结构: 双向链表实现<br>优点:插入数据,删除数据效率高<br>缺点:做查询效率低<br>如果大量的做增删可以使用LinkedList,大量做查询可以使用ArrayList</li>
+</ol>
+<ul>
+<li>Map遍历</li>
+</ul>
+<ol>
+<li>获取所有的key,拿到一个set集合   遍历set结合  1)foreach 2)迭代器<br>Set<string> sets=map1.keySet();<br>for(String s:sets){<br>System.out.println(s+”–&gt;”+map1.get(s));<br>}</string></li>
+<li>获取所有的values   1)foreach 2)迭代器<br>   Collection<integer> cols=map1.values();<br>   Iterator<integer> it=cols.iterator();<br>   while(it.hasNext()){<br>   System.out.println(it.next());<br>   }</integer></integer></li>
+<li>Set&lt;Map.Entry&lt;K,V&gt;&gt; entrySet()<br>Map.Entry&lt;K,V&gt;<br>K getKey() 返回与此项对应的键。<br>V getValue() 返回与此项对应的值。<br>Set&lt;Map.Entry&lt;String,Integer&gt;&gt; set=map1.entrySet();<br>for(Map.Entry&lt;String,Integer&gt; entry:set){<br>System.out.println(entry.getKey()+”–&gt;”+entry.getValue());<br>}</li>
+</ol>
+<h2 id="多线程"><a href="#多线程" class="headerlink" title="多线程"></a>多线程</h2><h3 id="理解"><a href="#理解" class="headerlink" title="理解"></a>理解</h3><p>定义:多任务同时进行</p>
+<p>优点:提升效率 完善功能</p>
+<p>缺点:开发复杂,可能出现不安全</p>
+<h3 id="创建方式-3种"><a href="#创建方式-3种" class="headerlink" title="创建方式 3种"></a>创建方式 3种</h3><ol>
+<li>继承Thread 重写run()方法</li>
+<li>实现Runnable接口 重写run()方法(好处:避免单继承的局限性,实现资源共享)</li>
+<li>实现Callable接口 重写call()方法(与2不同:使用麻烦|抛出异常,具有返回值)</li>
+</ol>
+<h3 id="状态"><a href="#状态" class="headerlink" title="状态"></a>状态</h3><ol>
+<li><p>新生(NEW) new Thread()创建一个线程</p>
+</li>
+<li><p>就绪(RUNNABLE) start() 处于就绪状态的线程在就绪队列中等待cpu的调度</p>
+<p>​                    yield()–&gt;礼让线程 让出cpu的资源 扩大对方执行的可能性</p>
+<p>​                    notify()–&gt;唤醒对方正在处于等待池中的线程 ,没有对象的资源,就算是被唤醒也无法执行,必须要获取到对象的锁才能有资格执行</p>
+<pre><code>notifyAll()--&gt;唤醒全部</code></pre></li>
+<li><p>运行  CPU为未执行的线程分配时间片,线程开始执行</p>
+</li>
+<li><p>阻塞(BLOCKED) 阻止线程的正常执行</p>
+<p>​                            sleep()–&gt;线程睡眠,使线程处于阻塞状态,让出cpu的资源如果出现对象锁的情况,sleep()抱着对象资源睡,不释放对象资源</p>
+<p>​                            join()–&gt;插队线程</p>
+<p>​                            wait()–&gt;线程处于等待状态,释放对象的锁(对象的资源)</p>
+<p>​                            IO操作</p>
+</li>
+<li><p>终止(TERMINATED) 线程结束</p>
+</li>
+</ol>
+<h3 id="线程安全-同步"><a href="#线程安全-同步" class="headerlink" title="线程安全:同步"></a>线程安全:同步</h3><p>synchronized 同步锁</p>
+<ul>
+<li><p>同步方法:</p>
+<pre><code>成员方法和静态方法
+
+使用简单,但是锁的范围一般可能较大,程序执行效率低</code></pre></li>
+<li><p>同步块</p>
+<pre><code>锁类的class:相当于锁了类的所有对象的整个信息
+
+this:锁当前对象,锁了这个对象的所有资源
+
+遇到锁变量的情况时的处理方式,将变量成为某个类的成员属性,之后具有这个属性的对象的地址就行.(资源:一般锁不变的内容--对象地址)
+
+锁的范围太大效率低,锁的范围太小可能锁不住</code></pre><p><strong>锁一定要锁不变的内容</strong></p>
+</li>
+</ul>
+<h3 id="线程通信"><a href="#线程通信" class="headerlink" title="线程通信"></a>线程通信</h3><p>定义:线程之间相互发出信号</p>
+<p>方法:wait() notify() notifyAll()</p>
+<h2 id="网络编程"><a href="#网络编程" class="headerlink" title="网络编程"></a>网络编程</h2><h3 id="网络"><a href="#网络" class="headerlink" title="网络"></a>网络</h3><p>ip:定义网络上的节点–区分节点</p>
+<p>端口:区分软件</p>
+<p>url:统一资源定位符</p>
+<h3 id="传输协议"><a href="#传输协议" class="headerlink" title="传输协议"></a>传输协议</h3><h4 id="TCP"><a href="#TCP" class="headerlink" title="TCP ***"></a>TCP ***</h4><ul>
+<li>客户端</li>
+</ul>
+<ol>
+<li>创建Socket连接服务端(指定ip地址,端口号)通过ip地址找对应的服务器</li>
+<li>调用Socket的getInputStream()和getOutputStream()方法获取和服务端相连的IO流</li>
+<li>输入流可以读取服务端输出流写出的数据</li>
+<li>输出流可以写出数据到服务端的输入流</li>
+</ol>
+<ul>
+<li>服务端</li>
+</ul>
+<ol>
+<li>创建ServerSocket (指定接收的端口号)</li>
+<li>调用ServerSocket 的 accept()方法接收客户端的请求(阻塞式监听)</li>
+<li>调用Socket的getInputStream()和getOutputStream()方法获取和客户端相连的IO流</li>
+<li>输入流可以读取客户端输出流写出的数据</li>
+<li>输出流可以写出数据到客户端的输入流</li>
+</ol>
+<h4 id="UDP"><a href="#UDP" class="headerlink" title="UDP"></a>UDP</h4><ul>
+<li>发送端</li>
+</ul>
+<ol>
+<li>选择流把数据读到程序</li>
+<li>定义发送端DatagramSocket(发送端的端口号)</li>
+<li>把数据打包DatagramPacket(数据,new InetSocketAddress(“主机名”,接收端的端口号))</li>
+<li>调用DatagramSocket的send()方法发送</li>
+<li>关闭</li>
+</ol>
+<ul>
+<li>接收端</li>
+</ul>
+<ol>
+<li><p>定义接收端DatagramSocket</p>
+</li>
+<li><p>准备合适的数据类型的容器打包接收数据</p>
+</li>
+<li><p>调用DatagramSocket的receive()方法接收数据</p>
+</li>
+<li><p>处理接收的数据</p>
+</li>
+<li><p>选择流写出,刷出</p>
+</li>
+<li><p>关闭</p>
+</li>
+<li><p>定义接收端</p>
+</li>
+</ol>
+<p>TCP和UDP的区别:</p>
+<ol>
+<li>TCP面向连接,虽然安全,但消耗资源,通过流传输,传输数据大小无限制 </li>
+<li>UDP面向无连接,编辑完了就发送,发送的信息如果未被接收就很不安全,通过字节数组传输,发送数据大小有限制</li>
+</ol>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2019/07/19/JAVASE复习/" data-id="cjyv2o16c0017g4uyrbqkre4q" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javase/">javase</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2019/07/22/查询/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          select查询
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2019/07/19/反射/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">反射</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/javase/">javase</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/javaweb/">javaweb</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mind/">mind</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/oracle/">oracle</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/javase/" style="font-size: 20px;">javase</a> <a href="/tags/javaweb/" style="font-size: 16.67px;">javaweb</a> <a href="/tags/mind/" style="font-size: 10px;">mind</a> <a href="/tags/oracle/" style="font-size: 13.33px;">oracle</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/08/">August 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/07/">July 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/06/">June 2019</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2019/08/03/hello-world/">Hello Hexo World</a>
+          </li>
+        
+          <li>
+            <a href="/2019/08/02/js事件/">js事件</a>
+          </li>
+        
+          <li>
+            <a href="/2019/07/31/初识js/">初识js</a>
+          </li>
+        
+          <li>
+            <a href="/2019/07/31/注解/">注解</a>
+          </li>
+        
+          <li>
+            <a href="/2019/07/26/HTML/">HTML</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2019 Meng Kai<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>

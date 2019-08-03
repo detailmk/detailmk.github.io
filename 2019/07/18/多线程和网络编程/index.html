@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="utf-8">
+  
+
+  
+  <title>多线程和网络编程 | coder--编写代码,制造魔法</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="多线程线程通信(生产者消费者模式)定义:线程之间相互发出信号 方法:wait() notify() notifyAll() 案例:厨师做菜给顾客吃 123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960616263646566676">
+<meta name="keywords" content="javase">
+<meta property="og:type" content="article">
+<meta property="og:title" content="多线程和网络编程">
+<meta property="og:url" content="http://yoursite.com/2019/07/18/多线程和网络编程/index.html">
+<meta property="og:site_name" content="coder--编写代码,制造魔法">
+<meta property="og:description" content="多线程线程通信(生产者消费者模式)定义:线程之间相互发出信号 方法:wait() notify() notifyAll() 案例:厨师做菜给顾客吃 123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960616263646566676">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2019-07-20T16:28:57.138Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="多线程和网络编程">
+<meta name="twitter:description" content="多线程线程通信(生产者消费者模式)定义:线程之间相互发出信号 方法:wait() notify() notifyAll() 案例:厨师做菜给顾客吃 123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960616263646566676">
+  
+    <link rel="alternate" href="/atom.xml" title="coder--编写代码,制造魔法" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+</html>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">coder--编写代码,制造魔法</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-多线程和网络编程" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/07/18/多线程和网络编程/" class="article-date">
+  <time datetime="2019-07-18T03:12:53.000Z" itemprop="datePublished">2019-07-18</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      多线程和网络编程
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="多线程"><a href="#多线程" class="headerlink" title="多线程"></a>多线程</h2><h4 id="线程通信-生产者消费者模式"><a href="#线程通信-生产者消费者模式" class="headerlink" title="线程通信(生产者消费者模式)"></a>线程通信(生产者消费者模式)</h4><p>定义:线程之间相互发出信号</p>
+<p>方法:wait() notify() notifyAll()</p>
+<p>案例:厨师做菜给顾客吃</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TestFood</span> </span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">		Restrant r = <span class="keyword">new</span> Restrant();</span><br><span class="line">		<span class="keyword">new</span> Thread(<span class="keyword">new</span> Cook(r)).start();</span><br><span class="line">		<span class="keyword">new</span> Thread(<span class="keyword">new</span> Custom(r)).start();</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Restrant</span></span>&#123;</span><br><span class="line">	<span class="keyword">boolean</span> flag = <span class="keyword">false</span>;</span><br><span class="line">	</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">synchronized</span> <span class="keyword">void</span> <span class="title">eat</span><span class="params">()</span></span>&#123;</span><br><span class="line">		<span class="keyword">if</span>(flag)&#123;</span><br><span class="line">			<span class="keyword">try</span> &#123;</span><br><span class="line">				<span class="keyword">this</span>.wait();</span><br><span class="line">			&#125; <span class="keyword">catch</span> (InterruptedException e) &#123;</span><br><span class="line">				<span class="comment">// TODO Auto-generated catch block</span></span><br><span class="line">				e.printStackTrace();</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">			<span class="keyword">try</span> &#123;</span><br><span class="line">				Thread.sleep(<span class="number">1000</span>);</span><br><span class="line">			&#125; <span class="keyword">catch</span> (InterruptedException e) &#123;</span><br><span class="line">				<span class="comment">// TODO Auto-generated catch block</span></span><br><span class="line">				e.printStackTrace();</span><br><span class="line">			&#125;</span><br><span class="line">			System.out.println(<span class="string">"吃菜中-----"</span>);</span><br><span class="line">			flag = <span class="keyword">false</span>;</span><br><span class="line">			<span class="keyword">this</span>.notify();</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">synchronized</span> <span class="keyword">void</span> <span class="title">make</span><span class="params">()</span></span>&#123;</span><br><span class="line">		<span class="keyword">if</span>(flag)&#123;</span><br><span class="line">			<span class="keyword">try</span> &#123;</span><br><span class="line">				<span class="keyword">this</span>.wait();</span><br><span class="line">			&#125; <span class="keyword">catch</span> (InterruptedException e) &#123;</span><br><span class="line">				<span class="comment">// TODO Auto-generated catch block</span></span><br><span class="line">				e.printStackTrace();</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">			<span class="keyword">try</span> &#123;</span><br><span class="line">				Thread.sleep(<span class="number">1000</span>);</span><br><span class="line">			&#125; <span class="keyword">catch</span> (InterruptedException e) &#123;</span><br><span class="line">				<span class="comment">// TODO Auto-generated catch block</span></span><br><span class="line">				e.printStackTrace();</span><br><span class="line">			&#125;</span><br><span class="line">			System.out.println(<span class="string">"做菜中------"</span>);</span><br><span class="line">			<span class="keyword">this</span>.notify();</span><br><span class="line">			flag = <span class="keyword">false</span>;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Custom</span> <span class="keyword">implements</span> <span class="title">Runnable</span></span>&#123;</span><br><span class="line">	Restrant res;</span><br><span class="line">	</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="title">Custom</span><span class="params">(Restrant res)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">super</span>();</span><br><span class="line">		<span class="keyword">this</span>.res = res;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="meta">@Override</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		res.eat();</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Cook</span> <span class="keyword">implements</span> <span class="title">Runnable</span></span>&#123;</span><br><span class="line">	Restrant res;</span><br><span class="line">	</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="title">Cook</span><span class="params">(Restrant res)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">super</span>();</span><br><span class="line">		<span class="keyword">this</span>.res = res;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="meta">@Override</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		res.make();</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>测试效果</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">做菜中------</span><br><span class="line">吃菜中-----</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<h4 id="死锁"><a href="#死锁" class="headerlink" title="死锁"></a>死锁</h4><p>太频繁得使用锁,导致对象资源被锁住无法获取</p>
+<h4 id="其他锁-了解"><a href="#其他锁-了解" class="headerlink" title="其他锁(了解)"></a>其他锁(了解)</h4><h2 id="网络编程"><a href="#网络编程" class="headerlink" title="网络编程"></a>网络编程</h2><h4 id="网络基础"><a href="#网络基础" class="headerlink" title="网络基础"></a>网络基础</h4><p>ip:定义网络的节点</p>
+<p>端口:区分软件</p>
+<p>URL:统一资源定位符</p>
+<h4 id="TCP和UDP的区别-特点-安全性-传输方式及数据"><a href="#TCP和UDP的区别-特点-安全性-传输方式及数据" class="headerlink" title="TCP和UDP的区别(特点,安全性,传输方式及数据)"></a>TCP和UDP的区别(特点,安全性,传输方式及数据)</h4><p>协议:UDP(短信)和TCP(电话)</p>
+<p>TCP特点:面向连接,虽然安全,但消耗资源,通过流传输,传输数据大小无限制</p>
+<p>UDP特点:面向无连接,编辑完了就发送,发送的信息如果未被接收就很不安全,通过字节数组传输,发送数据大小有限制</p>
+<h4 id="基于udp的Socket编程"><a href="#基于udp的Socket编程" class="headerlink" title="基于udp的Socket编程"></a>基于udp的Socket编程</h4><ul>
+<li>1.发送Send<ul>
+<li>创建DatagramSocket, 随机端口号</li>
+<li>创建DatagramPacket, 指定数据, 长度, 地址, 端口</li>
+<li>使用DatagramSocket发送DatagramPacket</li>
+<li>关闭DatagramSocket</li>
+</ul>
+</li>
+<li>2.接收Receive<ul>
+<li>创建DatagramSocket, 指定端口号</li>
+<li>创建DatagramPacket, 指定数组, 长度</li>
+<li>使用DatagramSocket接收DatagramPacket</li>
+<li>关闭DatagramSocket</li>
+<li>从DatagramPacket中获取数据</li>
+</ul>
+</li>
+<li>3.接收方获取ip和端口号<ul>
+<li>String ip = packet.getAddress().getHostAddress();</li>
+<li>int port = packet.getPort();</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li>发送端流程</li>
+</ul>
+<ol>
+<li><p>定义发送端     DatagramSocket(端口号) 指定发送端的端口号</p>
+</li>
+<li><p>准备数据</p>
+</li>
+<li><p>对数据打包</p>
+<p> DatagramPacket(byte[] buf, int offset, int length, InetAddress address, int port) </p>
+<p>构造数据报包，用来将长度为 length 偏移量为 offset 的包发送到指定主机上的指定端口号。</p>
+</li>
+<li><p>发送void send(DatagramPacket p) </p>
+</li>
+<li><p>关闭   void close()  关闭此数据报套接字。 </p>
+</li>
+</ol>
+<ul>
+<li>接收端基本流程</li>
+</ul>
+<ol>
+<li><p>定义接收端    DatagramSocket(int port) </p>
+</li>
+<li><p>准备字节数组</p>
+</li>
+<li><p>准备包裹用来接收数据  DatagramPacket(byte[] buf, int length) </p>
+</li>
+<li><p>接收</p>
+</li>
+</ol>
+<p>​    5. 从包裹中获取数据</p>
+<pre><code>byte[] getData()  返回数据缓冲区。 </code></pre><p>​          int getLength()  返回将要发送或接收到的数据的长度。 </p>
+<p>​    6. 关闭</p>
+<h4 id="基于tcp的Socket编程"><a href="#基于tcp的Socket编程" class="headerlink" title="基于tcp的Socket编程"></a>基于tcp的Socket编程</h4><ul>
+<li>1.客户端<ul>
+<li>创建Socket连接服务端(指定ip地址,端口号)通过ip地址找对应的服务器</li>
+<li>调用Socket的getInputStream()和getOutputStream()方法获取和服务端相连的IO流</li>
+<li>输入流可以读取服务端输出流写出的数据</li>
+<li>输出流可以写出数据到服务端的输入流</li>
+</ul>
+</li>
+<li>2.服务端<ul>
+<li>创建ServerSocket(需要指定端口号)</li>
+<li>调用ServerSocket的accept()方法接收一个客户端请求，阻塞式监听</li>
+<li>调用Socket的getInputStream()和getOutputStream()方法获取和客户端相连的IO流</li>
+<li>输入流可以读取客户端输出流写出的数据</li>
+<li>输出流可以写出数据到客户端的输入流</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li>Socket 此类实现客户端套接字– 客户端 </li>
+</ul>
+<ol>
+<li><p>定义客户端   Socket(String host, int port)   创建一个流套接字并将其连接到指定主机上的指定端口号。</p>
+</li>
+<li><p>IO操作  </p>
+</li>
+</ol>
+<p>​         输出流OutputStream getOutputStream()   返回此套接字的  输出流。 </p>
+<ol start="3">
+<li><p>刷出</p>
+</li>
+<li><p>关闭</p>
+</li>
+</ol>
+<ul>
+<li>ServerSocket  此类实现服务器套接字–TCP服务端</li>
+</ul>
+<ol>
+<li><p>定义服务端    ServerSocket(int port)    创建绑定到特定端口的服务器套接字。</p>
+</li>
+<li><p>阻塞式监听  一个客户端连接成功,就是一个socket</p>
+</li>
+<li><p>io操作</p>
+</li>
+<li><p>关闭</p>
+</li>
+</ol>
+<ul>
+<li>TCP实现文件上传客户端 </li>
+</ul>
+<ol>
+<li><p>定义客户端   Socket(String host, int port)   创建一个流套接字并将其连接到指定主机上的指定端口号。</p>
+</li>
+<li><p>IO操作 先从文件中读入数据–&gt;写出数据 </p>
+<p>new FileInputStream(“”);<br>输出流OutputStream getOutputStream()  返回此套接字的输出流。 </p>
+</li>
+<li><p>刷出</p>
+</li>
+<li><p>关闭</p>
+</li>
+</ol>
+<ul>
+<li>TCP实现文件上传服务端</li>
+</ul>
+<ol>
+<li><p>定义服务端    ServerSocket(int port)    创建绑定到特定端口的服务器套接字。</p>
+</li>
+<li><p>阻塞式监听  一个客户端连接成功,就是一个socket</p>
+</li>
+<li><p>io操作 :从客户端读入数据 —&gt;文件输出流 写出文件中</p>
+</li>
+<li><p>刷出</p>
+</li>
+<li><p>关闭</p>
+</li>
+</ol>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2019/07/18/多线程和网络编程/" data-id="cjyv2o14r000ag4uyrye4h5cj" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javase/">javase</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2019/07/19/反射/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          反射
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2019/07/17/集合/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">集合</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/javase/">javase</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/javaweb/">javaweb</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mind/">mind</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/oracle/">oracle</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/javase/" style="font-size: 20px;">javase</a> <a href="/tags/javaweb/" style="font-size: 16.67px;">javaweb</a> <a href="/tags/mind/" style="font-size: 10px;">mind</a> <a href="/tags/oracle/" style="font-size: 13.33px;">oracle</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/08/">August 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/07/">July 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/06/">June 2019</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2019/08/03/hello-world/">Hello Hexo World</a>
+          </li>
+        
+          <li>
+            <a href="/2019/08/02/js事件/">js事件</a>
+          </li>
+        
+          <li>
+            <a href="/2019/07/31/初识js/">初识js</a>
+          </li>
+        
+          <li>
+            <a href="/2019/07/31/注解/">注解</a>
+          </li>
+        
+          <li>
+            <a href="/2019/07/26/HTML/">HTML</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2019 Meng Kai<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>

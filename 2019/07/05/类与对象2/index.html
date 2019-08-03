@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="utf-8">
+  
+
+  
+  <title>类与对象2 | coder--编写代码,制造魔法</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="类与对象2this定义this指代当前对象 特征this可以调用当前类中的一切,this就像钥匙,可以开类这个房子任何的房间,并从里面拿东西处理. 使用方式调用成员变量,解决成员属性和局部属性名字冲突的问题 调用成员方法 调用重载的构造方法  类House  123456789101112131415161718192021222324252627/**房间类 属性 房子名 房间名 物品		方法">
+<meta name="keywords" content="javase">
+<meta property="og:type" content="article">
+<meta property="og:title" content="类与对象2">
+<meta property="og:url" content="http://yoursite.com/2019/07/05/类与对象2/index.html">
+<meta property="og:site_name" content="coder--编写代码,制造魔法">
+<meta property="og:description" content="类与对象2this定义this指代当前对象 特征this可以调用当前类中的一切,this就像钥匙,可以开类这个房子任何的房间,并从里面拿东西处理. 使用方式调用成员变量,解决成员属性和局部属性名字冲突的问题 调用成员方法 调用重载的构造方法  类House  123456789101112131415161718192021222324252627/**房间类 属性 房子名 房间名 物品		方法">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2019-07-20T16:31:49.814Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="类与对象2">
+<meta name="twitter:description" content="类与对象2this定义this指代当前对象 特征this可以调用当前类中的一切,this就像钥匙,可以开类这个房子任何的房间,并从里面拿东西处理. 使用方式调用成员变量,解决成员属性和局部属性名字冲突的问题 调用成员方法 调用重载的构造方法  类House  123456789101112131415161718192021222324252627/**房间类 属性 房子名 房间名 物品		方法">
+  
+    <link rel="alternate" href="/atom.xml" title="coder--编写代码,制造魔法" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+</html>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">coder--编写代码,制造魔法</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-类与对象2" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/07/05/类与对象2/" class="article-date">
+  <time datetime="2019-07-05T12:51:34.000Z" itemprop="datePublished">2019-07-05</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      类与对象2
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="类与对象2"><a href="#类与对象2" class="headerlink" title="类与对象2"></a>类与对象2</h1><h2 id="this"><a href="#this" class="headerlink" title="this"></a>this</h2><h3 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h3><p>this指代当前对象</p>
+<h3 id="特征"><a href="#特征" class="headerlink" title="特征"></a>特征</h3><p>this可以调用当前类中的一切,this就像钥匙,可以开类这个房子任何的房间,并从里面拿东西处理.</p>
+<h3 id="使用方式"><a href="#使用方式" class="headerlink" title="使用方式"></a>使用方式</h3><p>调用成员变量,解决成员属性和局部属性名字冲突的问题</p>
+<p>调用成员方法</p>
+<p>调用重载的构造方法</p>
+<ul>
+<li>类House</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**房间类 属性 房子名 房间名 物品</span></span><br><span class="line"><span class="comment">		方法 进入房间 拿物品</span></span><br><span class="line"><span class="comment">*/</span>		</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">House</span> </span>&#123;</span><br><span class="line">	String houseName;</span><br><span class="line">	String roomName;</span><br><span class="line">	String things;</span><br><span class="line">	</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="title">House</span><span class="params">()</span></span>&#123;</span><br><span class="line">		System.out.println(<span class="string">"我进入房子了...."</span>);</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="title">House</span><span class="params">(String houseName)</span></span>&#123;</span><br><span class="line">		<span class="keyword">this</span>();</span><br><span class="line">		<span class="keyword">this</span>.houseName = houseName;</span><br><span class="line">		System.out.println(<span class="string">"进入**"</span>+houseName+<span class="string">"**房子中....."</span>);</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">enterh</span><span class="params">(String roomName)</span></span>&#123;</span><br><span class="line">		System.out.println(<span class="string">"我进入--"</span>+roomName+<span class="string">"--房间中....."</span>);</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">takeThings</span><span class="params">(String things,String roomName)</span></span>&#123;</span><br><span class="line">		<span class="keyword">this</span>.enterh(roomName);</span><br><span class="line">		System.out.println(<span class="string">"我拿走--"</span>+roomName+<span class="string">"--房间里的++"</span>+things);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>测试类</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TestHouse</span> </span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">		House house = <span class="keyword">new</span> House(<span class="string">"荣乐公寓"</span>);</span><br><span class="line">		house.takeThings(<span class="string">"巧克力"</span>, <span class="string">"1单元201室"</span>);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>测试结果</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">我进入房子了....</span><br><span class="line">进入**荣乐公寓**房子中.....</span><br><span class="line">我进入--1单元201室--房间中.....</span><br><span class="line">我拿走--1单元201室--房间里的++巧克力</span><br></pre></td></tr></table></figure>
+
+<h3 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h3><ul>
+<li><p>this在调用构造器时必须在首行调.</p>
+</li>
+<li><p>static修饰的内容禁止使用this.</p>
+<p>(这种行为相当于在公共场所把公共垃圾桶拿回家)</p>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="static"><a href="#static" class="headerlink" title="static"></a>static</h2><h3 id="定义-1"><a href="#定义-1" class="headerlink" title="定义"></a>定义</h3><p>静态内容</p>
+<p>在类中所有对象都可以访问,就像公园,所有市民都可以进去散步.</p>
+<h3 id="特征-1"><a href="#特征-1" class="headerlink" title="特征"></a>特征</h3><p>static只修饰方法和属性 不存在修饰类和方法内的局部变量</p>
+<p>静态成员跟着类加载,类被销毁,那么静态内容也就被回收</p>
+<p>(学校破产了,桌椅被回收一样道理)</p>
+<p>被调用方式和非静态成员被调用的区别:static修饰的内容,同类里的对象可以直接调用,类也可以调用;非静态成员需要实例化对象才能去调用.</p>
+<h3 id="使用方式-1"><a href="#使用方式-1" class="headerlink" title="使用方式"></a>使用方式</h3><ul>
+<li><p>类名.方法名([参数列表]);</p>
+</li>
+<li><p>类名.属性名;</p>
+</li>
+<li><p>对象.方法名字([参数列表]);</p>
+</li>
+<li><p>对象.属性名;</p>
+</li>
+</ul>
+<ul>
+<li>教室类</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment"> * 设置班级类 属性  静态变量 座椅数</span></span><br><span class="line"><span class="comment"> * 			方法:设置桌椅数 获取桌椅数</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Classdo</span> </span>&#123;</span><br><span class="line">	<span class="keyword">static</span> <span class="keyword">int</span> desknum=<span class="number">40</span>;</span><br><span class="line">	<span class="keyword">private</span> Student student;</span><br><span class="line">	</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span> <span class="title">getDesknum</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		<span class="keyword">return</span> desknum;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">setDesknum</span><span class="params">(<span class="keyword">int</span> desknum)</span> </span>&#123;</span><br><span class="line">		Classdo.desknum = desknum;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>测试教室桌椅类</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Test</span> </span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">		Classdo cd1 = <span class="keyword">new</span> Classdo();</span><br><span class="line">		cd1.setDesknum(<span class="number">45</span>);</span><br><span class="line">		Classdo cd2 = <span class="keyword">new</span> Classdo();</span><br><span class="line">		cd2.setDesknum(<span class="number">46</span>);</span><br><span class="line">		System.out.println(<span class="string">"教室桌椅数比对--"</span>+cd1.getDesknum()+<span class="string">" vs "</span>+cd2.getDesknum());</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>测试结果</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">教室桌椅数比对--46 vs 46</span><br></pre></td></tr></table></figure>
+
+<h2 id="块"><a href="#块" class="headerlink" title="块"></a>块</h2><h3 id="定义-2"><a href="#定义-2" class="headerlink" title="定义"></a>定义</h3><p>{}形成代码块</p>
+<p>方法内的代码块</p>
+<p>类里面的构造代码块</p>
+<p>static+构造代码块—–静态代码块</p>
+<h3 id="执行顺序"><a href="#执行顺序" class="headerlink" title="执行顺序"></a>执行顺序</h3><p>1 不管产生多少实例化对象,静态代码块只执行一次</p>
+<p>2 构造代码块跟随new()一起调用</p>
+<p>3 普通代码块跟随方法执行</p>
+<ul>
+<li><p>人类</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment"> * 测试静态代码块、实例化代码块和构造函数的执行顺序</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">People</span> </span>&#123;</span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span> num = <span class="number">0</span>;<span class="comment">//静态变量初始化</span></span><br><span class="line">	String name;<span class="comment">//初始化为null</span></span><br><span class="line"></span><br><span class="line">	<span class="comment">//构造函数</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="title">People</span><span class="params">(String name)</span> </span>&#123;</span><br><span class="line">	System.out.println(num + <span class="string">":构造函数初始化"</span>);</span><br><span class="line">	<span class="keyword">this</span>.name = name; <span class="comment">//将name引用指向传入参数</span></span><br><span class="line">	num++; <span class="comment">//构造函数执行结束num值+1</span></span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="comment">//实例初始化块</span></span><br><span class="line">	&#123;</span><br><span class="line">	System.out.println(num + <span class="string">":实例初始化块"</span>);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="comment">//静态初始化块</span></span><br><span class="line">	<span class="keyword">static</span> &#123;</span><br><span class="line">	System.out.println(num + <span class="string">":静态初始化块"</span>);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">	People people1 = <span class="keyword">new</span> People(<span class="string">"monkey"</span>);</span><br><span class="line">	People people2 = <span class="keyword">new</span> People(<span class="string">"beer"</span>);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>测试结果</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">0:静态初始化块</span><br><span class="line">0:实例初始化块</span><br><span class="line">0:构造函数初始化</span><br><span class="line">1:实例初始化块</span><br><span class="line">1:构造函数初始化</span><br></pre></td></tr></table></figure>
+
+<p>便于理解:</p>
+<p>用new创建并初始化对象步骤：</p>
+<ul>
+<li>给对象的实例变量分配内存空间，默认初始化成员变量；</li>
+<li>成员变量声明时的初始化；</li>
+<li>初始化块初始化（又称为构造代码块或非静态代码块）；</li>
+<li>构造方法初始化</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2019/07/05/类与对象2/" data-id="cjyv2o15a000sg4uy45eb2ca1" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javase/">javase</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2019/07/07/封装-继承/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          封装 继承
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2019/07/04/类与对象/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">类与对象</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/javase/">javase</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/javaweb/">javaweb</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mind/">mind</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/oracle/">oracle</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/javase/" style="font-size: 20px;">javase</a> <a href="/tags/javaweb/" style="font-size: 16.67px;">javaweb</a> <a href="/tags/mind/" style="font-size: 10px;">mind</a> <a href="/tags/oracle/" style="font-size: 13.33px;">oracle</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/08/">August 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/07/">July 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/06/">June 2019</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2019/08/03/hello-world/">Hello Hexo World</a>
+          </li>
+        
+          <li>
+            <a href="/2019/08/02/js事件/">js事件</a>
+          </li>
+        
+          <li>
+            <a href="/2019/07/31/初识js/">初识js</a>
+          </li>
+        
+          <li>
+            <a href="/2019/07/31/注解/">注解</a>
+          </li>
+        
+          <li>
+            <a href="/2019/07/26/HTML/">HTML</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2019 Meng Kai<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>

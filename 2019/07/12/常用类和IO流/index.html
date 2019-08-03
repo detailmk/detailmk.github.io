@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="utf-8">
+  
+
+  
+  <title>常用类和IO流 | coder--编写代码,制造魔法</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="数学类日期类枚举定义一个事物可能出现的 Demo 学生类  12345678910111213141516171819202122232425262728293031323334353637//测试学生学习状态public class TestEume &amp;#123;	public static void main(String[] args) &amp;#123;		Stu s1 = new Stu(&quot;m">
+<meta name="keywords" content="javase">
+<meta property="og:type" content="article">
+<meta property="og:title" content="常用类和IO流">
+<meta property="og:url" content="http://yoursite.com/2019/07/12/常用类和IO流/index.html">
+<meta property="og:site_name" content="coder--编写代码,制造魔法">
+<meta property="og:description" content="数学类日期类枚举定义一个事物可能出现的 Demo 学生类  12345678910111213141516171819202122232425262728293031323334353637//测试学生学习状态public class TestEume &amp;#123;	public static void main(String[] args) &amp;#123;		Stu s1 = new Stu(&quot;m">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2019-07-20T16:37:50.250Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="常用类和IO流">
+<meta name="twitter:description" content="数学类日期类枚举定义一个事物可能出现的 Demo 学生类  12345678910111213141516171819202122232425262728293031323334353637//测试学生学习状态public class TestEume &amp;#123;	public static void main(String[] args) &amp;#123;		Stu s1 = new Stu(&quot;m">
+  
+    <link rel="alternate" href="/atom.xml" title="coder--编写代码,制造魔法" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+</html>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">coder--编写代码,制造魔法</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-常用类和IO流" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/07/12/常用类和IO流/" class="article-date">
+  <time datetime="2019-07-12T02:45:15.000Z" itemprop="datePublished">2019-07-12</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      常用类和IO流
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="数学类"><a href="#数学类" class="headerlink" title="数学类"></a>数学类</h2><h2 id="日期类"><a href="#日期类" class="headerlink" title="日期类"></a>日期类</h2><h2 id="枚举"><a href="#枚举" class="headerlink" title="枚举"></a>枚举</h2><h3 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h3><p>一个事物可能出现的</p>
+<h3 id="Demo"><a href="#Demo" class="headerlink" title="Demo"></a>Demo</h3><ul>
+<li>学生类</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//测试学生学习状态</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TestEume</span> </span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">		Stu s1 = <span class="keyword">new</span> Stu(<span class="string">"mk1"</span>, <span class="number">33</span>,State.lose);</span><br><span class="line">		Stu s2 = <span class="keyword">new</span> Stu(<span class="string">"mk2"</span>,<span class="number">95</span>,State.pass);</span><br><span class="line">		<span class="keyword">switch</span>(s1.state)&#123;</span><br><span class="line">			<span class="keyword">case</span> lose:</span><br><span class="line">				System.out.println(<span class="string">"留级"</span>);</span><br><span class="line">				<span class="keyword">break</span>;</span><br><span class="line">			<span class="keyword">case</span> pass:</span><br><span class="line">				System.out.println(<span class="string">"继续下一阶段"</span>);</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">switch</span>(s2.state)&#123;</span><br><span class="line">		<span class="keyword">case</span> lose:</span><br><span class="line">			System.out.println(<span class="string">"留级"</span>);</span><br><span class="line">			<span class="keyword">break</span>;</span><br><span class="line">		<span class="keyword">case</span> pass:</span><br><span class="line">			System.out.println(<span class="string">"继续下一阶段"</span>);</span><br><span class="line">	&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">enum</span> State&#123;</span><br><span class="line">	pass,</span><br><span class="line">	lose;</span><br><span class="line">&#125;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Stu</span></span>&#123;</span><br><span class="line">	String name;</span><br><span class="line">	<span class="keyword">int</span> score;</span><br><span class="line">	State state;</span><br><span class="line">	</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="title">Stu</span><span class="params">(String name, <span class="keyword">int</span> score,State state)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">super</span>();</span><br><span class="line">		<span class="keyword">this</span>.name = name;</span><br><span class="line">		<span class="keyword">this</span>.score = score;</span><br><span class="line">		<span class="keyword">this</span>.state = state;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>测试结果</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">留级</span><br><span class="line">继续下一阶段</span><br></pre></td></tr></table></figure>
+
+<h2 id="IO流"><a href="#IO流" class="headerlink" title="IO流"></a>IO流</h2><h3 id="File类"><a href="#File类" class="headerlink" title="File类"></a>File类</h3><h3 id="测试案例-模拟cmd里dir命令"><a href="#测试案例-模拟cmd里dir命令" class="headerlink" title="测试案例-模拟cmd里dir命令"></a>测试案例-模拟cmd里dir命令</h3><p>基本思路:目录下文件名存入数组遍历出来,再用FIle类型的对象接收打印出文件的最后修改日期.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.Arrays;</span><br><span class="line"><span class="keyword">import</span> java.util.Date;</span><br><span class="line"><span class="keyword">import</span> java.util.Scanner;</span><br><span class="line"><span class="keyword">import</span> java.io.File;</span><br><span class="line"><span class="keyword">import</span> java.text.SimpleDateFormat;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TestFile</span> </span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">		String s = <span class="keyword">null</span>;</span><br><span class="line">		<span class="keyword">while</span>(<span class="keyword">true</span>)&#123;</span><br><span class="line">			Scanner sc = <span class="keyword">new</span> Scanner(System.in);</span><br><span class="line">			System.out.print(<span class="string">"Dell/user/mengkai--&gt; "</span>);</span><br><span class="line">			s = sc.nextLine();</span><br><span class="line">			<span class="keyword">if</span>(s.equals(<span class="string">"dir"</span>))&#123;</span><br><span class="line">				File files = <span class="keyword">new</span> File(<span class="string">"D:\\"</span>);</span><br><span class="line">				Date date = <span class="keyword">new</span> Date();</span><br><span class="line">				File[] fi = files.listFiles();</span><br><span class="line">				<span class="keyword">int</span> count1 = <span class="number">0</span>;<span class="comment">//计数器 统计目录</span></span><br><span class="line">				<span class="keyword">int</span> count2 = <span class="number">0</span>;<span class="comment">//计数器 统计文件</span></span><br><span class="line">				<span class="keyword">long</span> total = <span class="number">0</span>;</span><br><span class="line">				<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;fi.length;i++)&#123;</span><br><span class="line">					String l=fi[i].toString(); <span class="comment">//获取路径转换成字符串</span></span><br><span class="line">					File f2 = <span class="keyword">new</span> File(l);    <span class="comment">//创建File类型变量接收遍历的文件</span></span><br><span class="line">					<span class="keyword">boolean</span> d = f2.isDirectory();</span><br><span class="line">					<span class="keyword">if</span>(d==<span class="keyword">true</span>)&#123;</span><br><span class="line">						System.out.println(<span class="keyword">new</span> SimpleDateFormat(<span class="string">"yyyy年MM月dd日 HH:mm:ss"</span>).format(<span class="keyword">new</span> Date(f2.lastModified()))+<span class="string">"   "</span>+<span class="string">"&lt;dir&gt;"</span>+<span class="string">"   "</span>+fi[i]);</span><br><span class="line">						<span class="comment">//统计文件数</span></span><br><span class="line">						count1++;</span><br><span class="line">					&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">						System.out.println(<span class="keyword">new</span> SimpleDateFormat(<span class="string">"yyyy年MM月dd日 HH:mm:ss"</span>).format(<span class="keyword">new</span> Date(f2.lastModified()))+<span class="string">"   "</span>+<span class="string">"     "</span>+<span class="string">"   "</span>+fi[i]);</span><br><span class="line">						count2++;</span><br><span class="line">						total += f2.getTotalSpace();<span class="comment">//累加文件内存大小</span></span><br><span class="line">					&#125;</span><br><span class="line">				&#125;</span><br><span class="line">				System.out.println(<span class="string">"文件数为: "</span>+count2+<span class="string">"      "</span>+total+<span class="string">"字节"</span>);</span><br><span class="line">				System.out.println(<span class="string">"目录数为: "</span>+count1+<span class="string">"      "</span>+files.getFreeSpace()+<span class="string">"可用字节"</span>);</span><br><span class="line">			&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">				System.out.println(<span class="string">"命令行错误,重新输入"</span>);</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>测试结果</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">Dell/user/mengkai--&gt; dir</span><br><span class="line">2018年09月14日 14:45:40   &lt;dir&gt;   D:\$RECYCLE.BIN</span><br><span class="line">2019年04月17日 10:38:37   &lt;dir&gt;   D:\.m2</span><br><span class="line">2019年07月10日 16:32:49           D:\11.png</span><br><span class="line">2019年05月02日 09:55:33   &lt;dir&gt;   D:\60.0.3255.70</span><br><span class="line">2019年05月02日 09:55:48   &lt;dir&gt;   D:\60.0.3255.70_0</span><br><span class="line">2019年07月12日 15:20:37           D:\aa.txt</span><br><span class="line">2019年04月22日 18:50:50   &lt;dir&gt;   D:\Assets</span><br><span class="line">2019年06月30日 13:23:08   &lt;dir&gt;   D:\BaiduNetdiskDownload</span><br><span class="line">2019年07月10日 18:55:08   &lt;dir&gt;   D:\CloudMusic</span><br><span class="line">2018年09月15日 12:59:07   &lt;dir&gt;   D:\DriverGenius</span><br><span class="line">2019年05月02日 09:55:48           D:\installation_status.json</span><br><span class="line">2019年04月27日 09:37:13           D:\installer_prefs.json</span><br><span class="line">2019年04月27日 09:37:13           D:\installer_prefs.json.backup</span><br><span class="line">2019年06月28日 20:53:11   &lt;dir&gt;   D:\Java</span><br><span class="line">2019年04月21日 20:26:05           D:\launcher.exe</span><br><span class="line">2019年01月28日 21:51:04           D:\launcher.visualelementsmanifest.xml</span><br><span class="line">2019年05月16日 11:54:55   &lt;dir&gt;   D:\Netease</span><br><span class="line">2019年04月22日 18:50:44           D:\pref_default_overrides</span><br><span class="line">2019年04月27日 21:56:55   &lt;dir&gt;   D:\Program Files</span><br><span class="line">2019年07月11日 22:07:40   &lt;dir&gt;   D:\Program Files (x86)</span><br><span class="line">2019年01月07日 12:33:04   &lt;dir&gt;   D:\qqm</span><br><span class="line">2019年01月28日 21:51:04           D:\Resources.pri</span><br><span class="line"></span><br><span class="line">2019年07月01日 11:08:13   &lt;dir&gt;   D:\下载</span><br><span class="line">2019年04月09日 09:19:24   &lt;dir&gt;   D:\公文系统代码</span><br><span class="line">2019年01月07日 12:33:14   &lt;dir&gt;   D:\新建文件夹</span><br><span class="line">文件数为: 11      3850945646592字节</span><br><span class="line">目录数为: 26      161855741952可用字节</span><br><span class="line">Dell/user/mengkai--&gt;</span><br></pre></td></tr></table></figure>
+
+<h3 id="测试案例-拷贝文件"><a href="#测试案例-拷贝文件" class="headerlink" title="测试案例-拷贝文件"></a>测试案例-拷贝文件</h3><ul>
+<li>图片类</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.io.FileNotFoundException;</span><br><span class="line"><span class="keyword">import</span> java.io.FileOutputStream;</span><br><span class="line"><span class="keyword">import</span> java.io.IOException;</span><br><span class="line"><span class="keyword">import</span> java.io.InputStream;</span><br><span class="line"><span class="keyword">import</span> java.io.OutputStream;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Picture</span> </span>&#123;</span><br><span class="line">	InputStream is;</span><br><span class="line">	OutputStream os;</span><br><span class="line">	</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">copy</span><span class="params">(String file1, String file2)</span></span>&#123;</span><br><span class="line">		<span class="keyword">this</span>.is = <span class="keyword">null</span>;</span><br><span class="line">		<span class="keyword">this</span>.os = <span class="keyword">null</span>;</span><br><span class="line">		<span class="keyword">try</span> &#123;</span><br><span class="line">			<span class="keyword">this</span>.is = <span class="keyword">new</span> FileInputStream(file1);</span><br><span class="line">		&#125; <span class="keyword">catch</span> (FileNotFoundException e) &#123;</span><br><span class="line">			<span class="comment">// TODO Auto-generated catch block</span></span><br><span class="line">			e.printStackTrace();</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">try</span> &#123;</span><br><span class="line">			<span class="keyword">this</span>.os = <span class="keyword">new</span> FileOutputStream(file2);</span><br><span class="line">		&#125; <span class="keyword">catch</span> (FileNotFoundException e) &#123;</span><br><span class="line">			<span class="comment">// TODO Auto-generated catch block</span></span><br><span class="line">			e.printStackTrace();</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">byte</span>[] mm = <span class="keyword">new</span> <span class="keyword">byte</span>[<span class="number">1024</span>];</span><br><span class="line">		<span class="keyword">int</span> len = -<span class="number">1</span>;</span><br><span class="line">		<span class="keyword">try</span> &#123;</span><br><span class="line">			<span class="keyword">while</span>((len=is.read(mm))!=-<span class="number">1</span>)&#123;</span><br><span class="line">				os.write(mm, <span class="number">0</span>, len);</span><br><span class="line">			&#125;</span><br><span class="line">		&#125; <span class="keyword">catch</span> (IOException e) &#123;</span><br><span class="line">			<span class="comment">// TODO Auto-generated catch block</span></span><br><span class="line">			e.printStackTrace();</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">try</span> &#123;</span><br><span class="line">			os.flush();</span><br><span class="line">		&#125; <span class="keyword">catch</span> (IOException e) &#123;</span><br><span class="line">			<span class="comment">// TODO Auto-generated catch block</span></span><br><span class="line">			e.printStackTrace();</span><br><span class="line">		&#125;<span class="keyword">finally</span>&#123;</span><br><span class="line">			<span class="keyword">if</span>(os!=<span class="keyword">null</span>)&#123;</span><br><span class="line">				<span class="keyword">try</span> &#123;</span><br><span class="line">					os.close();</span><br><span class="line">				&#125; <span class="keyword">catch</span> (IOException e) &#123;</span><br><span class="line">					<span class="comment">// TODO Auto-generated catch block</span></span><br><span class="line">					e.printStackTrace();</span><br><span class="line">				&#125;</span><br><span class="line">			&#125;</span><br><span class="line">			<span class="keyword">if</span>(is!=<span class="keyword">null</span>)&#123;</span><br><span class="line">				<span class="keyword">try</span> &#123;</span><br><span class="line">					is.close();</span><br><span class="line">				&#125; <span class="keyword">catch</span> (IOException e) &#123;</span><br><span class="line">					<span class="comment">// TODO Auto-generated catch block</span></span><br><span class="line">					e.printStackTrace();</span><br><span class="line">				&#125;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>测试类</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TestPic</span> </span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">		Picture pic =<span class="keyword">new</span> Picture();</span><br><span class="line">		pic.copy(<span class="string">"D:/11.png"</span>, <span class="string">"E:/22.png"</span>);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="测试案例-通过递归进行移动文件夹"><a href="#测试案例-通过递归进行移动文件夹" class="headerlink" title="测试案例-通过递归进行移动文件夹"></a>测试案例-通过递归进行移动文件夹</h3><p>基本思路:拷贝完源文件之后把源文件删除</p>
+<ul>
+<li>移动文件工具类</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.io.File;</span><br><span class="line"><span class="keyword">import</span> java.io.FileInputStream;</span><br><span class="line"><span class="keyword">import</span> java.io.FileNotFoundException;</span><br><span class="line"><span class="keyword">import</span> java.io.FileOutputStream;</span><br><span class="line"><span class="keyword">import</span> java.io.IOException;</span><br><span class="line"><span class="keyword">import</span> java.io.InputStream;</span><br><span class="line"><span class="keyword">import</span> java.io.OutputStream;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * </span></span><br><span class="line"><span class="comment"> * 封装移动目录工具类</span></span><br><span class="line"><span class="comment"> * 静态工厂</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Moveutil</span> </span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">moveDir</span><span class="params">(String start,String end)</span></span>&#123;</span><br><span class="line">		moveDir(<span class="keyword">new</span> File(start),<span class="keyword">new</span> File(end));</span><br><span class="line">		</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">moveDir</span><span class="params">(File start,File end)</span></span>&#123;</span><br><span class="line">		<span class="comment">//建立联系 创建流</span></span><br><span class="line">		InputStream is = <span class="keyword">null</span>;</span><br><span class="line">		OutputStream os = <span class="keyword">null</span>;</span><br><span class="line">		<span class="keyword">try</span> &#123;</span><br><span class="line">			is = <span class="keyword">new</span> FileInputStream(start);</span><br><span class="line">			os = <span class="keyword">new</span> FileOutputStream(end);</span><br><span class="line">			<span class="comment">//读入写出 用数组装</span></span><br><span class="line">			<span class="keyword">byte</span>[] by = <span class="keyword">new</span> <span class="keyword">byte</span>[<span class="number">1024</span>];</span><br><span class="line">			<span class="keyword">int</span> leng = -<span class="number">1</span>;</span><br><span class="line">			<span class="keyword">while</span>((leng=is.read(by))!=-<span class="number">1</span>)&#123;</span><br><span class="line">				os.write(by, <span class="number">0</span>, leng);</span><br><span class="line">			&#125;</span><br><span class="line">			<span class="comment">//刷出</span></span><br><span class="line">			os.flush();</span><br><span class="line">		&#125; <span class="keyword">catch</span> (FileNotFoundException e) &#123;</span><br><span class="line">			<span class="comment">// TODO Auto-generated catch block</span></span><br><span class="line">			e.printStackTrace();</span><br><span class="line">		&#125; <span class="keyword">catch</span> (IOException e) &#123;</span><br><span class="line">			<span class="comment">// TODO Auto-generated catch block</span></span><br><span class="line">			e.printStackTrace();</span><br><span class="line">		&#125;<span class="keyword">finally</span>&#123;</span><br><span class="line">			<span class="keyword">if</span>(os!=<span class="keyword">null</span>)&#123;</span><br><span class="line">				<span class="keyword">try</span> &#123;</span><br><span class="line">					os.close();</span><br><span class="line">				&#125; <span class="keyword">catch</span> (IOException e) &#123;</span><br><span class="line">					<span class="comment">// TODO Auto-generated catch block</span></span><br><span class="line">					e.printStackTrace();</span><br><span class="line">				&#125;</span><br><span class="line">			&#125;</span><br><span class="line">			<span class="keyword">if</span>(is!=<span class="keyword">null</span>)&#123;</span><br><span class="line">				<span class="keyword">try</span> &#123;</span><br><span class="line">					is.close();</span><br><span class="line">				&#125; <span class="keyword">catch</span> (IOException e) &#123;</span><br><span class="line">					<span class="comment">// TODO Auto-generated catch block</span></span><br><span class="line">					e.printStackTrace();</span><br><span class="line">				&#125;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>测试类-具体实现移动目录</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.io.File;</span><br><span class="line"><span class="keyword">import</span> java.io.IOException;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 基本需求 :将源目录拷贝到目的目录,完成这一操作删除源目录</span></span><br><span class="line"><span class="comment"> * </span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MoveDir1</span> </span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> IOException </span>&#123;</span><br><span class="line">		moveDir(<span class="string">"D:/aa"</span>,<span class="string">"E:/"</span>);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="comment">// 文件可以拷贝到文件所在路径下,但文件名后面加"-副本"字符串</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">moveDir</span><span class="params">(String start, String end)</span> <span class="keyword">throws</span> IOException </span>&#123;</span><br><span class="line">		<span class="keyword">int</span> i = start.lastIndexOf(<span class="string">"/"</span>);</span><br><span class="line">		String str = start.substring(<span class="number">0</span>, i);</span><br><span class="line">		<span class="keyword">if</span> (str.equals(end) || (str + <span class="string">"/"</span>).equals(end)) &#123;</span><br><span class="line">			<span class="keyword">throw</span> <span class="keyword">new</span> IOException(<span class="string">"目录不能移动到目录所在路径下"</span>);</span><br><span class="line">		&#125;</span><br><span class="line">		moveDir(<span class="keyword">new</span> File(start), <span class="keyword">new</span> File(end));</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="comment">//目的目录不能移动到源目录的子目录中</span></span><br><span class="line">	<span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">moveDir</span><span class="params">(File start,File end)</span> <span class="keyword">throws</span> IOException</span>&#123;</span><br><span class="line">		<span class="keyword">if</span>(end.getAbsolutePath().contains(start.getAbsolutePath()))&#123;</span><br><span class="line">			<span class="keyword">throw</span> <span class="keyword">new</span> IOException(<span class="string">"目标目录不能移动子目录"</span>);</span><br><span class="line">		&#125;</span><br><span class="line">		moveDirpo(start,<span class="keyword">new</span> File(end,start.getName()));</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="comment">//移动目录具体操作</span></span><br><span class="line">	<span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">moveDirpo</span><span class="params">(File start, File end)</span> </span>&#123;</span><br><span class="line">		<span class="comment">// TODO Auto-generated method stub</span></span><br><span class="line">		<span class="keyword">if</span>(start.isFile())&#123;</span><br><span class="line">			File f=end.getParentFile();</span><br><span class="line">			<span class="keyword">if</span>(!f.exists())&#123;</span><br><span class="line">				f.mkdirs();</span><br><span class="line">			&#125;</span><br><span class="line">			Moveutil.moveDir(start, end);</span><br><span class="line">			<span class="comment">//删除源目录的子目录</span></span><br><span class="line">			start.delete();</span><br><span class="line">		&#125;<span class="keyword">else</span> <span class="keyword">if</span>(start.isDirectory())&#123;</span><br><span class="line">			end.mkdirs();</span><br><span class="line">			File[] files = start.listFiles();</span><br><span class="line">			<span class="keyword">for</span>(File goo:files)&#123;</span><br><span class="line">				moveDirpo(goo, <span class="keyword">new</span> File(end,goo.getName()));</span><br><span class="line">				<span class="comment">//删除源目录的子目录</span></span><br><span class="line">				goo.delete();</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="comment">//删除源文件的父目录</span></span><br><span class="line">		start.delete();</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2019/07/12/常用类和IO流/" data-id="cjyv2o16g001ag4uywzf621om" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javase/">javase</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2019/07/14/流和容器/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          流和容器
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2019/07/11/常用类和异常-1/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">常用类和异常</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/javase/">javase</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/javaweb/">javaweb</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mind/">mind</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/oracle/">oracle</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/javase/" style="font-size: 20px;">javase</a> <a href="/tags/javaweb/" style="font-size: 16.67px;">javaweb</a> <a href="/tags/mind/" style="font-size: 10px;">mind</a> <a href="/tags/oracle/" style="font-size: 13.33px;">oracle</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/08/">August 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/07/">July 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/06/">June 2019</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2019/08/03/hello-world/">Hello Hexo World</a>
+          </li>
+        
+          <li>
+            <a href="/2019/08/02/js事件/">js事件</a>
+          </li>
+        
+          <li>
+            <a href="/2019/07/31/初识js/">初识js</a>
+          </li>
+        
+          <li>
+            <a href="/2019/07/31/注解/">注解</a>
+          </li>
+        
+          <li>
+            <a href="/2019/07/26/HTML/">HTML</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2019 Meng Kai<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>

@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="utf-8">
+  
+
+  
+  <title>查询深化 | coder--编写代码,制造魔法</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="表连接–99语法*** 笛卡尔积 —–语法:select 查询字段 from 表1 cross join 表2; 查询员工表和部门表所有信息 1select * from emp cross join dept  等值连接 —–语法:select 查询字段 from 表1 natural join 表2(自动匹配主外键关系的同名字段) ​        注意 : 同名字段不能有限定条件 查询员工信">
+<meta name="keywords" content="oracle">
+<meta property="og:type" content="article">
+<meta property="og:title" content="查询深化">
+<meta property="og:url" content="http://yoursite.com/2019/07/23/查询深化/index.html">
+<meta property="og:site_name" content="coder--编写代码,制造魔法">
+<meta property="og:description" content="表连接–99语法*** 笛卡尔积 —–语法:select 查询字段 from 表1 cross join 表2; 查询员工表和部门表所有信息 1select * from emp cross join dept  等值连接 —–语法:select 查询字段 from 表1 natural join 表2(自动匹配主外键关系的同名字段) ​        注意 : 同名字段不能有限定条件 查询员工信">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2019-07-24T08:22:08.196Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="查询深化">
+<meta name="twitter:description" content="表连接–99语法*** 笛卡尔积 —–语法:select 查询字段 from 表1 cross join 表2; 查询员工表和部门表所有信息 1select * from emp cross join dept  等值连接 —–语法:select 查询字段 from 表1 natural join 表2(自动匹配主外键关系的同名字段) ​        注意 : 同名字段不能有限定条件 查询员工信">
+  
+    <link rel="alternate" href="/atom.xml" title="coder--编写代码,制造魔法" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+</html>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">coder--编写代码,制造魔法</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-查询深化" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/07/23/查询深化/" class="article-date">
+  <time datetime="2019-07-23T02:32:31.000Z" itemprop="datePublished">2019-07-23</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      查询深化
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="表连接–99语法"><a href="#表连接–99语法" class="headerlink" title="表连接–99语法***"></a>表连接–99语法***</h2><ul>
+<li><p>笛卡尔积</p>
+<p>—–语法:select 查询字段 from 表1 cross join 表2;</p>
+<p>查询员工表和部门表所有信息</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> * <span class="keyword">from</span> emp <span class="keyword">cross</span> <span class="keyword">join</span> dept</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>等值连接</p>
+<p>—–语法:select 查询字段 from 表1 natural join 表2(自动匹配主外键关系的同名字段)</p>
+<p>​        注意 : 同名字段不能有限定条件</p>
+<p>查询员工信息和对应的部门名称</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> dname,ename,deptno <span class="keyword">from</span> emp <span class="keyword">natural</span> <span class="keyword">join</span> dept</span><br></pre></td></tr></table></figure>
+
+<p>—–语法:select 查询字段 from 表1 join 表2 using (等值连接的字段)</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> dname,ename,deptno <span class="keyword">from</span> emp <span class="keyword">join</span> dept <span class="keyword">using</span> (deptno);</span><br></pre></td></tr></table></figure>
+
+<p>(inner join和join是相同的)</p>
+<p>—–语法:select 查询字段 from 表1 join 表2 on 条件</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> dname,ename,emp.deptno <span class="keyword">from</span> emp <span class="keyword">join</span> dept <span class="keyword">on</span> emp.deptno=dept.deptno;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>不等值连接</p>
+<p>—–语法:select 查询字段 from 表1 join 表2 on 条件(不等值)</p>
+<p>查询员工姓名和对应的薪资等级</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> ename,grade <span class="keyword">from</span> emp <span class="keyword">join</span> salgrade <span class="keyword">on</span> sal <span class="keyword">between</span> losal <span class="keyword">and</span> hisal</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>内连接</p>
+<p>在同一张表进行查询</p>
+<p>查询员工以及对应的上级信息</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> e1.ename,e2.mgr,e2.ename <span class="keyword">from</span> emp e1 <span class="keyword">join</span> emp e2 <span class="keyword">on</span> e1.mgr=e2.empno</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>外连接(判断哪个是主表,决定用左外连接还是右外连接)</p>
+<ul>
+<li><p>左外连接</p>
+<p>查询部门名和部门人数</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> dname,<span class="keyword">count</span>(empno) <span class="keyword">from</span> dept d <span class="keyword">left</span> <span class="keyword">join</span> emp e <span class="keyword">on</span> d.deptno=e.deptno <span class="keyword">group</span> <span class="keyword">by</span> e.deptno,dname</span><br></pre></td></tr></table></figure>
+
+
+</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li><p>右外连接</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> dname,<span class="keyword">count</span>(empno) <span class="keyword">from</span> emp e <span class="keyword">right</span> <span class="keyword">join</span> dept d <span class="keyword">on</span> d.deptno=e.deptno <span class="keyword">group</span> <span class="keyword">by</span> e.deptno,dname</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<ul>
+<li><p>全连接(full join)</p>
+<p>查询员工信息和部门信息</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> ename,dname <span class="keyword">from</span> emp <span class="keyword">full</span> <span class="keyword">join</span> dept <span class="keyword">on</span> emp.deptno=dept.deptno</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<h2 id="视图"><a href="#视图" class="headerlink" title="视图"></a>视图</h2><p>存储已经查询好的的结果集</p>
+<p>形式:将查询语句封装</p>
+<p>作用:1. 在相同结果集查询不同内容  2. 简化查询语句 3.提高执行效率</p>
+<p>创建视图步骤:给当前用户授权(1. 用完回收—revoke dba from 用户名)—grant dba to 用户名</p>
+<ol start="2">
+<li>创建视图语法—create or replace view vw_视图名 as 查询语句(只读)_</li>
+<li>在需要的地方使用视图(例如 select 查询字段 from vw_视图名)</li>
+</ol>
+<h2 id="索引"><a href="#索引" class="headerlink" title="索引"></a>索引</h2><p>特点:数据库一个对象,oracle自动为添加主键的字段增加索引,对于数据库本身没影响,只体现在执行DML语言时.</p>
+<p>优点: 适合查询有索引的字段效率高</p>
+<p>缺点:不适合对有索引的字段进行删除,插入的操作速度慢</p>
+<p>语法—–创建:create index index _ 表名_索引名 on 表名(字段名);</p>
+<p>​              删除: drop index 索引名;</p>
+<h2 id="表设计"><a href="#表设计" class="headerlink" title="表设计"></a>表设计</h2><ol>
+<li><p>删除</p>
+<p>drop table 表名;</p>
+<p>删除表:默认先删除从表,再删除主表</p>
+<pre><code>drop table 表名 cascade constraints; 删除主表,级联删除约束</code></pre></li>
+<li><p>创建</p>
+<p>create table 表名(</p>
+<p>​        字段名 字段数据类型 约束,</p>
+<p>​        字段名2 字段数据类型2 约束2,</p>
+<p>)</p>
+<ul>
+<li><p>字段数据类型:    varchar2(3)默认指定(数字-&gt;字节数)    varchar2(3 char) 3个字符 number date</p>
+</li>
+<li><p>约束: </p>
+<ul>
+<li><p>主键约束–(非空唯一)primary key</p>
+</li>
+<li><p>非空约束–not null</p>
+</li>
+<li><p>检查约束–check(条件)</p>
+</li>
+<li><p>唯一–unique</p>
+</li>
+<li><p>外键关联–字段名 字段数据类型references 表名(字段2) on delete cascade//删除后设置字段2等于null</p>
+<ol>
+<li><p>字段后追加约束–字段后添加指定约束的名字,指定添加的字段,指定约束</p>
+<p>sid number(5) constraints pk_sid primary key</p>
+</li>
+<li><p>表结构后追加约束–&gt;</p>
+<p>constraints ck_age check(age between 0 and 150),<br>constraints ck_gender check(gender in (‘male’,’female’))</p>
+</li>
+<li><p>追加约束</p>
+<p>alter table student add constraints unique_sqq unique(sqq);</p>
+<p>删除约束</p>
+<p>alter table student drop constraints unique_sqq;</p>
+</li>
+</ol>
+</li>
+</ul>
+</li>
+</ul>
+<p>注意事项:先创建主表,后创建从表</p>
+<p>注释语法–comment on table 表名 is ‘解释’;</p>
+<p>​                  comment on column 表名.字段名 is ‘解释’;</p>
+</li>
+<li><p>插入</p>
+<p>表格插入数据-&gt;insert into 表名(字段名) values(值);</p>
+</li>
+</ol>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2019/07/23/查询深化/" data-id="cjyv2o157000og4uywqdpn02e" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/oracle/">oracle</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2019/07/25/oracleBase/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          oracleBase+JDBC
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2019/07/22/查询/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">select查询</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/javase/">javase</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/javaweb/">javaweb</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mind/">mind</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/oracle/">oracle</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/javase/" style="font-size: 20px;">javase</a> <a href="/tags/javaweb/" style="font-size: 16.67px;">javaweb</a> <a href="/tags/mind/" style="font-size: 10px;">mind</a> <a href="/tags/oracle/" style="font-size: 13.33px;">oracle</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/08/">August 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/07/">July 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/06/">June 2019</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2019/08/03/hello-world/">Hello Hexo World</a>
+          </li>
+        
+          <li>
+            <a href="/2019/08/02/js事件/">js事件</a>
+          </li>
+        
+          <li>
+            <a href="/2019/07/31/初识js/">初识js</a>
+          </li>
+        
+          <li>
+            <a href="/2019/07/31/注解/">注解</a>
+          </li>
+        
+          <li>
+            <a href="/2019/07/26/HTML/">HTML</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2019 Meng Kai<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>

@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="utf-8">
+  
+
+  
+  <title>Java阶段一知识地图及难点分析 | coder--编写代码,制造魔法</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="类的顺序1234567891011121314151617181920public class Father &amp;#123;    public Father()&amp;#123;        System.out.println(&quot;--父类的无参构造函数--&quot;);    &amp;#125;    static&amp;#123;        System.out.println(&quot;--父类的静态代码块--&quot;);">
+<meta name="keywords" content="javase">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Java阶段一知识地图及难点分析">
+<meta property="og:url" content="http://yoursite.com/2019/07/10/java阶段总结2/index.html">
+<meta property="og:site_name" content="coder--编写代码,制造魔法">
+<meta property="og:description" content="类的顺序1234567891011121314151617181920public class Father &amp;#123;    public Father()&amp;#123;        System.out.println(&quot;--父类的无参构造函数--&quot;);    &amp;#125;    static&amp;#123;        System.out.println(&quot;--父类的静态代码块--&quot;);">
+<meta property="og:locale" content="default">
+<meta property="og:image" content="http://yoursite.com/2019/07/10/java阶段总结2/java%E9%98%B6%E6%AE%B5%E6%80%BB%E7%BB%932%5Cjava%E9%98%B6%E6%AE%B5%E6%80%BB%E7%BB%93.png">
+<meta property="og:updated_time" content="2019-07-20T16:28:22.097Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Java阶段一知识地图及难点分析">
+<meta name="twitter:description" content="类的顺序1234567891011121314151617181920public class Father &amp;#123;    public Father()&amp;#123;        System.out.println(&quot;--父类的无参构造函数--&quot;);    &amp;#125;    static&amp;#123;        System.out.println(&quot;--父类的静态代码块--&quot;);">
+<meta name="twitter:image" content="http://yoursite.com/2019/07/10/java阶段总结2/java%E9%98%B6%E6%AE%B5%E6%80%BB%E7%BB%932%5Cjava%E9%98%B6%E6%AE%B5%E6%80%BB%E7%BB%93.png">
+  
+    <link rel="alternate" href="/atom.xml" title="coder--编写代码,制造魔法" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+</html>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">coder--编写代码,制造魔法</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-java阶段总结2" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/07/10/java阶段总结2/" class="article-date">
+  <time datetime="2019-07-10T03:00:23.000Z" itemprop="datePublished">2019-07-10</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Java阶段一知识地图及难点分析
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><img src="java%E9%98%B6%E6%AE%B5%E6%80%BB%E7%BB%932%5Cjava%E9%98%B6%E6%AE%B5%E6%80%BB%E7%BB%93.png" alt></p>
+<h4 id="类的顺序"><a href="#类的顺序" class="headerlink" title="类的顺序"></a>类的顺序</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Father</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Father</span><span class="params">()</span></span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"--父类的无参构造函数--"</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">static</span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"--父类的静态代码块--"</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    &#123;</span><br><span class="line">        System.out.println(<span class="string">"--父类的非静态代码块--"</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//加入一个main程序后</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"--Main函数执行--"</span>);</span><br><span class="line">        Father father=<span class="keyword">new</span> Father();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>执行结果</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">父类静态</span><br><span class="line">main</span><br><span class="line">父类非静态</span><br><span class="line">父类无参</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>结论<br>静态代码块在main函数之前执行，执行顺序为，静态代码块&gt;非静态代码块&gt;构造函数<br>静态代码块在Main函数执行之前执行。<h4 id="子父类"><a href="#子父类" class="headerlink" title="子父类"></a>子父类</h4></li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Son</span> <span class="keyword">extends</span> <span class="title">Father</span> </span>&#123;</span><br><span class="line">	    <span class="keyword">static</span>&#123;</span><br><span class="line">	        System.out.println(<span class="string">"--子类的静态代码块--"</span>);</span><br><span class="line">	    &#125;</span><br><span class="line">	</span><br><span class="line">	    &#123;</span><br><span class="line">	        System.out.println(<span class="string">"--子类的非静态代码块--"</span>);</span><br><span class="line">	    &#125;</span><br><span class="line">	</span><br><span class="line">	    Son()&#123;</span><br><span class="line">	        System.out.println(<span class="string">"--子类的无参构造函数--"</span>);</span><br><span class="line">	    &#125;</span><br><span class="line">	</span><br><span class="line">	    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">	</span><br><span class="line">	        System.out.println(<span class="string">"--子类的Main函数执行了--"</span>);</span><br><span class="line">	        Father father=<span class="keyword">new</span> Father();</span><br><span class="line">	        Son son=<span class="keyword">new</span> Son();</span><br><span class="line">	    &#125;</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>执行结果</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">父类静态</span><br><span class="line">子类静态-----&gt;静态先执行</span><br><span class="line">子类main</span><br><span class="line">父类非静态</span><br><span class="line">父类无参------&gt;new father()</span><br><span class="line">父类非静态</span><br><span class="line">父类无参</span><br><span class="line">子类非静态-----&gt;new Son()先执行父类代码块,静态只执行一次,重复调用父类,在调用子类</span><br><span class="line">子类无参</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>结论<br>1、new一个函数时先加载其父类，从非静态代码块开始进行加载。顺序：父类非静态代码块&gt;父类构造函数&gt;子类非静态代码块&gt;子类构造函数。<br>2、加载一个类时从静态代码块开始，从其父类开始加载。PS：静态变量的定义与静态代码块的执行与其在类中顺序有关，依照从上到下顺序。</p>
+<h4 id="错题演示"><a href="#错题演示" class="headerlink" title="错题演示"></a>错题演示</h4><p>测试块执行顺序</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//测试静态块 构造块执行顺序</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Test01</span> </span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">		System.out.println(<span class="string">"主方法"</span>);</span><br><span class="line">		A a =<span class="keyword">new</span> A();</span><br><span class="line">		B b =<span class="keyword">new</span> B();</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">A</span></span>&#123;</span><br><span class="line">	<span class="keyword">static</span>&#123;</span><br><span class="line">		System.out.println(<span class="string">"我是静态块A"</span>);</span><br><span class="line">	&#125;</span><br><span class="line">	&#123;</span><br><span class="line">		System.out.println(<span class="string">"我是构造块A"</span>);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="title">A</span><span class="params">()</span></span>&#123;</span><br><span class="line">		System.out.println(<span class="string">"我是构造器A"</span>);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">B</span></span>&#123;</span><br><span class="line">	<span class="keyword">static</span>&#123;</span><br><span class="line">		System.out.println(<span class="string">"我是静态块B"</span>);</span><br><span class="line">	&#125;</span><br><span class="line">	&#123;</span><br><span class="line">		System.out.println(<span class="string">"我是构造块B"</span>);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="title">B</span><span class="params">()</span></span>&#123;</span><br><span class="line">		System.out.println(<span class="string">"我是构造器B"</span>);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>测试结果</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">主方法</span><br><span class="line">我是静态块A</span><br><span class="line">我是构造块A</span><br><span class="line">我是构造器A</span><br><span class="line">我是静态块B</span><br><span class="line">我是构造块B</span><br><span class="line">我是构造器B</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>结论<br>在主类中加载主方法实例化其他类时先执行主方法后其他类的静态-&gt;非静态-&gt;构造方法</p>
+</li>
+<li><p>测试在继承状态下块的执行顺序</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">HelloB</span> <span class="keyword">extends</span> <span class="title">HelloA</span></span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="title">HelloB</span><span class="params">()</span></span>&#123;</span><br><span class="line">		<span class="keyword">super</span>();</span><br><span class="line">		System.out.println(<span class="string">"HelloB"</span>);</span><br><span class="line">	&#125;</span><br><span class="line">	&#123;</span><br><span class="line">		System.out.println(<span class="string">"im B class"</span>);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">static</span>&#123;</span><br><span class="line">		System.out.println(<span class="string">"static B"</span>);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">new</span> HelloB();</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">HelloA</span></span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="title">HelloA</span><span class="params">()</span></span>&#123;</span><br><span class="line">		System.out.println(<span class="string">"HelloA"</span>);</span><br><span class="line">	&#125;</span><br><span class="line">	&#123;</span><br><span class="line">		System.out.println(<span class="string">"im A class"</span>);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">static</span>&#123;</span><br><span class="line">		System.out.println(<span class="string">"static A"</span>);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>测试结果</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">static A</span><br><span class="line">static B</span><br><span class="line">im A class</span><br><span class="line">HelloA</span><br><span class="line">im B class</span><br><span class="line">HelloB</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<h4 id="测试instanceof"><a href="#测试instanceof" class="headerlink" title="测试instanceof"></a>测试instanceof</h4><ul>
+<li>测试类</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TestInstanceof</span> </span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">		A0 a = <span class="keyword">new</span> A1();</span><br><span class="line">		A0 a1 = <span class="keyword">new</span> A3();</span><br><span class="line">		System.out.println(a <span class="keyword">instanceof</span> Object);</span><br><span class="line">		System.out.println(a <span class="keyword">instanceof</span> A0);</span><br><span class="line">		System.out.println(a <span class="keyword">instanceof</span> A1);</span><br><span class="line">		System.out.println(<span class="string">"--------------------"</span>);</span><br><span class="line">		System.out.println(a1 <span class="keyword">instanceof</span> Object);</span><br><span class="line">		System.out.println(a1 <span class="keyword">instanceof</span> A0);</span><br><span class="line">		System.out.println(a1 <span class="keyword">instanceof</span> A1);</span><br><span class="line">		System.out.println(a1 <span class="keyword">instanceof</span> A2);</span><br><span class="line">		System.out.println(a1 <span class="keyword">instanceof</span> A3);</span><br><span class="line">		System.out.println(<span class="string">"--------------------"</span>);</span><br><span class="line">		</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">A0</span></span>&#123;&#125;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">A1</span> <span class="keyword">extends</span> <span class="title">A0</span></span>&#123;&#125;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">A2</span> <span class="keyword">extends</span> <span class="title">A0</span></span>&#123;&#125;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">A3</span> <span class="keyword">extends</span> <span class="title">A1</span></span>&#123;&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>测试结果</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">true</span><br><span class="line">true</span><br><span class="line">true</span><br><span class="line">--------------------</span><br><span class="line">true</span><br><span class="line">true</span><br><span class="line">true</span><br><span class="line">false</span><br><span class="line">true</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>结论<br>对象实例instanceof对象对应的当前类或者他的父类<h4 id="多态中调用方法"><a href="#多态中调用方法" class="headerlink" title="多态中调用方法"></a>多态中调用方法</h4></li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">PolyPractice</span> </span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">		<span class="comment">//多态  父类的引用指向子类对象</span></span><br><span class="line">		A4 a=<span class="keyword">new</span> B1();  <span class="comment">//"B----test()   B----test(int)  A----test(double)</span></span><br><span class="line">		a.test(<span class="number">1.0</span>);<span class="comment">// A--double</span></span><br><span class="line">		a.test(<span class="number">1</span>);  <span class="comment">// B--int</span></span><br><span class="line">		a.test(<span class="string">'1'</span>);<span class="comment">// B--int</span></span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">A4</span></span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">test</span><span class="params">()</span></span>&#123;</span><br><span class="line">		System.out.println(<span class="string">"A----test()"</span>);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">test</span><span class="params">(<span class="keyword">int</span> a)</span></span>&#123;</span><br><span class="line">		System.out.println(<span class="string">"A----test(int)"</span>);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">test</span><span class="params">(<span class="keyword">double</span> a)</span></span>&#123;</span><br><span class="line">		System.out.println(<span class="string">"A----test(double)"</span>);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//没有新增方法,对父类所有方法进行重写</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">C1</span> <span class="keyword">extends</span> <span class="title">A4</span></span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">test</span><span class="params">()</span></span>&#123;</span><br><span class="line">		System.out.println(<span class="string">"C----test()"</span>);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">test</span><span class="params">(<span class="keyword">double</span> a)</span></span>&#123;</span><br><span class="line">		System.out.println(<span class="string">"C----test(double)"</span>);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">test</span><span class="params">(<span class="keyword">int</span> a)</span></span>&#123;</span><br><span class="line">		System.out.println(<span class="string">"C----test(int)"</span>);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">B1</span> <span class="keyword">extends</span> <span class="title">A4</span></span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">test</span><span class="params">()</span></span>&#123;</span><br><span class="line">		System.out.println(<span class="string">"B----test()"</span>);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">test</span><span class="params">(<span class="keyword">int</span> a)</span></span>&#123;</span><br><span class="line">		System.out.println(<span class="string">"B----test(int)"</span>);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="comment">//新增方法对父类引用不可见</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">test</span><span class="params">(<span class="keyword">char</span> a)</span></span>&#123;</span><br><span class="line">		System.out.println(<span class="string">"B----test(char)"</span>);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>测试结果</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">A----test(double)</span><br><span class="line">B----test(int)</span><br><span class="line">B----test(int)</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>结论<br>多态中,首先看父类,之后看子类有没有对父类方法进行重写,子类独有方法在父类引用中不可调用,除非实例化好的对象向下转型才能调用,若子类重写的方法参数列表不匹配,向上自动转型.<h4 id="静态成员变量和成员变量"><a href="#静态成员变量和成员变量" class="headerlink" title="静态成员变量和成员变量"></a>静态成员变量和成员变量</h4></li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">StaticTest2</span> </span>&#123;</span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span> id;</span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">int</span> age;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">		StaticTest2 st2 = <span class="keyword">new</span> StaticTest2();</span><br><span class="line">		System.out.println(st2.id);</span><br><span class="line">		System.out.println(st2.age);</span><br><span class="line">		</span><br><span class="line">		st2.Change();</span><br><span class="line">		System.out.println(st2.id);</span><br><span class="line">		System.out.println(st2.id);</span><br><span class="line">		System.out.println(st2.age);</span><br><span class="line">		st2.Change();</span><br><span class="line">		System.out.println(id);</span><br><span class="line">		System.out.println(st2.age);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">Change</span><span class="params">()</span></span>&#123;</span><br><span class="line">		StaticTest2 st2 = <span class="keyword">new</span> StaticTest2();</span><br><span class="line">		st2.age++;</span><br><span class="line">		st2.id++;</span><br><span class="line">		System.out.println(<span class="string">"in change(): id= "</span>+id+<span class="string">" age="</span>+age);</span><br><span class="line">		System.out.println(<span class="string">"in change(): id= "</span>+st2.id+<span class="string">" age="</span>+st2.age);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>测试结果</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">0</span><br><span class="line">0</span><br><span class="line">in change(): id= 1 age=0</span><br><span class="line">in change(): id= 1 age=1</span><br><span class="line">1</span><br><span class="line">1</span><br><span class="line">0</span><br><span class="line">in change(): id= 2 age=0</span><br><span class="line">in change(): id= 2 age=1</span><br><span class="line">2</span><br><span class="line">0</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>结论<br>静态变量在类中可以对所有对象共享<h4 id="内存分析"><a href="#内存分析" class="headerlink" title="内存分析"></a>内存分析</h4>栈空间（stack），连续的存储空间，遵循后进先出的原则，用于存放局部变量。<br>堆空间（heap），不连续的空间，用于存放new出的对象，或者说是类的实例。<br>方法区（method），方法区在堆空间内，用于存放①类的代码信息；②静态变量和方法；③常量池（字符串常量等，具有共享机制）。</li>
+</ul>
+<h4 id="静态成员变量和块的综合应用"><a href="#静态成员变量和块的综合应用" class="headerlink" title="静态成员变量和块的综合应用"></a>静态成员变量和块的综合应用</h4><ul>
+<li>测试类</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">BlockTest02</span> </span>&#123;</span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span> a = <span class="number">0</span>;</span><br><span class="line">	&#123;</span><br><span class="line">		a = <span class="number">10</span>;</span><br><span class="line">		System.out.println(<span class="string">"非静态代码块a="</span>+a);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">static</span>&#123;</span><br><span class="line">		a = <span class="number">6</span>;</span><br><span class="line">		System.out.println(<span class="string">"静态代码块a="</span>+a);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="title">BlockTest02</span><span class="params">()</span></span>&#123;</span><br><span class="line">		<span class="keyword">this</span>(a);</span><br><span class="line">		System.out.println(<span class="string">" , "</span>+a);</span><br><span class="line">		System.out.println(<span class="string">" ,无参构造方法a= "</span>+a);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="title">BlockTest02</span><span class="params">(<span class="keyword">int</span> n)</span></span>&#123;</span><br><span class="line">		System.out.println(<span class="string">" , "</span>+n);</span><br><span class="line">		System.out.println(<span class="string">" , "</span>+a);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">		System.out.println(<span class="string">" ,main"</span>);</span><br><span class="line">		BlockTest02 bt2 = <span class="keyword">new</span> BlockTest02();</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>测试结果</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">静态代码块a=6</span><br><span class="line"> ,main</span><br><span class="line">非静态代码块a=10</span><br><span class="line"> , 6</span><br><span class="line"> , 10</span><br><span class="line"> , 10</span><br><span class="line"> ,无参构造方法a= 10</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2019/07/10/java阶段总结2/" data-id="cjyv2o14l0004g4uygfds8a9v" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javase/">javase</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2019/07/11/常用类和异常-1/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          常用类和异常
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2019/07/09/面向对象2/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">面向对象2</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/javase/">javase</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/javaweb/">javaweb</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mind/">mind</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/oracle/">oracle</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/javase/" style="font-size: 20px;">javase</a> <a href="/tags/javaweb/" style="font-size: 16.67px;">javaweb</a> <a href="/tags/mind/" style="font-size: 10px;">mind</a> <a href="/tags/oracle/" style="font-size: 13.33px;">oracle</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/08/">August 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/07/">July 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/06/">June 2019</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2019/08/03/hello-world/">Hello Hexo World</a>
+          </li>
+        
+          <li>
+            <a href="/2019/08/02/js事件/">js事件</a>
+          </li>
+        
+          <li>
+            <a href="/2019/07/31/初识js/">初识js</a>
+          </li>
+        
+          <li>
+            <a href="/2019/07/31/注解/">注解</a>
+          </li>
+        
+          <li>
+            <a href="/2019/07/26/HTML/">HTML</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2019 Meng Kai<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>

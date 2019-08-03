@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="utf-8">
+  
+
+  
+  <title>初识js | coder--编写代码,制造魔法</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="知识图谱 js使用方式 行内 内部(推荐后面) 外部(外部引用时标签内的js代码无效)  变量声明  JavaScript 是一种弱类型语言，在声明变量时不需要指明数据类型，直接用 var 修饰符进行声明。方式: 1. 先声明后赋值 2. 声明并赋值  注意点   ​        1. 若只声明而没有赋值，则该变量的值为 undefined。​        2. 变量要有定义才能使用，若变量未">
+<meta name="keywords" content="javaweb">
+<meta property="og:type" content="article">
+<meta property="og:title" content="初识js">
+<meta property="og:url" content="http://yoursite.com/2019/07/31/初识js/index.html">
+<meta property="og:site_name" content="coder--编写代码,制造魔法">
+<meta property="og:description" content="知识图谱 js使用方式 行内 内部(推荐后面) 外部(外部引用时标签内的js代码无效)  变量声明  JavaScript 是一种弱类型语言，在声明变量时不需要指明数据类型，直接用 var 修饰符进行声明。方式: 1. 先声明后赋值 2. 声明并赋值  注意点   ​        1. 若只声明而没有赋值，则该变量的值为 undefined。​        2. 变量要有定义才能使用，若变量未">
+<meta property="og:locale" content="default">
+<meta property="og:image" content="http://yoursite.com/2019/07/31/初识js/%E5%88%9D%E8%AF%86js%5C%E5%88%9D%E8%AF%86js.png">
+<meta property="og:image" content="f:%5Cmyblog%5CHEXO-HHC-BLOG%5Csource%5Cimages%5C%E5%88%9D%E8%AF%86js%5Ccounttool.gif">
+<meta property="og:updated_time" content="2019-08-01T14:35:33.317Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="初识js">
+<meta name="twitter:description" content="知识图谱 js使用方式 行内 内部(推荐后面) 外部(外部引用时标签内的js代码无效)  变量声明  JavaScript 是一种弱类型语言，在声明变量时不需要指明数据类型，直接用 var 修饰符进行声明。方式: 1. 先声明后赋值 2. 声明并赋值  注意点   ​        1. 若只声明而没有赋值，则该变量的值为 undefined。​        2. 变量要有定义才能使用，若变量未">
+<meta name="twitter:image" content="http://yoursite.com/2019/07/31/初识js/%E5%88%9D%E8%AF%86js%5C%E5%88%9D%E8%AF%86js.png">
+  
+    <link rel="alternate" href="/atom.xml" title="coder--编写代码,制造魔法" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+</html>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">coder--编写代码,制造魔法</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-初识js" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/07/31/初识js/" class="article-date">
+  <time datetime="2019-07-31T13:21:55.000Z" itemprop="datePublished">2019-07-31</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      初识js
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="知识图谱"><a href="#知识图谱" class="headerlink" title="知识图谱"></a>知识图谱</h2><p><img src="%E5%88%9D%E8%AF%86js%5C%E5%88%9D%E8%AF%86js.png" alt></p>
+<h2 id="js使用方式"><a href="#js使用方式" class="headerlink" title="js使用方式"></a>js使用方式</h2><ol>
+<li>行内</li>
+<li>内部(推荐<strong></strong>后面)</li>
+<li>外部(外部引用时标签内的js代码无效)</li>
+</ol>
+<h2 id="变量"><a href="#变量" class="headerlink" title="变量"></a>变量</h2><p><strong>声明</strong></p>
+<ul>
+<li><p>JavaScript 是一种弱类型语言，在声明变量时不需要指明数据类型，直接用 var 修饰符进行声明。<br>方式: 1. 先声明后赋值 2. 声明并赋值</p>
+</li>
+<li><p>注意点</p>
+</li>
+</ul>
+<p>​        1. 若只声明而没有赋值，则该变量的值为 undefined。<br>​        2. 变量要有定义才能使用，若变量未声明就使用，JavaScript 会报错，告诉你变量未定义<br>​        3. 可以在同一条 var 命令中声明多个变量。<br>​        4. 若使用 var 重新声明一个已经存在的变量，是无效的。<br>​        5. 若使用 var 重新声明一个已经存在的变量且赋值，则会覆盖掉前面的值<br>​        6. JavaScript 是一种动态类型、弱类型语言，也就是说，变量的类型没有限制，可以赋予各种类型的值。<br>​        7. 声明变量时，可以不加var修饰符，此时变量为全局变量</p>
+<ul>
+<li>提升 定义:JavaScript 引擎的工作方式是，先解析代码，获取所有被声明的变量，然后再一行一行地运行,这造成的结果，就是所有的变量的声明语句,都会被提升到代码的头部.</li>
+</ul>
+<h2 id="数据类型"><a href="#数据类型" class="headerlink" title="数据类型"></a>数据类型</h2><p>Undefined , Null , boolean , onumber , string , object</p>
+<h2 id="运算符"><a href="#运算符" class="headerlink" title="运算符"></a>运算符</h2><ul>
+<li>选择结构</li>
+<li>循环结构</li>
+<li>break和continue(和Java一样)</li>
+</ul>
+<h2 id="类型转换"><a href="#类型转换" class="headerlink" title="类型转换"></a>类型转换</h2><ul>
+<li>parseInt()和 parseFloat()两个全局转换函数。<br>  ​            前者把值转换成整数，后者把值转换成浮点数。<br>  ​            只有对 String 类型调用这些方法，这两个函数才能正确运行；<br>  ​            对其他类型返回的都是 NaN(Not a Number)。    </li>
+<li>toString()函数将内容转换为字符串形式<br>  String()是最简单的，因为它可把任何值转换成字符串。<br>  String()和toString()的区别，在于前者可以操作null和undefinded</li>
+<li>Number()将数据转成数值型数据</li>
+</ul>
+<h2 id="数组"><a href="#数组" class="headerlink" title="数组"></a>数组</h2><ul>
+<li><p>创建<br>​    var arr=[值 1,值 2,值 3]; ***<br>​    var arr=new Array(值 1,值 2,值 3);<br>​    var array=new Array(size); </p>
+</li>
+<li><p>遍历<br>​    1. for(var i=0; i &lt; 数组.length; i++) {}***<br>​    2. for(var 下标名  in 数组) {}<br>​    3. 数组.forEach(function(元素，下标){});</p>
+</li>
+<li><p>操作方法(push最重要)</p>
+<p>​                push 添加元素到最后<br>​                unshift 添加元素到最前<br>​                pop 删除最后一项<br>​                shift 删除第一项<br>​                reverse 数组翻转<br>​                join 数组转成字符串<br>​                indexOf 数组元素索引<br>​                slice 截取（切片）数组，原数组不发生变化<br>​                splice 剪接数组，原数组变化，可以实现前后删除效果<br>​                concat 数组合并</p>
+</li>
+</ul>
+<h2 id="函数"><a href="#函数" class="headerlink" title="函数"></a>函数</h2><ol>
+<li><p>函数的定义</p>
+<p>是一段预先设置的功能代码块,函数也是<strong>对象</strong>。</p>
+<p> 定义三种方式: 函数声明语句、函数定义表达式、Function 构造函数 </p>
+<ul>
+<li><p>function 函数名([参数列表]){} </p>
+</li>
+<li><p>var 变量名 = function ([参数列表]) {} </p>
+</li>
+<li><p>例如 var minus = new Function(‘a’,’b’,’return(a-b)’);</p>
+</li>
+</ul>
+</li>
+<li><p>函数的调用及参数</p>
+<ul>
+<li><p>调用方式</p>
+<p>1、函数调用模式<strong>*<br>2、方法调用模式*</strong><br>3、间接调用模式<br>   ​            return 语句<br>   ​            作用：在没有返回值的方法中，用来结束方法。<br>   ​            有返回值的方法中，一个是用来结束方法，一个是将值带给调用者。</p>
+</li>
+</ul>
+</li>
+<li><p>函数的作用域<br>1、全局变量与局部变量同名问题（就近原则）<br>2、如果没使用var修饰符声明的变量是全局变量<br>3、函数中变量名的提升</p>
+</li>
+</ol>
+<ul>
+<li><p>闭包</p>
+<ul>
+<li>作用: 能够读取其他函数内部变量的函数。</li>
+<li>构成<br>1、外部函数嵌套内部函数<br>2、内部函数使用外部函数的环境<br>3、外部函数返回内部函数</li>
+</ul>
+</li>
+</ul>
+<h2 id="对象"><a href="#对象" class="headerlink" title="对象"></a>对象</h2><ul>
+<li>JS 创建自定义对象，主要通过三种方式：<ul>
+<li>字面量形式创建对象、</li>
+</ul>
+</li>
+</ul>
+<p>​                    通过 new Object 对象创建 、<br>​                    通过 Object 对象的 create 方法创建对象</p>
+<p>​                字面量形式创建</p>
+<p>​                    var 对象名 = {};//创建一个空的对象<br>​                    var 对象名 = {键:值,键 2:值 2,…}</p>
+<p>​             通过 new Object 对象创建<br>​                    var 对象名 = new Object();</p>
+<p>​             通过 Object 对象的 create 方法创建对象</p>
+<p>​                    var 对象名 = Object.create(null); // 创建空模板的对象<br>​                    var 对象名 = Object.create(对象); // 以指定对象为模板创建对象</p>
+<p>​            序列化和反序列化</p>
+<p>​                序列化对象，将对象转为字符串<br>​                反序列化，将一个 Json 字符串转换为对象。</p>
+<h2 id="this"><a href="#this" class="headerlink" title="this"></a>this</h2><p>谁调用函数，this就指向谁</p>
+<p>在函数中使用 this<br>在函数中使用 this 属于全局性调用，代表全局对象，通过 window 对象来访问。</p>
+<p>在对象的方法中使用 this<br>在对象中的函数使用 this，代表当前的上级对象</p>
+<h2 id="案例—计算器"><a href="#案例—计算器" class="headerlink" title="案例—计算器"></a>案例—计算器</h2><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">"en"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"UTF-8"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>tool<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">style</span> <span class="attr">type</span>=<span class="string">"text/css"</span>&gt;</span></span><br><span class="line">       #a&#123;</span><br><span class="line">         border: solid 2px;</span><br><span class="line">         width: 300px;</span><br><span class="line">         height: 350px;</span><br><span class="line">         border-color: darkorchid;</span><br><span class="line">         text-align: center;</span><br><span class="line">           margin: auto;</span><br><span class="line">           margin-top: 30px;</span><br><span class="line">           margin-bottom: 30px;</span><br><span class="line">         border-radius: 10px;</span><br><span class="line">       &#125;</span><br><span class="line">       input[type=text]&#123;</span><br><span class="line">           width: 280px;</span><br><span class="line">           height: 30px;</span><br><span class="line">           margin-top: 10px;</span><br><span class="line">           background-color: floralwhite;</span><br><span class="line">           font-size:25px;</span><br><span class="line">       &#125;</span><br><span class="line">       input[type=button]&#123;</span><br><span class="line">           width: 40px;</span><br><span class="line">           height: 40px;</span><br><span class="line">           margin-top: 10px;</span><br><span class="line">           margin-left: 10px;</span><br><span class="line">           margin-right: 10px;</span><br><span class="line">           font-size: 20px;</span><br><span class="line">           font-weight: 800;</span><br><span class="line">       &#125;</span><br><span class="line">   <span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span>&gt;</span></span><br><span class="line">        function demo(btn)&#123;</span><br><span class="line">            //获取按钮的value值</span><br><span class="line">            var num = btn.value;</span><br><span class="line">          /*  var num = document.getElementById("btn").value;</span><br><span class="line">            alert(num);*/</span><br><span class="line">            switch (num)&#123;</span><br><span class="line">                case "=":</span><br><span class="line">                    document.getElementById("inp").value=eval(document.getElementById("inp").value);</span><br><span class="line">                    break;</span><br><span class="line">                case "c":</span><br><span class="line">                    document.getElementById("inp").value="";</span><br><span class="line">                    break;</span><br><span class="line">                default:</span><br><span class="line">                    document.getElementById("inp").value=document.getElementById("inp").value+num;</span><br><span class="line">                    break;</span><br><span class="line">            &#125;</span><br><span class="line">            //将获得的值传到输入框中</span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line">    <span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"a"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">name</span>=<span class="string">""</span> <span class="attr">id</span>=<span class="string">"inp"</span> <span class="attr">value</span>=<span class="string">""</span> &gt;</span><span class="tag">&lt;<span class="name">br</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"button"</span> <span class="attr">name</span>=<span class="string">""</span> <span class="attr">id</span>=<span class="string">"btn"</span> <span class="attr">value</span>=<span class="string">"0"</span> <span class="attr">onclick</span>=<span class="string">"demo(this)"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"button"</span> <span class="attr">name</span>=<span class="string">""</span> <span class="attr">id</span>=<span class="string">""</span> <span class="attr">value</span>=<span class="string">"1"</span> <span class="attr">onclick</span>=<span class="string">"demo(this)"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"button"</span> <span class="attr">name</span>=<span class="string">""</span> <span class="attr">id</span>=<span class="string">""</span> <span class="attr">value</span>=<span class="string">"2"</span> <span class="attr">onclick</span>=<span class="string">"demo(this)"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"button"</span> <span class="attr">name</span>=<span class="string">""</span> <span class="attr">id</span>=<span class="string">""</span> <span class="attr">value</span>=<span class="string">"3"</span> <span class="attr">onclick</span>=<span class="string">"demo(this)"</span>&gt;</span><span class="tag">&lt;<span class="name">br</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"button"</span> <span class="attr">name</span>=<span class="string">""</span> <span class="attr">id</span>=<span class="string">""</span> <span class="attr">value</span>=<span class="string">"4"</span> <span class="attr">onclick</span>=<span class="string">"demo(this)"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"button"</span> <span class="attr">name</span>=<span class="string">""</span> <span class="attr">id</span>=<span class="string">""</span> <span class="attr">value</span>=<span class="string">"5"</span> <span class="attr">onclick</span>=<span class="string">"demo(this)"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"button"</span> <span class="attr">name</span>=<span class="string">""</span> <span class="attr">id</span>=<span class="string">""</span> <span class="attr">value</span>=<span class="string">"6"</span> <span class="attr">onclick</span>=<span class="string">"demo(this)"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"button"</span> <span class="attr">name</span>=<span class="string">""</span> <span class="attr">id</span>=<span class="string">""</span> <span class="attr">value</span>=<span class="string">"7"</span> <span class="attr">onclick</span>=<span class="string">"demo(this)"</span>&gt;</span><span class="tag">&lt;<span class="name">br</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"button"</span> <span class="attr">name</span>=<span class="string">""</span> <span class="attr">id</span>=<span class="string">""</span> <span class="attr">value</span>=<span class="string">"8"</span> <span class="attr">onclick</span>=<span class="string">"demo(this)"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"button"</span> <span class="attr">name</span>=<span class="string">""</span> <span class="attr">id</span>=<span class="string">""</span> <span class="attr">value</span>=<span class="string">"9"</span> <span class="attr">onclick</span>=<span class="string">"demo(this)"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"button"</span> <span class="attr">name</span>=<span class="string">""</span> <span class="attr">id</span>=<span class="string">""</span> <span class="attr">value</span>=<span class="string">"+"</span> <span class="attr">onclick</span>=<span class="string">"demo(this)"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"button"</span> <span class="attr">name</span>=<span class="string">""</span> <span class="attr">id</span>=<span class="string">""</span> <span class="attr">value</span>=<span class="string">"-"</span> <span class="attr">onclick</span>=<span class="string">"demo(this)"</span>&gt;</span><span class="tag">&lt;<span class="name">br</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"button"</span> <span class="attr">name</span>=<span class="string">""</span> <span class="attr">id</span>=<span class="string">""</span> <span class="attr">value</span>=<span class="string">"*"</span> <span class="attr">onclick</span>=<span class="string">"demo(this)"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"button"</span> <span class="attr">name</span>=<span class="string">""</span> <span class="attr">id</span>=<span class="string">""</span> <span class="attr">value</span>=<span class="string">"/"</span> <span class="attr">onclick</span>=<span class="string">"demo(this)"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"button"</span> <span class="attr">name</span>=<span class="string">""</span> <span class="attr">id</span>=<span class="string">""</span> <span class="attr">value</span>=<span class="string">"c"</span> <span class="attr">onclick</span>=<span class="string">"demo(this)"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"button"</span> <span class="attr">name</span>=<span class="string">""</span> <span class="attr">id</span>=<span class="string">""</span> <span class="attr">value</span>=<span class="string">"="</span> <span class="attr">onclick</span>=<span class="string">"demo(this)"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>测试结果</p>
+<p><img src="F:%5Cmyblog%5CHEXO-HHC-BLOG%5Csource%5Cimages%5C%E5%88%9D%E8%AF%86js%5Ccounttool.gif" alt></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2019/07/31/初识js/" data-id="cjyv2o14z000hg4uybhljutp4" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javaweb/">javaweb</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2019/08/02/js事件/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          js事件
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2019/07/31/注解/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">注解</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/javase/">javase</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/javaweb/">javaweb</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mind/">mind</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/oracle/">oracle</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/javase/" style="font-size: 20px;">javase</a> <a href="/tags/javaweb/" style="font-size: 16.67px;">javaweb</a> <a href="/tags/mind/" style="font-size: 10px;">mind</a> <a href="/tags/oracle/" style="font-size: 13.33px;">oracle</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/08/">August 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/07/">July 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/06/">June 2019</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2019/08/03/hello-world/">Hello Hexo World</a>
+          </li>
+        
+          <li>
+            <a href="/2019/08/02/js事件/">js事件</a>
+          </li>
+        
+          <li>
+            <a href="/2019/07/31/初识js/">初识js</a>
+          </li>
+        
+          <li>
+            <a href="/2019/07/31/注解/">注解</a>
+          </li>
+        
+          <li>
+            <a href="/2019/07/26/HTML/">HTML</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2019 Meng Kai<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>
