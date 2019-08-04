@@ -81,18 +81,18 @@
 
 
 
-<meta name="description" content="1.html 超文本标记语言​            2. html文档版本声明 ​            3. 设置解析页面的编码格式 ​                编码:右下角文件的格式 ​                解码:默认gbk   ​                保证统一才不乱码 ​            4.属性:帮助更完善的展示标签内容 ​">
+<meta name="description" content="1、DOM 对象***节点类型        HTML内容                 例如 文档节点         文档本身                 整个文档 document 元素节点         所有的 HTML 元素         、、 属性节点         HTML 元素内的属性         id、href、name、class 文本节点         元素">
 <meta name="keywords" content="javaweb">
 <meta property="og:type" content="article">
-<meta property="og:title" content="HTML">
-<meta property="og:url" content="http://https://detailmk.github.io/2019/07/26/HTML/index.html">
+<meta property="og:title" content="jsDOM和表单">
+<meta property="og:url" content="http://https://detailmk.github.io/2019/08/04/jsDOM和表单/index.html">
 <meta property="og:site_name" content="coder--编写代码,制造魔法">
-<meta property="og:description" content="1.html 超文本标记语言​            2. html文档版本声明 ​            3. 设置解析页面的编码格式 ​                编码:右下角文件的格式 ​                解码:默认gbk   ​                保证统一才不乱码 ​            4.属性:帮助更完善的展示标签内容 ​">
+<meta property="og:description" content="1、DOM 对象***节点类型        HTML内容                 例如 文档节点         文档本身                 整个文档 document 元素节点         所有的 HTML 元素         、、 属性节点         HTML 元素内的属性         id、href、name、class 文本节点         元素">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-07-26T13:52:50.628Z">
+<meta property="og:updated_time" content="2019-08-04T12:52:48.279Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="HTML">
-<meta name="twitter:description" content="1.html 超文本标记语言​            2. html文档版本声明 ​            3. 设置解析页面的编码格式 ​                编码:右下角文件的格式 ​                解码:默认gbk   ​                保证统一才不乱码 ​            4.属性:帮助更完善的展示标签内容 ​">
+<meta name="twitter:title" content="jsDOM和表单">
+<meta name="twitter:description" content="1、DOM 对象***节点类型        HTML内容                 例如 文档节点         文档本身                 整个文档 document 元素节点         所有的 HTML 元素         、、 属性节点         HTML 元素内的属性         id、href、name、class 文本节点         元素">
 
 
 
@@ -122,13 +122,13 @@
 
 
 
-  <link rel="canonical" href="http://https://detailmk.github.io/2019/07/26/HTML/">
+  <link rel="canonical" href="http://https://detailmk.github.io/2019/08/04/jsDOM和表单/">
 
 
 
 
 
-  <title>HTML | coder--编写代码,制造魔法</title>
+  <title>jsDOM和表单 | coder--编写代码,制造魔法</title>
   
 
 
@@ -265,7 +265,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://https://detailmk.github.io/2019/07/26/HTML/">
+    <link itemprop="mainEntityOfPage" href="http://https://detailmk.github.io/2019/08/04/jsDOM和表单/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Meng Kai">
@@ -282,7 +282,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">HTML</h1>
+          <h1 class="post-title" itemprop="name headline">jsDOM和表单</h1>
         
 
         <div class="post-meta">
@@ -294,8 +294,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-07-26T21:51:48+08:00">
-                2019-07-26
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-08-04T20:49:03+08:00">
+                2019-08-04
               </time>
             
 
@@ -332,141 +332,99 @@
       
 
       
-        <h2 id="1-html-超文本标记语言"><a href="#1-html-超文本标记语言" class="headerlink" title="1.html 超文本标记语言"></a>1.html 超文本标记语言</h2><p>​            2.<!DOCTYPE html> html文档版本声明</p>
-<p>​            3.<meta charset="UTF-8"> 设置解析页面的编码格式</p>
-<p>​                编码:右下角文件的格式</p>
-<p>​                解码:默认gbk  <meta charset="UTF-8"></p>
-<p>​                保证统一才不乱码</p>
-<p>​            4.属性:帮助更完善的展示标签内容</p>
-<p>​                添加在开始标签上</p>
-<p>​                属性的前面存在空格</p>
-<p>​                属性名= ‘属性值’</p>
-<p>​                前后的引号要保持一致,’’,””都可以</p>
-<p>​            5.标签:</p>
-<p>​                单标签|自闭和标签</p>
-<p>​                双标签|闭合标签</p>
-<h2 id="标签作用-属性-特点"><a href="#标签作用-属性-特点" class="headerlink" title="标签作用,属性,特点"></a>标签作用,属性,特点</h2><p>​        分类:  能否和其他标签在一行显示</p>
-<p>​            块元素:自身独占一行</p>
-<p>​                可以设置宽高</p>
-<p>​            行内元素:宽度由内容撑起</p>
-<p>​                不能设置宽度</p>
-<p>​        \1. a 超链接标签</p>
-<p>​            属性:</p>
-<p>​                href:连接地址 必填属性</p>
-<p>​                    绝对地址:网络上的网址</p>
-<p>​                    相对地址:相同项目中的页面</p>
-<p>​                    # 回到页面的顶部但是不刷新</p>
-<p>​                    不填地址:每次点击每次刷新</p>
-<p>​                target:打开方式</p>
-<p>​                    _self:自身页面打开</p>
-<p>​                    _blank:新页面打开</p>
-<p>​                title:当鼠标悬停在内容上显示的提示字</p>
-<p>​        2.锚点</p>
-<p>​            特点:</p>
-<p>​                下划线</p>
-<p>​                访问前字体为蓝色</p>
-<p>​                访问后字体颜色为紫色</p>
-<p>​                行内元素</p>
-<h2 id="块元素-嵌套行内元素-文本-块元素"><a href="#块元素-嵌套行内元素-文本-块元素" class="headerlink" title="块元素:嵌套行内元素,文本,块元素"></a>块元素:嵌套行内元素,文本,块元素</h2><p>​        行内元素:嵌套行内元素,文本</p>
-<p>​        img 图像标签</p>
-<p>​            src 图片地址  必填属性</p>
-<p>​                绝对地址</p>
-<p>​                相对地址</p>
-<p>​            alt 如果图片无法正常显示时显示的提示字</p>
-<p>​            title 当鼠标悬停在内容上时显示的提示字</p>
-<p>​            width 宽度</p>
-<p>​            height 高度</p>
-<p>​            border 变框</p>
-<p>​            align 对其方式</p>
-<p>​                left 图片对其到左边</p>
-<p>​                right 图片对其到这一行的右边</p>
-<p>​                top  同行元素顶部对其</p>
-<p>​                bottom同行元素低部对其</p>
-<p>​                center同行元素居中对其</p>
-<p>​         span 方便控制样式</p>
-<p>​         div  块</p>
-<p>​              布局容器使用</p>
-<p>​              块元素</p>
-<p>​         p    段落标签</p>
-<p>​                只能嵌套行内元素和文本,不能嵌套其他块元素</p>
-<p>​         h1~6 标题标签</p>
-<p>​            根据权重不同,字体大小依次减小</p>
-<p>​            加粗</p>
-<p>​            align : 对齐方式</p>
-<p>​                left</p>
-<p>​                right</p>
-<p>​                center</p>
-<h2 id="列表"><a href="#列表" class="headerlink" title="列表:"></a>列表:</h2><p>​            列表标签的第一层子元素只能为列表项li标签</p>
-<p>​            type 属性修改列表项标记</p>
-<p>​            列表可以嵌套</p>
-<p>​            无序列表</p>
-<p>​                ul  列表标签</p>
-<p>​                li 定义列表项</p>
-<p>​                type属性</p>
-<p>​                    circle 空心圆圈</p>
-<p>​                    square 实心方块</p>
-<p>​                style=”list-style: none” 去除列表项标记</p>
-<p>​            有序列表</p>
-<p>​                ol  列表标签</p>
-<p>​                li 定义列表项</p>
-<h2 id="表格"><a href="#表格" class="headerlink" title="表格"></a>表格</h2><p> 尺寸:px单位</p>
-<p>​        颜色:</p>
-<p>​            颜色的英文单词</p>
-<p>​            rgb(,,)</p>
-<p>​            #十六进制</p>
-<p>​        表格标签</p>
-<p>​            常用于展示数据..</p>
-<p>​        table 标签</p>
-<p>​        tr    行</p>
-<p>​        th    表格头单元格  居中+加粗</p>
-<p>​        td    表格体单元格</p>
-<p>​        属性:</p>
-<p>​            border 边框</p>
-<p>​            bordercolor 边框颜色</p>
-<p>​            bgcolor 背景颜色</p>
-<p>​            width 宽度</p>
-<p>​            height 高度</p>
-<p>​            双线边单线</p>
-<p>​            rowspan 跨行</p>
-<p>​            colspan 跨列</p>
-<h2 id="表单"><a href="#表单" class="headerlink" title="表单 ***"></a>表单 ***</h2><p>​            收集用户信息</p>
-<p>​        form 表单标签</p>
-<p>​            action 表单数据发送的位置</p>
-<p>​            name   表单的名字</p>
-<p>​            method 请求方式</p>
-<p>​                post  安全 没有限制  请求实体中</p>
-<p>​                get   不安全 地址栏中  大小有限制</p>
-<p>​            enctype: multipart/form-data 文件上传</p>
-<p>​        表单元素:</p>
-<p>​            input   type属性的值,决定表单元素的作用</p>
-<p>​                text 文本框</p>
-<p>​                password  密码框  加密</p>
-<p>​                radio 单选框</p>
-<p>​                    一组的单选框只能选择一个,name属性相同</p>
-<p>​                checkbox 多选框</p>
-<p>​                file 上传文件</p>
-<p>​                submit 提交</p>
-<p>​                button 按钮</p>
-<p>​                reset 重置</p>
-<p>​            select 下拉框</p>
-<p>​                options 下拉列表选项</p>
-<p>​            button 标签</p>
-<p>​                type属性值 更改作用</p>
-<p>​                    submit 提交  默认</p>
-<p>​                    button 按钮</p>
-<p>​                    reset 重置</p>
-<p>​        有提交数据能力的表单元素必须添加name</p>
-<p>​        name: 后台区分前台表单元素的位置</p>
-<p>​        value: 当前这个表单元素的默认值</p>
-<p>​        id :  前台区分元素的唯一  js</p>
-<p>​        class: css的</p>
-<p>​        multiple 多选</p>
-<p>​        placeholder 提示字</p>
-<p>​        readonly 只读   不能改能提交</p>
-<p>​        disabled 禁用   不能修改不能提交</p>
-<p>​        required 必填选项</p>
-<p>​        autofocus 自动聚焦</p>
-
+        <h2 id="1、DOM-对象"><a href="#1、DOM-对象" class="headerlink" title="1、DOM 对象***"></a>1、DOM 对象***</h2><p>节点类型        HTML内容                 例如</p>
+<p>文档节点         文档本身                 整个文档 document</p>
+<p>元素节点         所有的 HTML 元素         <a>、<div>、<p></p>
+<p>属性节点         HTML 元素内的属性         id、href、name、class</p>
+<p>文本节点         元素内的文本             hello</p>
+<p>注释节点         HTML 中的注释             &lt;!– – &gt;</p>
+<p>获取节点</p>
+<p>注意：操作 dom 必须等节点初始化完毕后，才能执行。处理方式两种:</p>
+<p>（1）把 script 调用标签移到 html 末尾即可；</p>
+<p>（2）使用 onload 事件来处理 JS，等待 html 加载完毕再加载 onload 事件里的 JS。</p>
+<p>​    window.onload = function () { //预加载 html 后执行};</p>
+<p>​            </p>
+<p>getElementById(): 根据 id 获取 dom 对象，如果 id 重复，那么以第一个为准</p>
+<p>getElementsByTagName(): 根据标签名获取 dom 对象数组</p>
+<p>getElementsByClassName(): 根据样式名获取 dom 对象数组</p>
+<p>getElementsByName(): 根据 name 属性值获取 dom 对象数组，常用于多选获取值</p>
+<p>​        </p>
+<p>设置属性</p>
+<p>dom对象.属性名 = “属性值”;</p>
+<p>注：如果属性里面还有属性，dom对象.属性名.属性名 = “属性值”;</p>
+<p>一般场景，比如style属性：dom对象.style.color=”red”   设置字体颜色</p>
+<h3 id="1、创建节点和插入节点"><a href="#1、创建节点和插入节点" class="headerlink" title="1、创建节点和插入节点***"></a>1、创建节点和插入节点***</h3><p>创建节点</p>
+<p>​    createElement()         创建一个新的节点，需要传入节点的标签名称，返回创建的元素对象</p>
+<p>​    createTextNode()         创建一个文本节点，可以传入文本内容</p>
+<p>​    innerHTML                 也能达到创建节点的效果，直接添加到指定位置了</p>
+<p>​                </p>
+<p>插入节点</p>
+<p>​    write()                 将任意的字符串插入到文档中</p>
+<p>​    appendChild()             向元素中添加新的子节点，作为最后一个子节点</p>
+<p>​    insertBefore()             向指定的已有的节点之前插入新的节点</p>
+<p>​    newItem：要插入的节点</p>
+<p>​    exsitingItem：参考节点 </p>
+<p>​                需要参考父节点</p>
+<p>​    注：如果使用appendChild()方法追加时，被追加的元素是已经存在的元素，则会被直接剪切到指定位置</p>
+<h3 id="2、间接查找节点"><a href="#2、间接查找节点" class="headerlink" title="2、间接查找节点"></a>2、间接查找节点</h3><p><strong>获取父节点和子节点\</strong>***</p>
+<p><strong>间接查找节点</strong></p>
+<p>​                </p>
+<p>childNodes       返回元素的一个子节点的数组获取的是 文本节点和元素节点</p>
+<p>firstChild         返回元素的第一个子节点            </p>
+<p>lastChild         返回元素的最后一个子节点        </p>
+<p>nextSibling     返回元素的下一个兄弟节点        </p>
+<p>parentNode         返回元素的父节点                </p>
+<p>previousSibling 返回元素的上一个兄弟节点        </p>
+<h3 id="3、替换节点"><a href="#3、替换节点" class="headerlink" title="3、替换节点"></a>3、替换节点</h3><p>替换节点</p>
+<p>replaceChild(newNode,oldNode)         用新的节点替换旧的节点</p>
+<p>oldNode.parentNode.replaceChild(newNode,oldNode)</p>
+<p>首先通过旧节点定位到父节点，然后用新的节点替换旧节点            </p>
+<p>替换时，原来的元素会被删除，所以替换只能执行一次</p>
+<h3 id="4、克隆节点"><a href="#4、克隆节点" class="headerlink" title="4、克隆节点"></a>4、克隆节点</h3><p>cloneNode()     制节点</p>
+<p>var 复制好的节点 = 被复制的节点.cloneNode([true/false]);</p>
+<p>true：深度克隆，可以克隆结构和内容</p>
+<p>false(默认值)：只克隆结构</p>
+<h3 id="5、删除节点"><a href="#5、删除节点" class="headerlink" title="5、删除节点***"></a>5、删除节点***</h3><p>removeChild()      从元素中移除子节点</p>
+<p>从父元素中删除节点，获取要删除对象的父元素，然后从父元素中删除该对象</p>
+<h2 id="2、JS表单"><a href="#2、JS表单" class="headerlink" title="2、JS表单***"></a>2、JS表单***</h2><h3 id="1、获取表单"><a href="#1、获取表单" class="headerlink" title="1、获取表单"></a>1、获取表单</h3><p>获取表单</p>
+<p>​    前两中常用</p>
+<p>​    1、document.表单名称</p>
+<p>​    2、document.getElementById(表单 id);</p>
+<p>​    3、document.forms[表单名称]</p>
+<p>​    4、document.forms[索引]; //从 0 开始</p>
+<h3 id="2、获取input元素"><a href="#2、获取input元素" class="headerlink" title="2、获取input元素"></a>2、获取input元素</h3><p>获取 input 的元素</p>
+<p>​    如 text password hidden textarea 等，前两种常用。</p>
+<p>​    1)、通过 id 获取：document.getElementById(元素 id);</p>
+<p>​    2)、通过 form.名称形式获取: myform.元素名称;  name 属性值</p>
+<p>​    3)、通过 name 获取 :document.getElementsByName(元素名称)[索引] //从 0 开始</p>
+<p>​    4)、通过 tagName 数组 :document.getElementsByTagName(‘input’)[索引] //从 0 开始</p>
+<h3 id="3、获取单选和复选框"><a href="#3、获取单选和复选框" class="headerlink" title="3、获取单选和复选框"></a>3、获取单选和复选框</h3><p>获取 单选按钮</p>
+<p>​    前提：将一组单选按钮设置相同的 name 属性值</p>
+<p>​    (1)获取单选按钮组：</p>
+<p>​            document.getElementsByName(“name 属性值”);</p>
+<p>​    (2)遍历每个单选按钮，并查看单选按钮元素的 checked 属性</p>
+<p>​        若属性值为 true 表示被选中，否则未被选中</p>
+<p>​        选中状态设定： checked=’checked’ 或 checked=’true’ 或 checked</p>
+<p>​        未选中状态设定： 没有 checked 属性 或 checked=’false’</p>
+<p>获取下拉选项</p>
+<p>​    （1）获取 select 对象：</p>
+<p>​        var ufrom = document.getElementById(“ufrom”);</p>
+<p>​    （2）获取选中项的索引：</p>
+<p>​        var idx=ufrom.selectedIndex ;</p>
+<p>​    （3）获取选中项 options 的 value 属性值：</p>
+<p>​        var val = ufrom.options[idx].value;</p>
+<p>​        注意：当通过 options 获取选中项的 value 属性值时，</p>
+<p>​        若没有 value 属性，则取 option 标签的内容</p>
+<p>​        若存在 value 属性，则取 value 属性的值</p>
+<p>​    （4）获取选中项 options 的 text：</p>
+<p>​        var txt = ufrom.options[idx].text;</p>
+<p>​        选中状态设定：selected=’selected’、selected=true、selected</p>
+<p>​        未选中状态设定：不设 selected 属性</p>
+<h3 id="4、提交表单"><a href="#4、提交表单" class="headerlink" title="4、提交表单"></a>4、提交表单</h3><p>提交表单</p>
+<p>​    （1）使用普通 button 按钮+onclick 事件+事件中编写代码: 获取表单.submit();</p>
+<p>​    （2）使用 submit 按钮 + onclick=”return 函数()” +函数编写代码: 最后必须返回：return true|false;</p>
+<p>​    （3）使用 submit 按钮/图片提交按钮 + 表单 onsubmit=”return 函数();” +函数编写代码: 最后必须返回：return true|false;</p>
+</div></a></p>
       
     </div>
     
@@ -496,8 +454,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/07/25/oracleBase/" rel="next" title="oracleBase+JDBC">
-                <i class="fa fa-chevron-left"></i> oracleBase+JDBC
+              <a href="/2019/08/02/js事件/" rel="next" title="js事件">
+                <i class="fa fa-chevron-left"></i> js事件
               </a>
             
           </div>
@@ -506,8 +464,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2019/07/31/注解/" rel="prev" title="注解">
-                注解 <i class="fa fa-chevron-right"></i>
+              <a href="/2019/08/04/test/" rel="prev" title="test">
+                test <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -640,7 +598,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-html-超文本标记语言"><span class="nav-number">1.</span> <span class="nav-text">1.html 超文本标记语言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#标签作用-属性-特点"><span class="nav-number">2.</span> <span class="nav-text">标签作用,属性,特点</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#块元素-嵌套行内元素-文本-块元素"><span class="nav-number">3.</span> <span class="nav-text">块元素:嵌套行内元素,文本,块元素</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#列表"><span class="nav-number">4.</span> <span class="nav-text">列表:</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#表格"><span class="nav-number">5.</span> <span class="nav-text">表格</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#表单"><span class="nav-number">6.</span> <span class="nav-text">表单 ***</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1、DOM-对象"><span class="nav-number">1.</span> <span class="nav-text">1、DOM 对象***</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1、创建节点和插入节点"><span class="nav-number">1.1.</span> <span class="nav-text">1、创建节点和插入节点***</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2、间接查找节点"><span class="nav-number">1.2.</span> <span class="nav-text">2、间接查找节点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3、替换节点"><span class="nav-number">1.3.</span> <span class="nav-text">3、替换节点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4、克隆节点"><span class="nav-number">1.4.</span> <span class="nav-text">4、克隆节点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5、删除节点"><span class="nav-number">1.5.</span> <span class="nav-text">5、删除节点***</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2、JS表单"><span class="nav-number">2.</span> <span class="nav-text">2、JS表单***</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1、获取表单"><span class="nav-number">2.1.</span> <span class="nav-text">1、获取表单</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2、获取input元素"><span class="nav-number">2.2.</span> <span class="nav-text">2、获取input元素</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3、获取单选和复选框"><span class="nav-number">2.3.</span> <span class="nav-text">3、获取单选和复选框</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4、提交表单"><span class="nav-number">2.4.</span> <span class="nav-text">4、提交表单</span></a></li></ol></li></ol></div>
             
 
           </div>
