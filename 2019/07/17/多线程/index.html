@@ -5,7 +5,7 @@
   
 
 
-<html class="theme-next mist use-motion" lang="zh-Hans">
+<html class="theme-next pisces use-motion" lang="zh-Hans">
 <head><meta name="generator" content="Hexo 3.9.0">
   <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -81,20 +81,21 @@
 
 
 
-<meta name="description" content="多线程知识图谱 定义多任务同时执行 线程和进程的区别 进程是资源分配的基本单位 线程是cpu调度和执行的基本单位 进程包含一个或者多个线程 每个进程有自己的内存空间 一类线程共享进程的内存空间的资源  创建线程 继承Thread类 重写run方法 实现Runnable接口 实现Callable接口   简单测试多线程  123456789101112public class TestThread">
+<meta name="description" content="多线程知识图谱  定义多任务同时执行 线程和进程的区别 进程是资源分配的基本单位 线程是cpu调度和执行的基本单位 进程包含一个或者多个线程 每个进程有自己的内存空间 一类线程共享进程的内存空间的资源  创建线程 继承Thread类 重写run方法 实现Runnable接口 实现Callable接口   简单测试多线程  123456789101112public class TestThread">
 <meta name="keywords" content="javase">
 <meta property="og:type" content="article">
 <meta property="og:title" content="多线程">
 <meta property="og:url" content="https://detailmk.github.io/2019/07/17/多线程/index.html">
 <meta property="og:site_name" content="coder--编写代码,制造魔法">
-<meta property="og:description" content="多线程知识图谱 定义多任务同时执行 线程和进程的区别 进程是资源分配的基本单位 线程是cpu调度和执行的基本单位 进程包含一个或者多个线程 每个进程有自己的内存空间 一类线程共享进程的内存空间的资源  创建线程 继承Thread类 重写run方法 实现Runnable接口 实现Callable接口   简单测试多线程  123456789101112public class TestThread">
+<meta property="og:description" content="多线程知识图谱  定义多任务同时执行 线程和进程的区别 进程是资源分配的基本单位 线程是cpu调度和执行的基本单位 进程包含一个或者多个线程 每个进程有自己的内存空间 一类线程共享进程的内存空间的资源  创建线程 继承Thread类 重写run方法 实现Runnable接口 实现Callable接口   简单测试多线程  123456789101112public class TestThread">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://i.loli.net/2019/08/04/pHPUvImxzyr1AMu.png">
 <meta property="og:image" content="https://detailmk.github.io/2019/07/17/多线程/%E5%A4%9A%E7%BA%BF%E7%A8%8B%5C%E5%A4%9A%E7%BA%BF%E7%A8%8B.png">
-<meta property="og:updated_time" content="2019-07-29T12:08:08.890Z">
+<meta property="og:updated_time" content="2019-08-04T14:03:39.168Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="多线程">
-<meta name="twitter:description" content="多线程知识图谱 定义多任务同时执行 线程和进程的区别 进程是资源分配的基本单位 线程是cpu调度和执行的基本单位 进程包含一个或者多个线程 每个进程有自己的内存空间 一类线程共享进程的内存空间的资源  创建线程 继承Thread类 重写run方法 实现Runnable接口 实现Callable接口   简单测试多线程  123456789101112public class TestThread">
-<meta name="twitter:image" content="https://detailmk.github.io/2019/07/17/多线程/%E5%A4%9A%E7%BA%BF%E7%A8%8B%5C%E5%A4%9A%E7%BA%BF%E7%A8%8B.png">
+<meta name="twitter:description" content="多线程知识图谱  定义多任务同时执行 线程和进程的区别 进程是资源分配的基本单位 线程是cpu调度和执行的基本单位 进程包含一个或者多个线程 每个进程有自己的内存空间 一类线程共享进程的内存空间的资源  创建线程 继承Thread类 重写run方法 实现Runnable接口 实现Callable接口   简单测试多线程  123456789101112public class TestThread">
+<meta name="twitter:image" content="https://i.loli.net/2019/08/04/pHPUvImxzyr1AMu.png">
 
 
 
@@ -102,7 +103,7 @@
   var NexT = window.NexT || {};
   var CONFIG = {
     root: '/',
-    scheme: 'Mist',
+    scheme: 'Pisces',
     version: '5.1.4',
     sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
     fancybox: true,
@@ -302,7 +303,19 @@
             
 
             
+              <span class="post-meta-divider">|</span>
+            
 
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">更新于&#58;</span>
+              
+              <time title="更新于" itemprop="dateModified" datetime="2019-08-04T22:03:39+08:00">
+                2019-08-04
+              </time>
             
           </span>
 
@@ -334,7 +347,8 @@
       
 
       
-        <h1 id="多线程"><a href="#多线程" class="headerlink" title="多线程"></a>多线程</h1><h2 id="知识图谱"><a href="#知识图谱" class="headerlink" title="知识图谱"></a>知识图谱</h2><p><img src="//detailmk.github.io/2019/07/17/多线程/%E5%A4%9A%E7%BA%BF%E7%A8%8B%5C%E5%A4%9A%E7%BA%BF%E7%A8%8B.png" alt></p>
+        <h1 id="多线程"><a href="#多线程" class="headerlink" title="多线程"></a>多线程</h1><h2 id="知识图谱"><a href="#知识图谱" class="headerlink" title="知识图谱"></a>知识图谱</h2><p><img src="https://i.loli.net/2019/08/04/pHPUvImxzyr1AMu.png" alt="多线程.png"></p>
+<p><img src="//detailmk.github.io/2019/07/17/多线程/%E5%A4%9A%E7%BA%BF%E7%A8%8B%5C%E5%A4%9A%E7%BA%BF%E7%A8%8B.png" alt></p>
 <h2 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h2><p>多任务同时执行</p>
 <h2 id="线程和进程的区别"><a href="#线程和进程的区别" class="headerlink" title="线程和进程的区别"></a>线程和进程的区别</h2><ol>
 <li>进程是资源分配的基本单位 线程是cpu调度和执行的基本单位</li>
@@ -552,7 +566,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">29</span>
+                  <span class="site-state-item-count">28</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -643,7 +657,7 @@
 
 
 
-  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Mist</a> v5.1.4</div>
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.4</div>
 
 
 
@@ -743,6 +757,13 @@
   
   
 
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
   
   <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
 <script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
@@ -807,6 +828,9 @@
   
 
   
+  <script type="text/javascript" src="/js/src/js.cookie.js?v=5.1.4"></script>
+  <script type="text/javascript" src="/js/src/scroll-cookie.js?v=5.1.4"></script>
+
 
   
 
