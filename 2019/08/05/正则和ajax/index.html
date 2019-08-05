@@ -1,0 +1,868 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="javaweb,">
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="coder--编写代码,制造魔法" type="application/atom+xml">
+
+
+
+
+
+
+<meta name="description" content="知识图谱 正则表达式定义​                1、显式定义： 一眼就看明白 ​                    var 变量名 = new RegExp(“正则表达式模式”); ​                2、隐式定义: 常用，简单。没那么明显，大家可能一眼没有看出 ​                    注意:开头和结尾都必须是斜杠“/”,且不需要使用双引号括起来的 ​">
+<meta name="keywords" content="javaweb">
+<meta property="og:type" content="article">
+<meta property="og:title" content="正则和ajax">
+<meta property="og:url" content="https://detailmk.github.io/2019/08/05/正则和ajax/index.html">
+<meta property="og:site_name" content="coder--编写代码,制造魔法">
+<meta property="og:description" content="知识图谱 正则表达式定义​                1、显式定义： 一眼就看明白 ​                    var 变量名 = new RegExp(“正则表达式模式”); ​                2、隐式定义: 常用，简单。没那么明显，大家可能一眼没有看出 ​                    注意:开头和结尾都必须是斜杠“/”,且不需要使用双引号括起来的 ​">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://i.loli.net/2019/08/05/LSOtWyK82TsPY7n.png">
+<meta property="og:image" content="https://i.loli.net/2019/08/05/RVkrZdcCelM4bqg.gif">
+<meta property="og:updated_time" content="2019-08-05T12:19:33.001Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="正则和ajax">
+<meta name="twitter:description" content="知识图谱 正则表达式定义​                1、显式定义： 一眼就看明白 ​                    var 变量名 = new RegExp(“正则表达式模式”); ​                2、隐式定义: 常用，简单。没那么明显，大家可能一眼没有看出 ​                    注意:开头和结尾都必须是斜杠“/”,且不需要使用双引号括起来的 ​">
+<meta name="twitter:image" content="https://i.loli.net/2019/08/05/LSOtWyK82TsPY7n.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'detailmk'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://detailmk.github.io/2019/08/05/正则和ajax/">
+
+
+
+
+
+  <title>正则和ajax | coder--编写代码,制造魔法</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">coder--编写代码,制造魔法</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">Talk is cheap. Show me the code.</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br>
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://detailmk.github.io/2019/08/05/正则和ajax/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Meng Kai">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/mengkai.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="coder--编写代码,制造魔法">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">正则和ajax</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-08-05T08:19:11+08:00">
+                2019-08-05
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">更新于&#58;</span>
+              
+              <time title="更新于" itemprop="dateModified" datetime="2019-08-05T20:19:33+08:00">
+                2019-08-05
+              </time>
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="知识图谱"><a href="#知识图谱" class="headerlink" title="知识图谱"></a>知识图谱</h2><p><img src="https://i.loli.net/2019/08/05/LSOtWyK82TsPY7n.png" alt="正则和ajax.png"></p>
+<h2 id="正则表达式"><a href="#正则表达式" class="headerlink" title="正则表达式"></a><strong>正则表达式</strong></h2><h3 id="定义"><a href="#定义" class="headerlink" title="定义"></a><strong>定义</strong></h3><p>​                1、显式定义： 一眼就看明白</p>
+<p>​                    var 变量名 = new RegExp(“正则表达式模式”);</p>
+<p>​                2、隐式定义: 常用，简单。没那么明显，大家可能一眼没有看出</p>
+<p>​                    注意:开头和结尾都必须是斜杠“/”,且不需要使用双引号括起来的</p>
+<p>​                    var 变量名 = /正则表达式模式/;</p>
+<p>​                    </p>
+<p>​                匹配数字：  [0-9] 或  \d</p>
+<p>​                匹配字母：  [a-z] [A-Z]  或    [a-zA-Z]</p>
+<p>​                以指定字符开头：    ^</p>
+<p>​                    例如：^[0-9]表示以数字开头</p>
+<p>​                以指定字符结尾：    $</p>
+<p>​                    例如：[a-z]$表示以小写字母结尾</p>
+<p>​                *        匹配前面的子表达式零次或多次</p>
+<p>​                     例如：[a-zA-Z]*表示字母可以出现零次或多次</p>
+<p>​                +        匹配前面的子表达式一次或多次</p>
+<p>​                ?        匹配前面的子表达式零次或一次</p>
+<p>​                {n}        匹配n次</p>
+<p>​                {n,}    至少匹配n次</p>
+<p>​                {n,m}    至少匹配n次，最多匹配m次</p>
+<h3 id="方法"><a href="#方法" class="headerlink" title="方法"></a><strong>方法</strong></h3><p>​        1、test</p>
+<p>​            1）作用:是否匹配正则表达式模式。</p>
+<p>​                返回：true/false，true：匹配，false：不匹配</p>
+<p>​                格式：正则对象.test(要匹配的字符);</p>
+<p>​        2、exec()</p>
+<p>​            返回字符串数组</p>
+<p>​            返回匹配到的第一个字符及下标，如果没有设置全局匹配，只会匹配一次；如果没有匹配到满足条件的字符，则返回null</p>
+<p>​        3、match</p>
+<p>​        （1）作用：可在字符串内检索指定的值，或找到一个或多个正则表达式的匹配。</p>
+<p>​             匹配字符串：</p>
+<p>​            字符串1.match(字符串2);</p>
+<p>​                 匹配正则：</p>
+<p>​            字符串。match(正则对象);</p>
+<h3 id="修饰符"><a href="#修饰符" class="headerlink" title="修饰符"></a><strong>修饰符</strong></h3><p>​            i : 执行对大小写不敏感的匹配。</p>
+<p>​           g:  执行全局匹配（查找所有匹配而非在找到第一个匹配后停止）。</p>
+<p>​            用法</p>
+<p>​            （1）new RegExp(“regexp”,”修饰符”)</p>
+<p>​            （2）/regexp/修饰符</p>
+<h2 id="ajax"><a href="#ajax" class="headerlink" title="ajax"></a>ajax</h2><h3 id="ajax–get"><a href="#ajax–get" class="headerlink" title="ajax–get"></a><strong>ajax–get</strong></h3><p><strong>Ajax实现步骤(同步)</strong></p>
+<p>​                1、创建核心对象 XMLHttpRequest</p>
+<p>​                    var xhr = new XMLHttpRequest();</p>
+<p>​                2、打开请求     open()</p>
+<p>​                    xhr.open(参数1,参数2,参数3);</p>
+<p>​                    参数1：请求类型（GET/POST）</p>
+<p>​                    参数2：请求的地址</p>
+<p>​                    参数3：是否异步  true表示异步，false表示同步</p>
+<p>​                3、发送请求  send()</p>
+<p>​                    xhr.send(参数);</p>
+<p>​                    参数：</p>
+<p>​                        如果是GET请求，参数直接设置在请求的路径之后，所以设置为null</p>
+<p>​                        如果是POST请求，有参数则设置参数，无参数则设置为null</p>
+<p>​                4、解析响应</p>
+<p>​                    xhr.responseText  响应的结果</p>
+<p><strong>Ajax实现步骤(异步)</strong></p>
+<p>​                1、创建核心对象 XMLHttpRequest</p>
+<p>​                    var xhr = new XMLHttpRequest();</p>
+<p>​                2、打开请求     open()</p>
+<p>​                    xhr.open(参数1,参数2,参数3);</p>
+<p>​                    参数1：请求类型（GET/POST）</p>
+<p>​                    参数2：请求的地址</p>
+<p>​                    参数3：是否异步  true表示异步，false表示同步</p>
+<p>​                3、发送请求  send()</p>
+<p>​                    xhr.send(参数);</p>
+<p>​                    参数：</p>
+<p>​                        如果是GET请求，参数直接设置在请求的路径之后，所以设置为null</p>
+<p>​                        如果是POST请求，有参数则设置参数，无参数则设置为null</p>
+<p>​                4、解析响应</p>
+<p>​                    xhr.responseText  响应的结果</p>
+<h3 id="ajax–post"><a href="#ajax–post" class="headerlink" title="ajax–post"></a><strong>ajax–post</strong></h3><p><strong>Ajax实现步骤</strong></p>
+<p>​    1. 创建核心对象 XMLHttpRequest</p>
+<p>​                    var xhr = new XMLHttpRequest();</p>
+<p>​    2. 打开请求     open()</p>
+<p>​                    xhr.open(参数1,参数2,参数3);</p>
+<p>​                    参数1：请求类型（GET/POST）</p>
+<p>​                    参数2：请求的地址</p>
+<p>​                    参数3：是否异步  true表示异步，false表示同步</p>
+<p>​                    </p>
+<p>​    如果是POST请求，向服务器发送 POST 请求由于解析机制的原因，需要进行特别的处理。</p>
+<p>​    因为 POST 请求和 Web 表单提交是不同的，需要使用 XHR 来模仿表单提交。</p>
+<p>​    xhr.setRequestHeader(‘Content-Type’,’application/x-www-form-urlencoded’);</p>
+<p>​                    </p>
+<p>​    3. 发送请求  send()</p>
+<p>​        xhr.send(参数);</p>
+<p>​                    参数：</p>
+<p>​                        如果是GET请求，参数直接设置在请求的路径之后，所以设置为null</p>
+<p>​                        如果是POST请求，有参数则设置参数，无参数则设置为null</p>
+<p>​    4. 监听响应状态后解析响应</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">xhr.onreadystatechange = function() &#123;</span><br><span class="line">	<span class="comment">// 判断是否已经完全响应</span></span><br><span class="line">	<span class="keyword">if</span> (xhr.readyState == <span class="number">4</span>) &#123;</span><br><span class="line">	<span class="comment">// 判断是否响应成功</span></span><br><span class="line">	<span class="keyword">if</span> (xhr.status == <span class="number">200</span>) &#123;</span><br><span class="line">	<span class="comment">// 得到响应数据</span></span><br><span class="line">	alert(xhr.responseText);</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>封装Ajax</strong></p>
+<ol>
+<li><p>建XMLHttpRequest对象</p>
+</li>
+<li><p>打开请求  open()</p>
+</li>
+</ol>
+<p>​    xhr.open(参数1,参数2,参数3);</p>
+<p>​    参数1：请求类型（GET/POST）</p>
+<p>​    参数2：请求的地址</p>
+<p>​    参数3：是否异步  true表示异步，false表示同步</p>
+<p>​    注：如果需要传参给后台，需要根据不同的请求类型来设置</p>
+<p>​        如果是Post请求，请求地址不变</p>
+<p>​        如果是Get请求，需要通过”?”将传递的参数拼接到请求地址后面</p>
+<ol start="3">
+<li>如果是Post请求，需要模拟表单提交</li>
+</ol>
+<p>​    xhr.setRequestHeader(‘Content-Type’,’application/x-www-form-urlencoded’);</p>
+<ol start="4">
+<li>发送请求  send()</li>
+</ol>
+<p>​    xhr.send(参数);</p>
+<p>​    参数：</p>
+<p>​    如果是GET请求，参数直接设置在请求的路径之后，所以设置为null</p>
+<p>​    如果是POST请求，有参数则设置参数，无参数则设置为null</p>
+<ol start="5">
+<li>接收响应</li>
+</ol>
+<p>如果是同步请求请求</p>
+<p>判断是否响应成功（status=200），得到响应结果</p>
+<p>如果数异步请求，需要通过onreadystatechange事件，监听readyState的值变化</p>
+<p>如果数据已经完全响应（readyState=4），则判断是否响应成功（status=200），得到响应结果</p>
+<h3 id="案例"><a href="#案例" class="headerlink" title="案例:"></a>案例:</h3><p>—–ajax简单实现(异步post)</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">&lt;script type=<span class="string">"text/javascript"</span>&gt;</span><br><span class="line">	<span class="keyword">var</span> xhr = <span class="keyword">new</span> XMLHttpRequest();</span><br><span class="line">	xhr.open(<span class="string">"POST"</span>,<span class="string">"js/test.txt"</span>,<span class="keyword">true</span>);</span><br><span class="line">	xhr.setRequestHeader(<span class="string">'context-type'</span>, <span class="string">'application/x-www-form-urlencoded'</span>);</span><br><span class="line">	xhr.send(<span class="string">"name=mk&amp;pwd=12345"</span>);</span><br><span class="line">	xhr.onreadystatechange=function()&#123;</span><br><span class="line">		<span class="keyword">if</span>(xhr.readyState==<span class="number">4</span>)&#123;</span><br><span class="line">			<span class="keyword">if</span>(xhr.status==<span class="number">200</span>)&#123;</span><br><span class="line">			document.write(xhr.responseText);</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;	</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+
+<p>—–封装ajax</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">&lt;meta charset=<span class="string">"UTF-8"</span>&gt;</span><br><span class="line">&lt;title&gt;Insert title here&lt;/title&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line"></span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;script type=<span class="string">"text/javascript"</span>&gt;</span><br><span class="line">	<span class="keyword">var</span> obj=&#123;</span><br><span class="line">		<span class="string">"method"</span>:<span class="string">"GET"</span>,</span><br><span class="line">		<span class="string">"url"</span>:<span class="string">"js/text1.json"</span>,</span><br><span class="line">		<span class="string">"async"</span>:<span class="keyword">true</span>,</span><br><span class="line">		date:&#123;</span><br><span class="line">			<span class="string">"uname"</span>:<span class="string">"mk1"</span>,</span><br><span class="line">			<span class="string">"upwd"</span>:<span class="string">"82410"</span></span><br><span class="line">		&#125;,</span><br><span class="line">		success:function(res)&#123;</span><br><span class="line">			alert(res);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;;</span><br><span class="line">	ajax(obj);</span><br><span class="line">	<span class="function">function <span class="title">ajax</span><span class="params">(obj)</span></span>&#123;</span><br><span class="line">		<span class="keyword">var</span> xhr = <span class="keyword">new</span> XMLHttpRequest();</span><br><span class="line">		obj.date=formatURL(obj.date);</span><br><span class="line">		<span class="comment">//如果是get方式,将用户登录信息拼接到地址</span></span><br><span class="line">		<span class="keyword">if</span>((obj.method).toUpperCase()==<span class="string">"GET"</span>)&#123;</span><br><span class="line">			obj.url += (obj.url).indexOf(<span class="string">"?"</span>) &gt; -<span class="number">1</span> ? <span class="string">"&amp;"</span>+obj.date : <span class="string">"?"</span>+obj.date;</span><br><span class="line">			<span class="comment">//obj.url += (obj.url).indexOf("?") &gt; -1 ? "&amp;"+obj.data : "?"+obj.data;</span></span><br><span class="line">		&#125;</span><br><span class="line">		<span class="comment">//打开请求</span></span><br><span class="line">		xhr.open(obj.method, obj.url, obj.async);</span><br><span class="line">		<span class="comment">//发送请求</span></span><br><span class="line">		<span class="keyword">if</span>((obj.method).toUpperCase()==<span class="string">"POST"</span>)&#123;</span><br><span class="line">			xhr.setRequestHeader(<span class="string">'Content-Type'</span>,<span class="string">'application/x-www-form-urlencoded'</span>);</span><br><span class="line">			xhr.send(obj.date);</span><br><span class="line">		&#125;<span class="keyword">else</span> <span class="keyword">if</span>((obj.method).toUpperCase()==<span class="string">"GET"</span>)&#123;</span><br><span class="line">			xhr.send(<span class="keyword">null</span>);</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="comment">//解析请求</span></span><br><span class="line">		<span class="keyword">if</span>(obj.async)&#123;</span><br><span class="line">			xhr.onreadystatechange=function() &#123;</span><br><span class="line">				<span class="keyword">if</span>(xhr.readyState==<span class="number">4</span>)&#123;</span><br><span class="line">					callback();</span><br><span class="line">				&#125;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">			callback();</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="function">function <span class="title">callback</span><span class="params">()</span> </span>&#123;</span><br><span class="line">			<span class="comment">// 判断是否响应成功（status=200），得到响应结果</span></span><br><span class="line">			<span class="keyword">if</span> (xhr.status == <span class="number">200</span>) &#123;</span><br><span class="line">				<span class="comment">//console.log(xhr.responseText);</span></span><br><span class="line">				obj.success(xhr.responseText);</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		</span><br><span class="line">		</span><br><span class="line">		<span class="comment">//格式化url路径</span></span><br><span class="line">		<span class="function">function <span class="title">formatURL</span><span class="params">(date)</span></span>&#123;</span><br><span class="line">			<span class="keyword">var</span> arr=[];</span><br><span class="line">			<span class="keyword">for</span>(<span class="keyword">var</span> i in date)&#123;</span><br><span class="line">				<span class="keyword">var</span> key = i+<span class="string">"="</span>+date[i];</span><br><span class="line">				arr.push(key);</span><br><span class="line">			&#125;</span><br><span class="line">			<span class="keyword">var</span> udate=arr.join(<span class="string">"&amp;"</span>);</span><br><span class="line">			<span class="keyword">return</span> udate;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&lt;/script&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
+
+<p>–测试结果</p>
+<p><img src="https://i.loli.net/2019/08/05/RVkrZdcCelM4bqg.gif" alt="ajax.gif"></p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/javaweb/" rel="tag"># javaweb</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/08/04/jsDOM和表单/" rel="next" title="jsDOM和表单">
+                <i class="fa fa-chevron-left"></i> jsDOM和表单
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/mengkai.jpg" alt="Meng Kai">
+            
+              <p class="site-author-name" itemprop="name">Meng Kai</p>
+              <p class="site-description motion-element" itemprop="description">孟凯个人站主要涉及java开发基础知识</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">29</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                
+                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-name">标签</span>
+                
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+
+          
+          
+
+          
+          
+          <div id="music163player">
+         <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="330" height="86" src="//music.163.com/outchain/player?type=2&id=415786851&auto=1&height=66"></iframe>
+         </div>
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#知识图谱"><span class="nav-number">1.</span> <span class="nav-text">知识图谱</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#正则表达式"><span class="nav-number">2.</span> <span class="nav-text">正则表达式</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#定义"><span class="nav-number">2.1.</span> <span class="nav-text">定义</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#方法"><span class="nav-number">2.2.</span> <span class="nav-text">方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#修饰符"><span class="nav-number">2.3.</span> <span class="nav-text">修饰符</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ajax"><span class="nav-number">3.</span> <span class="nav-text">ajax</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#ajax–get"><span class="nav-number">3.1.</span> <span class="nav-text">ajax–get</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ajax–post"><span class="nav-number">3.2.</span> <span class="nav-text">ajax–post</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#案例"><span class="nav-number">3.3.</span> <span class="nav-text">案例:</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Meng Kai</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+  <script type="text/javascript" src="/js/src/js.cookie.js?v=5.1.4"></script>
+  <script type="text/javascript" src="/js/src/scroll-cookie.js?v=5.1.4"></script>
+
+
+  
+
+</body>
+</html>
