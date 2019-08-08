@@ -92,7 +92,7 @@
 <meta property="og:image" content="https://i.loli.net/2019/08/09/WcHI8Ct7A6ox1iB.jpg">
 <meta property="og:image" content="https://i.loli.net/2019/08/08/9VNZb1uzkBIsWOU.gif">
 <meta property="og:image" content="https://i.loli.net/2019/08/09/QMhcxGBwnEs39mg.gif">
-<meta property="og:updated_time" content="2019-08-08T17:25:51.549Z">
+<meta property="og:updated_time" content="2019-08-08T17:29:04.308Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="基于bootstrap的球员管理系统">
 <meta name="twitter:description" content="案例需求: 完成表格中用户信息的删除和修改  获取功能 通过ajax get方式解析json文件里的对象,将jq对象遍历并获取值添加到每一个单元格 12345678910111213141516171819202122232425$(function() &amp;#123;	loadp();&amp;#125;);//添加json里对象信息到表格中function loadp() &amp;#123;	$.ajax(&amp;">
@@ -314,7 +314,7 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2019-08-09T01:25:51+08:00">
+              <time title="更新于" itemprop="dateModified" datetime="2019-08-09T01:29:04+08:00">
                 2019-08-09
               </time>
             
@@ -419,9 +419,11 @@
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">updateM</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">	<span class="comment">//获取文本框和隐藏域的值</span></span><br><span class="line">	<span class="keyword">var</span> pid=$(<span class="string">"#upid"</span>).val();</span><br><span class="line">	<span class="keyword">var</span> pname=$(<span class="string">"#pn"</span>).val();</span><br><span class="line">	<span class="keyword">var</span> psd=$(<span class="string">"#psd"</span>).val();</span><br><span class="line">	</span><br><span class="line">	<span class="comment">//做非空判断</span></span><br><span class="line">	<span class="keyword">if</span>(isEmpty(pname))&#123;</span><br><span class="line">		$(<span class="string">"#upmsg"</span>).html(<span class="string">"name error!!! input again"</span>);</span><br><span class="line">		<span class="keyword">return</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">if</span>(isEmpty(pid))&#123;</span><br><span class="line">		$(<span class="string">"#upmsg"</span>).html(<span class="string">"number error!!! input again"</span>);</span><br><span class="line">		<span class="keyword">return</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">if</span>(isEmpty(psd))&#123;</span><br><span class="line">		$(<span class="string">"#upmsg"</span>).html(<span class="string">"side error!!! input again"</span>);</span><br><span class="line">		<span class="keyword">return</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="comment">//得到修改的tr对象</span></span><br><span class="line">	<span class="keyword">var</span> tr=$(<span class="string">"#tr_"</span>+pid);</span><br><span class="line">	<span class="comment">//得到tr的子元素td</span></span><br><span class="line">	<span class="keyword">var</span> tds=tr.children();</span><br><span class="line">	<span class="comment">//给每个单元格赋值</span></span><br><span class="line">	tds.eq(<span class="number">0</span>).text(pid);</span><br><span class="line">	tds.eq(<span class="number">2</span>).text(pname);</span><br><span class="line">	tds.eq(<span class="number">3</span>).text(psd);</span><br><span class="line">	<span class="comment">//关闭模态框</span></span><br><span class="line">	$(<span class="string">"#upm"</span>).modal(<span class="string">"hide"</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">isEmpty</span>(<span class="params">str</span>)</span>&#123;</span><br><span class="line">	<span class="keyword">if</span>(str==<span class="literal">null</span>||str.trim()==<span class="string">""</span>)&#123;</span><br><span class="line">		<span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 
+
 </li>
 </ol>
 <pre><code>修改功能效果
+
 ![up.gif](https://i.loli.net/2019/08/09/KNuXJosFtkfG5Rj.gif)</code></pre>
       
     </div>
