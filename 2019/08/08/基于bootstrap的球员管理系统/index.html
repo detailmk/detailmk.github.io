@@ -81,22 +81,23 @@
 
 
 
-<meta name="description" content="案例需求: 完成表格中用户信息的删除和修改  获取功能 通过ajax get方式解析json文件里的对象,将jq对象遍历并获取值添加到每一个单元格 12345678910111213141516171819202122232425$(function() &amp;#123;	loadp();&amp;#125;);//添加json里对象信息到表格中function loadp() &amp;#123;	$.ajax(&amp;">
+<meta name="description" content="大概从小的湖人情结,想做个湖人球员管理系统 案例需求: 完成表格中用户信息的删除,修改和添加  获取功能 通过ajax get方式解析json文件里的对象,将jq对象遍历并获取值添加到每一个单元格 12345678910111213141516171819202122232425$(function() &amp;#123;	loadp();&amp;#125;);//添加json里对象信息到表格中functio">
 <meta name="keywords" content="javaweb">
 <meta property="og:type" content="article">
 <meta property="og:title" content="基于bootstrap的球员管理系统">
 <meta property="og:url" content="https://detailmk.github.io/2019/08/08/基于bootstrap的球员管理系统/index.html">
 <meta property="og:site_name" content="coder--编写代码,制造魔法">
-<meta property="og:description" content="案例需求: 完成表格中用户信息的删除和修改  获取功能 通过ajax get方式解析json文件里的对象,将jq对象遍历并获取值添加到每一个单元格 12345678910111213141516171819202122232425$(function() &amp;#123;	loadp();&amp;#125;);//添加json里对象信息到表格中function loadp() &amp;#123;	$.ajax(&amp;">
+<meta property="og:description" content="大概从小的湖人情结,想做个湖人球员管理系统 案例需求: 完成表格中用户信息的删除,修改和添加  获取功能 通过ajax get方式解析json文件里的对象,将jq对象遍历并获取值添加到每一个单元格 12345678910111213141516171819202122232425$(function() &amp;#123;	loadp();&amp;#125;);//添加json里对象信息到表格中functio">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://i.loli.net/2019/08/09/WcHI8Ct7A6ox1iB.jpg">
 <meta property="og:image" content="https://i.loli.net/2019/08/08/9VNZb1uzkBIsWOU.gif">
 <meta property="og:image" content="https://i.loli.net/2019/08/09/QMhcxGBwnEs39mg.gif">
 <meta property="og:image" content="https://i.loli.net/2019/08/09/KNuXJosFtkfG5Rj.gif">
-<meta property="og:updated_time" content="2019-08-08T17:32:21.263Z">
+<meta property="og:image" content="https://i.loli.net/2019/08/09/L6RtXJONcfpYFxg.gif">
+<meta property="og:updated_time" content="2019-08-09T02:27:22.499Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="基于bootstrap的球员管理系统">
-<meta name="twitter:description" content="案例需求: 完成表格中用户信息的删除和修改  获取功能 通过ajax get方式解析json文件里的对象,将jq对象遍历并获取值添加到每一个单元格 12345678910111213141516171819202122232425$(function() &amp;#123;	loadp();&amp;#125;);//添加json里对象信息到表格中function loadp() &amp;#123;	$.ajax(&amp;">
+<meta name="twitter:description" content="大概从小的湖人情结,想做个湖人球员管理系统 案例需求: 完成表格中用户信息的删除,修改和添加  获取功能 通过ajax get方式解析json文件里的对象,将jq对象遍历并获取值添加到每一个单元格 12345678910111213141516171819202122232425$(function() &amp;#123;	loadp();&amp;#125;);//添加json里对象信息到表格中functio">
 <meta name="twitter:image" content="https://i.loli.net/2019/08/09/WcHI8Ct7A6ox1iB.jpg">
 
 
@@ -315,7 +316,7 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2019-08-09T01:32:21+08:00">
+              <time title="更新于" itemprop="dateModified" datetime="2019-08-09T10:27:22+08:00">
                 2019-08-09
               </time>
             
@@ -371,8 +372,9 @@
       
 
       
-        <p>案例需求:</p>
-<p>完成表格中用户信息的删除和修改</p>
+        <p>大概从小的湖人情结,想做个湖人球员管理系统</p>
+<p>案例需求:</p>
+<p>完成表格中用户信息的删除,修改和添加</p>
 <ul>
 <li><p>获取功能</p>
 <p>通过ajax get方式解析json文件里的对象,将jq对象遍历并获取值添加到每一个单元格</p>
@@ -425,6 +427,17 @@
 <pre><code>------
 
 修改功能效果</code></pre><p><img src="https://i.loli.net/2019/08/09/KNuXJosFtkfG5Rj.gif" alt="up.gif"></p>
+<ul>
+<li><p>添加功能</p>
+<p>思路:先创建模态框,打开模态框绑定添加球员按钮的事件,给模态框里的表单里的各个元素赋值,给模态框的确认按钮赋值,创建tr对象,取出信息给每个单元格,追加到table中的子元素tr</p>
+<p>实现代码:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//添加球员信息</span></span><br><span class="line"><span class="comment">/*需求分析: 点击"添加球员"按钮,弹出添加的模态框,输入模态框的信息,将模态框的信息添加给页面*/</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">insertp</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">	$(<span class="string">"#ism"</span>).modal(<span class="string">"show"</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//将这些值赋值到页面上</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">insertM</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">	<span class="comment">//获取模态框里的表单的值</span></span><br><span class="line">	<span class="keyword">var</span> pi = $(<span class="string">"#pi1"</span>).val();</span><br><span class="line">	<span class="keyword">var</span> pname = $(<span class="string">"#pn1"</span>).val();</span><br><span class="line">	<span class="keyword">var</span> psd = $(<span class="string">"#psd1"</span>).val();</span><br><span class="line">	<span class="keyword">var</span> pim = $(<span class="string">"#pim"</span>).val();</span><br><span class="line"></span><br><span class="line">	<span class="comment">//做非空判断</span></span><br><span class="line">	<span class="keyword">if</span>(isEmpty(pname)) &#123;</span><br><span class="line">		$(<span class="string">"#upmsg2"</span>).html(<span class="string">"name error!!! input again"</span>);</span><br><span class="line">		<span class="keyword">return</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">if</span>(isEmpty(pi)) &#123;</span><br><span class="line">		$(<span class="string">"#upmsg2"</span>).html(<span class="string">"number error!!! input again"</span>);</span><br><span class="line">		<span class="keyword">return</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">if</span>(isEmpty(pim)) &#123;</span><br><span class="line">		$(<span class="string">"#upmsg2"</span>).html(<span class="string">"img error!!! input again"</span>);</span><br><span class="line">		<span class="keyword">return</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">if</span>(isEmpty(psd)) &#123;</span><br><span class="line">		$(<span class="string">"#upmsg2"</span>).html(<span class="string">"side error!!! input again"</span>);</span><br><span class="line">		<span class="keyword">return</span>;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//准备添加球员的头像地址(http://img0.imgtn.bdimg.com/it/u=1769402076,306714444&amp;fm=15&amp;gp=0.jpg)</span></span><br><span class="line">	<span class="comment">//创建tr对象,接收模态框的信息</span></span><br><span class="line">	<span class="keyword">var</span> tr = <span class="string">"&lt;tr id='tr_"</span> + pi + <span class="string">"'&gt;"</span>;</span><br><span class="line">	tr += <span class="string">"&lt;td style='font-size: 25px;'&gt;"</span> + pi + <span class="string">"&lt;/td&gt;"</span>;</span><br><span class="line">	tr += <span class="string">"&lt;td&gt;"</span> + <span class="string">"&lt;img src='"</span> + pim + <span class="string">"'&gt;"</span> + <span class="string">"&lt;/td&gt;"</span>;</span><br><span class="line">	tr += <span class="string">"&lt;td style='font-size: 25px;'&gt;"</span> + pname + <span class="string">"&lt;/td&gt;"</span>;</span><br><span class="line">	tr += <span class="string">"&lt;td style='font-size: 25px;'&gt;"</span> + psd + <span class="string">"&lt;/td&gt;"</span>;</span><br><span class="line">	tr += <span class="string">"&lt;td&gt;&lt;button onclick='updatep("</span> + pi + <span class="string">")' class='btn btn-warning btn-lg'&gt;&lt;span class='glyphicon glyphicon-pencil'&gt;&lt;/span&gt; 修改&lt;/button&gt;&amp;nbsp;"</span>;</span><br><span class="line">	tr += <span class="string">"&lt;button onclick='deletep(this,"</span> + pi + <span class="string">")' class='btn btn-danger btn-lg'&gt;&lt;span class='glyphicon glyphicon-trash'&gt;&lt;/span&gt; 删除&lt;/button&gt; &amp;nbsp;"</span>;</span><br><span class="line">	</span><br><span class="line">	<span class="comment">//将tr对象追加到table里面</span></span><br><span class="line">	$(<span class="string">"#ptab"</span>).children().append(tr);</span><br><span class="line">	<span class="comment">//关闭模态框</span></span><br><span class="line">	$(<span class="string">"#ism"</span>).modal(<span class="string">"hide"</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>添加效果</p>
+<p><img src="https://i.loli.net/2019/08/09/L6RtXJONcfpYFxg.gif" alt="in.gif"></p>
+<p>最后湖人四少添加完成,虽然阵中只剩下kuz,但希望他们变得越来越好</p>
+</li>
+</ul>
 
       
     </div>
