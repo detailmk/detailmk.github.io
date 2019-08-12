@@ -1,0 +1,945 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link href="/lib/pace/pace-theme-mac-osx.min.css?v=1.0.2" rel="stylesheet">
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="javaweb,">
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="coder--编写代码,制造魔法" type="application/atom+xml">
+
+
+
+
+
+
+<meta name="description" content="HttpServletRequest对象作用:用来接收客户端的请求信息 常用方法获取请求的完整路径  （从http开始，到?前面）*** ​        String url = request.getRequestURL() + “”; ​        System.out.println(“获取请求的完整路径： “ + url); 获取请求的部分路径  （从项目站点名开始，到?前面）***">
+<meta name="keywords" content="javaweb">
+<meta property="og:type" content="article">
+<meta property="og:title" content="web常用对象">
+<meta property="og:url" content="https://detailmk.github.io/2019/08/12/web常用对象/index.html">
+<meta property="og:site_name" content="coder--编写代码,制造魔法">
+<meta property="og:description" content="HttpServletRequest对象作用:用来接收客户端的请求信息 常用方法获取请求的完整路径  （从http开始，到?前面）*** ​        String url = request.getRequestURL() + “”; ​        System.out.println(“获取请求的完整路径： “ + url); 获取请求的部分路径  （从项目站点名开始，到?前面）***">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://i.loli.net/2019/08/12/i2IqFhnyN3o4XTO.png">
+<meta property="og:image" content="https://i.loli.net/2019/08/12/gJdZoOLmDUrKksv.jpg">
+<meta property="og:updated_time" content="2019-08-12T13:48:58.020Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="web常用对象">
+<meta name="twitter:description" content="HttpServletRequest对象作用:用来接收客户端的请求信息 常用方法获取请求的完整路径  （从http开始，到?前面）*** ​        String url = request.getRequestURL() + “”; ​        System.out.println(“获取请求的完整路径： “ + url); 获取请求的部分路径  （从项目站点名开始，到?前面）***">
+<meta name="twitter:image" content="https://i.loli.net/2019/08/12/i2IqFhnyN3o4XTO.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'detailmk'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://detailmk.github.io/2019/08/12/web常用对象/">
+
+
+
+
+
+  <title>web常用对象 | coder--编写代码,制造魔法</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">coder--编写代码,制造魔法</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">Talk is cheap. Show me the code.</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br>
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://detailmk.github.io/2019/08/12/web常用对象/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Meng Kai">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/mengkai.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="coder--编写代码,制造魔法">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">web常用对象</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-08-12T10:47:19+08:00">
+                2019-08-12
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">更新于&#58;</span>
+              
+              <time title="更新于" itemprop="dateModified" datetime="2019-08-12T21:48:58+08:00">
+                2019-08-12
+              </time>
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/前端/" itemprop="url" rel="index">
+                    <span itemprop="name">前端</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="HttpServletRequest对象"><a href="#HttpServletRequest对象" class="headerlink" title="HttpServletRequest对象"></a>HttpServletRequest对象</h2><p>作用:用来接收客户端的请求信息</p>
+<h3 id="常用方法"><a href="#常用方法" class="headerlink" title="常用方法"></a>常用方法</h3><p>获取请求的完整路径  （从http开始，到?前面）***</p>
+<p>​        String url = request.getRequestURL() + “”;</p>
+<p>​        System.out.println(“获取请求的完整路径： “ + url);</p>
+<p>获取请求的部分路径  （从项目站点名开始，到?前面）***</p>
+<p>​        String uri = request.getRequestURI();</p>
+<p>​        System.out.println(“获取请求的部分路径： “ + uri);</p>
+<p>获取请求的参数    （从?开始，到最后的字符串）</p>
+<p>​        String query = request.getQueryString();</p>
+<p>​        System.out.println(“获取请求的参数： “ + query);</p>
+<p> 获取请求类型    （GET/POST）***</p>
+<p>​        String method = request.getMethod();</p>
+<p>​        System.out.println(“获取请求类型： “ + method);</p>
+<p> 获取协议版本    （HTTP/1.1）</p>
+<p>​        String p = request.getProtocol();</p>
+<p>​        System.out.println(“获取协议版本： “ + p);</p>
+<p>​        // 获取站点名</p>
+<p>​        String web = request.getContextPath();</p>
+<p>​        System.out.println(“获取站点名： “ + web);</p>
+<p>获取指定请求头的值</p>
+<p>​        String host = request.getHeader(“host”);</p>
+<p>​        String agent = request.getHeader(“User-Agent”);</p>
+<p>​        System.out.println(host);</p>
+<p>​        System.out.println(agent);</p>
+<p> 获取所有请求头的名称集合</p>
+<p>​        Enumeration<string> enumeration = request.getHeaderNames();</string></p>
+<p>遍历</p>
+<p>​        while(enumeration.hasMoreElements()) {</p>
+<p>​            System.out.println(enumeration.nextElement());</p>
+<p>​        }</p>
+<p>获取指定名称的参数值***</p>
+<p>​        String uname = request.getParameter(“uname”);</p>
+<p>​        String upwd = request.getParameter(“upwd”);</p>
+<p>​        System.out.println(“姓名：” + uname + “，密码：” +upwd);</p>
+<p>​        </p>
+<p>获取指定名称的所有参数值***</p>
+<p>​        String[] hobbys = request.getParameterValues(“hobbys”);</p>
+<p>​        if (hobbys != null &amp;&amp; hobbys.length &gt;0) {</p>
+<p>​             for (String hobby : hobbys) {</p>
+<p>​                System.out.println(“爱好：” + hobby);</p>
+<p>​            }</p>
+<p>​        }</p>
+<p>​        </p>
+<p>获取所有的参数名</p>
+<p>​        Enumeration<string> enumeration = request.getParameterNames();</string></p>
+<p>​        while (enumeration.hasMoreElements()) {</p>
+<p>​            String string = (String) enumeration.nextElement();</p>
+<p>​            System.out.println(“参数名：” + string);</p>
+<p>​        }    </p>
+<p>获取所有参数名与参数值的map的对象</p>
+<p>​        Map&lt;String, String[]&gt; map = request.getParameterMap();</p>
+<p>​        System.out.println(map.get(“uname”)[0]);</p>
+<h3 id="乱码问题"><a href="#乱码问题" class="headerlink" title="乱码问题"></a>乱码问题</h3><ul>
+<li>原因</li>
+</ul>
+<p>由于现在的 request 属于接收客户端的参数，所以必然有其默认的语言编码。<br>主要是由于在解析过程中默认使用的编码方式为 ISO-8859-1(此编码不支持中文)，所以解析时一定会出现乱码。</p>
+<ul>
+<li>情景及解决方案</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>POST请求</th>
+<th>GET请求</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Tomcat8及以上版本</td>
+<td>乱码，要处理<br>(request.setCharacterEncoding(“UTF-8”);)</td>
+<td>不乱码，不处理</td>
+</tr>
+<tr>
+<td>Tomcat7及以下版本</td>
+<td>乱码，要处理<br>request.setCharacterEncoding(“UTF-8”);</td>
+<td>乱码，要处理<br>new String(request.getParameter(“uname”).getBytes(“IS0-8859-1”),”UTF-8”)</td>
+</tr>
+</tbody></table>
+<h3 id="请求转发"><a href="#请求转发" class="headerlink" title="请求转发"></a>请求转发</h3><ul>
+<li>请求转发，是一种服务器的行为。<br>当客户端请求到达后，服务器进行转发，此时会将请求对象进行保存，<br>地址栏中的 URL 地址不会改变，得到响应后，服务器端再将响应发送给客户端，从始至终只有一个请求发出。<br>实现方式如下，达到多个资源协同响应的效果</li>
+<li>格式：<br>request.getRequestDispatcher(“跳转的路径”).forward(request, response);</li>
+<li>特点：<ol>
+<li>服务端行为，服务端跳转</li>
+<li>地址栏不会发生改变</li>
+<li>request对象共享</li>
+</ol>
+</li>
+</ul>
+<h3 id="作用域"><a href="#作用域" class="headerlink" title="作用域"></a>作用域</h3><ul>
+<li>通过该对象可以在一个请求中传递数据，作用范围：在一次请求中有效，即 服务器跳转有效。 </li>
+<li>request.setAttribute()：设置域对象内容；request.getAttribute(String name): 获取域对象内容；request.removeAttribute(String name): 删除域对象内容. </li>
+<li>request 域对象中的数据在一次请求中有效，则经过请求转发，request 域 中的数据依然 存在，则在请求转发的过程中可以通过 request 来传输/共享数据.</li>
+</ul>
+<h2 id="HttpServletResponse-对象"><a href="#HttpServletResponse-对象" class="headerlink" title="HttpServletResponse 对象"></a>HttpServletResponse 对象</h2><p>Web 服务器收到客户端的 http 请求，会针对每一次请求，分别创建一个用 于代表请求的 request 对象和代表响应的 response 对象。<br>request 和 response 对象代表请求和响应：获取客户端数据，需要通过 request 对象；向客户端输出数据，需要通过 response 对象。 </p>
+<h3 id="常用方法-1"><a href="#常用方法-1" class="headerlink" title="常用方法"></a>常用方法</h3><h3 id="刷新和自动跳转"><a href="#刷新和自动跳转" class="headerlink" title="刷新和自动跳转"></a>刷新和自动跳转</h3><p>resp.setHeader(“refresh”,”2”);<br>response.setHeader(“refresh”,”3;URL=ok.html”); </p>
+<h3 id="数据响应–-gt-乱码解决–-gt-案例-响应图片"><a href="#数据响应–-gt-乱码解决–-gt-案例-响应图片" class="headerlink" title="数据响应–&gt;乱码解决–&gt;案例:响应图片"></a>数据响应–&gt;乱码解决–&gt;案例:响应图片</h3><ul>
+<li><p>数据响应</p>
+<p>getWriter()获取字符流(只能响应回字符)；<br>getOutputStream()获取字节流(能响应一切数据)。<br>响应回的数据到客户端被浏览器解析。<br>注意：两者不能同时使用。<br>java.lang.IllegalStateException: getWriter() has already been called for this response</p>
+</li>
+<li><p>乱码原因：</p>
+<p>服务器响应的数据也会经过网络传输，服务器端有一种编码方式，在客户端也存在一种编码方式，当两端使用的编码方式不同时则出现乱码。</p>
+<p>getWriter()的字符乱码</p>
+<p>响应中文必定出乱码，由于服务器端在进行编码时默认会使用 ISO-8859-1 格式的编码，该编码方式并不支持中文。</p>
+</li>
+<li><p>解决方案：</p>
+</li>
+</ul>
+<ol>
+<li>设置服务端编码为UTF-8    <pre><code>response.setCharacterEncoding(&quot;UTF-8&quot;);</code></pre></li>
+<li>设置客户端的编码<br> ​        response.setHeader(“content-type”, “text/html;charset=utf-8”);<br>总结：设置服务端与客户端的编码一致，且都支持中文 （这一句可代替上面两句设置）<br> ​        response.setContentType(“text/html;charset=utf-8”);</li>
+</ol>
+<h4 id="案例–-gt-响应图片"><a href="#案例–-gt-响应图片" class="headerlink" title="案例–&gt;响应图片"></a>案例–&gt;响应图片</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.io.File;</span><br><span class="line"><span class="keyword">import</span> java.io.FileInputStream;</span><br><span class="line"><span class="keyword">import</span> java.io.IOException;</span><br><span class="line"><span class="keyword">import</span> java.io.InputStream;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> javax.servlet.ServletException;</span><br><span class="line"><span class="keyword">import</span> javax.servlet.ServletOutputStream;</span><br><span class="line"><span class="keyword">import</span> javax.servlet.http.HttpServlet;</span><br><span class="line"><span class="keyword">import</span> javax.servlet.http.HttpServletRequest;</span><br><span class="line"><span class="keyword">import</span> javax.servlet.http.HttpServletResponse;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> jdk.nashorn.internal.ir.RuntimeNode.Request;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Ser05</span> <span class="keyword">extends</span> <span class="title">HttpServlet</span> </span>&#123;</span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">long</span> serialVersionUID = <span class="number">1L</span>;</span><br><span class="line">	<span class="meta">@Override</span></span><br><span class="line">	<span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">service</span><span class="params">(HttpServletRequest req, HttpServletResponse resp)</span> <span class="keyword">throws</span> ServletException, IOException </span>&#123;</span><br><span class="line">		<span class="comment">/*</span></span><br><span class="line"><span class="comment">		 * 1、获取项目存放在服务器中的真实路径 request.getServletContext().getRealPath("/");</span></span><br><span class="line"><span class="comment">		 * 2、获取图片的路径 </span></span><br><span class="line"><span class="comment">		 3、通过路径得到file对象 </span></span><br><span class="line"><span class="comment">		 4、判断file对象是否存在，且是一个标准文件 </span></span><br><span class="line"><span class="comment">		 5、得到文件的输入流 </span></span><br><span class="line"><span class="comment">		 6、得到字节输出流</span></span><br><span class="line"><span class="comment">		 * 7、输出文件 </span></span><br><span class="line"><span class="comment">		 8、关闭资源</span></span><br><span class="line"><span class="comment">		 */</span></span><br><span class="line">		String rp = req.getServletContext().getRealPath(<span class="string">"/"</span>);</span><br><span class="line">		System.out.println(rp);</span><br><span class="line">		String fp = rp + <span class="string">"WEB-INF/image/kobe.png"</span>;</span><br><span class="line">		System.out.println(fp);</span><br><span class="line">		File fi = <span class="keyword">new</span> File(fp);</span><br><span class="line">		<span class="keyword">if</span> (fi.exists() &amp;&amp; fi.isFile()) &#123;</span><br><span class="line">			InputStream is = <span class="keyword">new</span> FileInputStream(fi);</span><br><span class="line">			resp.setContentType(<span class="string">"image/png"</span>);</span><br><span class="line">			ServletOutputStream sos = resp.getOutputStream();</span><br><span class="line">			<span class="keyword">byte</span>[] car=<span class="keyword">new</span> <span class="keyword">byte</span>[<span class="number">1024</span>];</span><br><span class="line">			<span class="keyword">int</span> len=<span class="number">0</span>;</span><br><span class="line">			<span class="keyword">while</span>((len=is.read(car))!=-<span class="number">1</span>)&#123;</span><br><span class="line">				sos.write(car, <span class="number">0</span>, len);</span><br><span class="line">			&#125;</span><br><span class="line">			sos.close();</span><br><span class="line">			is.close();</span><br><span class="line">		&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">			resp.setContentType(<span class="string">"text/html;charset=UTF-8"</span>);</span><br><span class="line">			resp.getWriter().write(<span class="string">"&lt;h2&gt;文件不存在！&lt;/h2&gt;"</span>);</span><br><span class="line">			resp.getWriter().close();</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>测试效果</p>
+<p><img src="https://i.loli.net/2019/08/12/i2IqFhnyN3o4XTO.png" alt="mk.PNG"></p>
+<h4 id="重定向"><a href="#重定向" class="headerlink" title="重定向***"></a>重定向***</h4><ul>
+<li><p>重定向是一种服务器指导，客户端的行为。</p>
+</li>
+<li><p>客户端发出第一个请求，被服务器接收，经过处理服务器进行响应，与此同时，服务器给客户端一个地址（下次请求的地址 resp.sendRedirect(“url”);），当客户端接收到响应后，立刻、马上、自动根据服务器 给的地址进行请求的发送第二个请求，服务器接收请求并作出响应，重定向完成。</p>
+</li>
+<li><p>特点：</p>
+<ol>
+<li>客户端跳转</li>
+<li>地址栏会发生改变</li>
+<li>request对象不共享</li>
+</ol>
+</li>
+</ul>
+<p>案例</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Ser06</span> <span class="keyword">extends</span> <span class="title">HttpServlet</span> </span>&#123;</span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">long</span> serialVersionUID = <span class="number">1L</span>;</span><br><span class="line"></span><br><span class="line">	<span class="comment">/**</span></span><br><span class="line"><span class="comment">	 * <span class="doctag">@see</span> HttpServlet#service(HttpServletRequest request, HttpServletResponse response)</span></span><br><span class="line"><span class="comment">	 */</span></span><br><span class="line">	<span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">service</span><span class="params">(HttpServletRequest request, HttpServletResponse response)</span> <span class="keyword">throws</span> ServletException, IOException </span>&#123;</span><br><span class="line">		System.out.println(<span class="string">"s6-----"</span>);</span><br><span class="line">		System.out.println(<span class="string">"name: "</span>+request.getParameter(<span class="string">"name"</span>));</span><br><span class="line">		request.setAttribute(<span class="string">"username"</span>, <span class="string">"superadmin"</span>);</span><br><span class="line">		request.getRequestDispatcher(<span class="string">"s7"</span>).forward(request, response);;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Ser07</span> <span class="keyword">extends</span> <span class="title">HttpServlet</span> </span>&#123;</span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">long</span> serialVersionUID = <span class="number">1L</span>;</span><br><span class="line"></span><br><span class="line">	<span class="comment">/**</span></span><br><span class="line"><span class="comment">	 * <span class="doctag">@see</span> HttpServlet#service(HttpServletRequest request, HttpServletResponse response)</span></span><br><span class="line"><span class="comment">	 */</span></span><br><span class="line">	<span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">service</span><span class="params">(HttpServletRequest request, HttpServletResponse response)</span> <span class="keyword">throws</span> ServletException, IOException </span>&#123;</span><br><span class="line">		System.out.println(<span class="string">"s7----"</span>);</span><br><span class="line">		System.out.println(<span class="string">"name: "</span>+request.getParameter(<span class="string">"name"</span>));</span><br><span class="line">		System.out.println(request.getAttribute(<span class="string">"username"</span>));</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>测试结果</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">s6-----</span><br><span class="line">name: mk</span><br><span class="line">s7----</span><br><span class="line">name: mk</span><br><span class="line">superadmin</span><br></pre></td></tr></table></figure>
+
+<h3 id="请求转发和重定向区别"><a href="#请求转发和重定向区别" class="headerlink" title="请求转发和重定向区别***"></a>请求转发和重定向区别***</h3><ol>
+<li>请求转发是服务端跳转，重定向是客户端跳转</li>
+<li>请求转发时地址栏不发生改变，重定向时地址栏发生改变</li>
+<li>请求转发时request对象共享，重定向时request对象不共享 </li>
+<li>请求转发的地址只能在当前站点下，重定向的地址可以是任意路径</li>
+<li>请求转发时request作用域有效，重定向时request域对象无效</li>
+</ol>
+<h2 id="cookie"><a href="#cookie" class="headerlink" title="cookie"></a>cookie</h2><h3 id="创建和发送"><a href="#创建和发送" class="headerlink" title="创建和发送"></a>创建和发送</h3><p>new Cookie(name, value)创建Cookie</p>
+<p>addCookie(cookie):将cookie对象添加到响应对象进行发送</p>
+<h3 id="获取"><a href="#获取" class="headerlink" title="获取"></a>获取</h3><p>getCookies()的方法用来获取客户端回传的所有 cookie 组成的一个数组，</p>
+<p>如果需要获取单个 cookie 则需要通过遍历，</p>
+<p>getName()获取 Cookie 的名称，getValue()获取 Cookie 的值。</p>
+<p>案例–测试cookie创建发送获取</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Ser08</span> <span class="keyword">extends</span> <span class="title">HttpServlet</span> </span>&#123;</span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">long</span> serialVersionUID = <span class="number">1L</span>;</span><br><span class="line"></span><br><span class="line">	<span class="comment">/**</span></span><br><span class="line"><span class="comment">	 * <span class="doctag">@see</span> HttpServlet#service(HttpServletRequest request, HttpServletResponse response)</span></span><br><span class="line"><span class="comment">	 */</span></span><br><span class="line">	<span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">service</span><span class="params">(HttpServletRequest request, HttpServletResponse response)</span> <span class="keyword">throws</span> ServletException, IOException </span>&#123;</span><br><span class="line">		response.setContentType(<span class="string">"text/html;charset=utf-8"</span>);</span><br><span class="line">		Cookie co=<span class="keyword">new</span> Cookie(<span class="string">"future"</span>, <span class="string">"a"</span>);</span><br><span class="line">		Cookie co1=<span class="keyword">new</span> Cookie(<span class="string">"future2"</span>, <span class="string">"b"</span>);</span><br><span class="line">		Cookie co2=<span class="keyword">new</span> Cookie(<span class="string">"future3"</span>, <span class="string">"c"</span>);</span><br><span class="line">		response.addCookie(co);</span><br><span class="line">		response.addCookie(co1);</span><br><span class="line">		response.addCookie(co2);</span><br><span class="line">		<span class="comment">//获取cookie</span></span><br><span class="line">		Cookie[] coo=request.getCookies();</span><br><span class="line">		<span class="keyword">if</span>(coo!=<span class="keyword">null</span>&amp;&amp;coo.length!=<span class="number">0</span>)&#123;</span><br><span class="line">			<span class="keyword">for</span>(Cookie cook:coo)&#123;</span><br><span class="line">				System.out.println(cook.getName());</span><br><span class="line">				System.out.println(cook.getValue());</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		PrintWriter pw=response.getWriter();</span><br><span class="line">		pw.write(<span class="string">"&lt;h1&gt;幸运曲奇&lt;/h1&gt;"</span>);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>测试结果</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">future</span><br><span class="line">a</span><br><span class="line">future2</span><br><span class="line">b</span><br><span class="line">future3</span><br><span class="line">c</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://i.loli.net/2019/08/12/gJdZoOLmDUrKksv.jpg" alt="cookie.JPG"></p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/javaweb/" rel="tag"># javaweb</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/08/11/xml和servlet/" rel="next" title="xml和servlet">
+                <i class="fa fa-chevron-left"></i> xml和servlet
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/mengkai.jpg" alt="Meng Kai">
+            
+              <p class="site-author-name" itemprop="name">Meng Kai</p>
+              <p class="site-description motion-element" itemprop="description">孟凯个人站主要涉及java开发基础知识</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">35</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+
+          
+          
+
+          
+          
+          <div id="music163player">
+         <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="330" height="86" src="//music.163.com/outchain/player?type=2&id=415786851&auto=1&height=66"></iframe>
+         </div>
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#HttpServletRequest对象"><span class="nav-number">1.</span> <span class="nav-text">HttpServletRequest对象</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#常用方法"><span class="nav-number">1.1.</span> <span class="nav-text">常用方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#乱码问题"><span class="nav-number">1.2.</span> <span class="nav-text">乱码问题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#请求转发"><span class="nav-number">1.3.</span> <span class="nav-text">请求转发</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#作用域"><span class="nav-number">1.4.</span> <span class="nav-text">作用域</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#HttpServletResponse-对象"><span class="nav-number">2.</span> <span class="nav-text">HttpServletResponse 对象</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#常用方法-1"><span class="nav-number">2.1.</span> <span class="nav-text">常用方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#刷新和自动跳转"><span class="nav-number">2.2.</span> <span class="nav-text">刷新和自动跳转</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#数据响应–-gt-乱码解决–-gt-案例-响应图片"><span class="nav-number">2.3.</span> <span class="nav-text">数据响应–&gt;乱码解决–&gt;案例:响应图片</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#案例–-gt-响应图片"><span class="nav-number">2.3.1.</span> <span class="nav-text">案例–&gt;响应图片</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#重定向"><span class="nav-number">2.3.2.</span> <span class="nav-text">重定向***</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#请求转发和重定向区别"><span class="nav-number">2.4.</span> <span class="nav-text">请求转发和重定向区别***</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#cookie"><span class="nav-number">3.</span> <span class="nav-text">cookie</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#创建和发送"><span class="nav-number">3.1.</span> <span class="nav-text">创建和发送</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#获取"><span class="nav-number">3.2.</span> <span class="nav-text">获取</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Meng Kai</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/three/three.min.js"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/three/canvas_lines.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+  <script type="text/javascript" src="/js/src/js.cookie.js?v=5.1.4"></script>
+  <script type="text/javascript" src="/js/src/scroll-cookie.js?v=5.1.4"></script>
+
+
+  
+
+</body>
+</html>
