@@ -96,12 +96,12 @@
 <meta property="og:site_name" content="coder--编写代码,制造魔法">
 <meta property="og:description" content="sessionSession的作用Session 的作用就是为了标识一次会话，或者说确认一个用户；并且在一次会话（一个用户的多次请求）期间共享数据。 Session的获取通过 request.getSession()方法，来获取当前会话的 session 对象。 Session的方法获取会话标识符、获取创建时间、获取最后一次访问时间、判断是否是新的会话 作用域对象***Session 用来表示一次">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="https://detailmk.github.io/2019/08/13/session/F:%5Cmyblog%5Cdetailmk%5Csource_posts%5Csession%5Cload.PNG">
-<meta property="og:updated_time" content="2019-08-13T13:26:44.849Z">
+<meta property="og:image" content="https://i.loli.net/2019/08/14/42brJx9uVWqCfnE.png">
+<meta property="og:updated_time" content="2019-08-14T13:07:22.601Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="session">
 <meta name="twitter:description" content="sessionSession的作用Session 的作用就是为了标识一次会话，或者说确认一个用户；并且在一次会话（一个用户的多次请求）期间共享数据。 Session的获取通过 request.getSession()方法，来获取当前会话的 session 对象。 Session的方法获取会话标识符、获取创建时间、获取最后一次访问时间、判断是否是新的会话 作用域对象***Session 用来表示一次">
-<meta name="twitter:image" content="https://detailmk.github.io/2019/08/13/session/F:%5Cmyblog%5Cdetailmk%5Csource_posts%5Csession%5Cload.PNG">
+<meta name="twitter:image" content="https://i.loli.net/2019/08/14/42brJx9uVWqCfnE.png">
 
 
 
@@ -319,8 +319,8 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2019-08-13T21:26:44+08:00">
-                2019-08-13
+              <time title="更新于" itemprop="dateModified" datetime="2019-08-14T21:07:22+08:00">
+                2019-08-14
               </time>
             
           </span>
@@ -384,7 +384,7 @@
 <h2 id="文件上传和下载"><a href="#文件上传和下载" class="headerlink" title="文件上传和下载"></a>文件上传和下载</h2><h3 id="案例–-gt-文件下载"><a href="#案例–-gt-文件下载" class="headerlink" title="案例–&gt;文件下载***"></a>案例–&gt;文件下载***</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Uploadf</span> <span class="keyword">extends</span> <span class="title">HttpServlet</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">	<span class="meta">@Override</span></span><br><span class="line">	<span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">service</span><span class="params">(HttpServletRequest req, HttpServletResponse resp)</span> <span class="keyword">throws</span> ServletException, IOException </span>&#123;</span><br><span class="line">		<span class="comment">//设置编码格式</span></span><br><span class="line">		req.setCharacterEncoding(<span class="string">"utf-8"</span>);</span><br><span class="line">		<span class="comment">//得到下载的文件名</span></span><br><span class="line">		String fname=req.getParameter(<span class="string">"fname"</span>);</span><br><span class="line">		<span class="comment">//得到存放路径</span></span><br><span class="line">		String realPath = req.getServletContext().getRealPath(<span class="string">"/upload/"</span>);</span><br><span class="line">		<span class="comment">// 文件路径</span></span><br><span class="line">		String filePath = realPath + fname;</span><br><span class="line">		System.out.println(filePath);</span><br><span class="line">		<span class="comment">// 通过路径得到file对象</span></span><br><span class="line">		File file = <span class="keyword">new</span> File(filePath);</span><br><span class="line">		<span class="comment">//查看文件是否存在</span></span><br><span class="line">		<span class="keyword">if</span>(file.isFile())&#123;</span><br><span class="line">			<span class="comment">// 为浏览器无法使用某种方式或激活某个程序来处理的 MIME 类型</span></span><br><span class="line">			resp.setContentType(<span class="string">"application/x-msdownload"</span>);</span><br><span class="line">			<span class="comment">//设置 Content-Disposition头</span></span><br><span class="line">			resp.setHeader(<span class="string">"Content-Disposition"</span>, <span class="string">"attachment;filename="</span> + fname);</span><br><span class="line">			<span class="comment">//得到文件输入流</span></span><br><span class="line">			InputStream is = <span class="keyword">new</span> FileInputStream(file);</span><br><span class="line">			<span class="comment">//得到输出流</span></span><br><span class="line">			ServletOutputStream sos = resp.getOutputStream();</span><br><span class="line">			<span class="comment">//读出请求,响应写出</span></span><br><span class="line">			<span class="keyword">byte</span>[] car=<span class="keyword">new</span> <span class="keyword">byte</span>[<span class="number">1024</span>];</span><br><span class="line">			<span class="keyword">int</span> len=<span class="number">0</span>;</span><br><span class="line">			<span class="keyword">while</span>((len=is.read(car))!=-<span class="number">1</span>)&#123;</span><br><span class="line">				sos.write(car, <span class="number">0</span>, len);</span><br><span class="line">			&#125;</span><br><span class="line">			sos.close();</span><br><span class="line">			is.close();</span><br><span class="line">		&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">			System.out.println(<span class="string">"no"</span>);</span><br><span class="line">		&#125;</span><br><span class="line">				</span><br><span class="line">		&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p>测试效果</p>
-<p><img src="//detailmk.github.io/2019/08/13/session/F:%5Cmyblog%5Cdetailmk%5Csource_posts%5Csession%5Cload.PNG" alt></p>
+<p><img src="https://i.loli.net/2019/08/14/42brJx9uVWqCfnE.png" alt="load.PNG"></p>
 <h2 id="过滤器"><a href="#过滤器" class="headerlink" title="过滤器"></a>过滤器</h2><p>实现流程：<br>1、创建普通java类<br>2、实现javax.servlet.Filter的接口，并实现对应的方法<br>3、配置web.xml</p>
 <p>doFilter()<br>    处理请求<br>        chain.doFilter()才能放行资源；<br>        写在前面的是处理请求数据，写在后面是处理响应数据</p>
 
@@ -508,7 +508,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">37</span>
+                  <span class="site-state-item-count">38</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
