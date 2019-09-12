@@ -96,7 +96,7 @@
 <meta property="og:site_name" content="coder--编写代码,制造魔法">
 <meta property="og:description" content="定义:  MyBatis是一个支持普通SQL查询，存储过程和高级映射的优秀持久层框架。MyBatis消除了几乎所有的JDBC代码和参数的手工设置以及对结果集的检索封装。MyBatis可以使用简单的XML或注解用于配置和原始映射，将接口和Java的POJO（Plain Old Java Objects，普通的Java对象）映射成数据库中的记录。  优势:  更加简化jdbc代码，简化持久层，sql">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-09-10T13:54:01.859Z">
+<meta property="og:updated_time" content="2019-09-11T11:20:02.562Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="mybatis">
 <meta name="twitter:description" content="定义:  MyBatis是一个支持普通SQL查询，存储过程和高级映射的优秀持久层框架。MyBatis消除了几乎所有的JDBC代码和参数的手工设置以及对结果集的检索封装。MyBatis可以使用简单的XML或注解用于配置和原始映射，将接口和Java的POJO（Plain Old Java Objects，普通的Java对象）映射成数据库中的记录。  优势:  更加简化jdbc代码，简化持久层，sql">
@@ -317,8 +317,8 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2019-09-10T21:54:01+08:00">
-                2019-09-10
+              <time title="更新于" itemprop="dateModified" datetime="2019-09-11T19:20:02+08:00">
+                2019-09-11
               </time>
             
           </span>
@@ -394,6 +394,111 @@
 <p>接口sql注解配置</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">IAccountDao</span> </span>&#123;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="meta">@Select</span>(<span class="string">"select id,aname,type,money,user_id as userId,create_time as createTime,update_time as updateTime,remark"</span> +</span><br><span class="line">            <span class="string">" from account where id=#&#123;aid&#125;"</span>)</span><br><span class="line">    <span class="function"><span class="keyword">public</span> Account <span class="title">queryAccountByAccountId</span><span class="params">(<span class="keyword">int</span> aid)</span></span>;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="meta">@SelectProvider</span>(type = AccountProvider.class,method = <span class="string">"queryAccountsByParamsSql"</span>)</span><br><span class="line">    <span class="function"><span class="keyword">public</span> List&lt;Account&gt; <span class="title">queryAccountsByParams</span><span class="params">(AccountQuery accountQuery)</span></span>;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="meta">@Delete</span>(<span class="string">"delete from account where id=#&#123;id&#125;"</span>)</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">deleteAccountById</span><span class="params">(<span class="keyword">int</span> id)</span></span>;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="meta">@Update</span>(<span class="string">"update account set aname=#&#123;aname&#125;,type=#&#123;type&#125;  where id=#&#123;id&#125;"</span>)</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span>  <span class="title">updateAccountById</span><span class="params">(Account account)</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
+<ul>
+<li>动态sql</li>
+</ul>
+<p>XML 配置</p>
+<p>if 标签  </p>
+<p>​     test 属性 表达式判断</p>
+<p>where</p>
+<p>​     结果过滤标签</p>
+<p>choose  when otherwise</p>
+<p>​      开关语句   根据when test 判断表达式 对结果返回|过滤 </p>
+<p>trim</p>
+<p>​    可以实现where 类似的功能  也可以用于 添加  values () 控制</p>
+<p>Set </p>
+<p>   用于更新  结合if 标签使用</p>
+<p>foreach</p>
+<p>用于批量操作  添加|更新|删除</p>
+<p>注解</p>
+<p>   @Select   </p>
+<p>   @Insert</p>
+<p>  @Update</p>
+<p>   @Delete  </p>
+<p>动态SQL 提供 使用一下注解(type   method)</p>
+<p>   @SelectProvider</p>
+<p>   @InsertProvider</p>
+<p>   @UpdateProvider</p>
+<p>   @DeleteProvider</p>
+<ul>
+<li>Mybatis 关系映射查询</li>
+</ul>
+<p>实体与实体间的对应关系(站内信 )</p>
+<p>​    一对一(主外键):</p>
+<p>​          用户-身份证</p>
+<p>​         用户-购物车</p>
+<p>​         班级-班长</p>
+<p>​         学校-校长</p>
+<p>   一对多(主外键): </p>
+<p>​        用户-订单</p>
+<p>​        用户-账户</p>
+<p>​        用户-房子</p>
+<p>​    多对多(拆分为一对多  主表-中间表):</p>
+<p>​         用户-角色</p>
+<p>​         学生-课程</p>
+<p>​         教师-课程</p>
+<ul>
+<li><p>一对一关系映射查询</p>
+</li>
+<li><p>ResultType</p>
+</li>
+</ul>
+<p>​    声明接口方法  </p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> Map&lt;String,Object&gt; <span class="title">queryUserIdCardInfoByUserIdResultType</span><span class="params">(Integer userId)</span></span>;</span><br></pre></td></tr></table></figure>
+
+<p>​    xml </p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!--</span></span><br><span class="line"><span class="comment">   一对一关系映射查询  ResultType 实现</span></span><br><span class="line"><span class="comment">--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">select</span> <span class="attr">id</span>=<span class="string">"queryUserIdCardInfoByUserIdResultType"</span> <span class="attr">parameterType</span>=<span class="string">"int"</span> <span class="attr">resultType</span>=<span class="string">"map"</span>&gt;</span></span><br><span class="line">    select u.*,i.num</span><br><span class="line">    from user u left join  id_card i on u.id=i.user_id</span><br><span class="line">    where u.id=#&#123;userId&#125;</span><br><span class="line"><span class="tag">&lt;/<span class="name">select</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>ResultMap</li>
+</ul>
+<p>​    声明接口方法</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> User <span class="title">queryUserIdCardInfoByUserIdResultMap</span><span class="params">(Integer userId)</span></span>;</span><br></pre></td></tr></table></figure>
+
+<p>实体间关系对应</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">User</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> Integer id;</span><br><span class="line">    <span class="keyword">private</span> String userName;</span><br><span class="line">    <span class="keyword">private</span> String userPwd;</span><br><span class="line">    <span class="keyword">private</span> Integer flag;</span><br><span class="line">    <span class="keyword">private</span> Date createTime;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> IdCard idCard;<span class="comment">// 一对一</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">IdCard</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> Integer id;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> String num;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> Integer userId;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> User user;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>xml 配置</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!--</span></span><br><span class="line"><span class="comment">    一对一关系映射查询  ResultMap 实现</span></span><br><span class="line"><span class="comment"> --&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">resultMap</span> <span class="attr">id</span>=<span class="string">"userIdCardMap"</span> <span class="attr">type</span>=<span class="string">"User"</span>&gt;</span></span><br><span class="line">       <span class="comment">&lt;!--</span></span><br><span class="line"><span class="comment">          id 标签配置user 表记录 到User 对象唯一标识 通常为主键的映射配置</span></span><br><span class="line"><span class="comment">       --&gt;</span></span><br><span class="line">       <span class="tag">&lt;<span class="name">id</span> <span class="attr">column</span>=<span class="string">"id"</span> <span class="attr">property</span>=<span class="string">"id"</span>&gt;</span><span class="tag">&lt;/<span class="name">id</span>&gt;</span></span><br><span class="line">       <span class="tag">&lt;<span class="name">result</span> <span class="attr">column</span>=<span class="string">"user_name"</span> <span class="attr">property</span>=<span class="string">"userName"</span>&gt;</span><span class="tag">&lt;/<span class="name">result</span>&gt;</span></span><br><span class="line">       <span class="tag">&lt;<span class="name">result</span> <span class="attr">column</span>=<span class="string">"user_pwd"</span> <span class="attr">property</span>=<span class="string">"userPwd"</span>&gt;</span><span class="tag">&lt;/<span class="name">result</span>&gt;</span></span><br><span class="line">       <span class="tag">&lt;<span class="name">result</span> <span class="attr">column</span>=<span class="string">"flag"</span> <span class="attr">property</span>=<span class="string">"flag"</span>&gt;</span><span class="tag">&lt;/<span class="name">result</span>&gt;</span></span><br><span class="line">       <span class="tag">&lt;<span class="name">result</span> <span class="attr">column</span>=<span class="string">"create_time"</span> <span class="attr">property</span>=<span class="string">"createTime"</span>&gt;</span><span class="tag">&lt;/<span class="name">result</span>&gt;</span></span><br><span class="line">       <span class="comment">&lt;!--</span></span><br><span class="line"><span class="comment">          一对一映射association标签配置</span></span><br><span class="line"><span class="comment">       --&gt;</span></span><br><span class="line">       <span class="tag">&lt;<span class="name">association</span> <span class="attr">property</span>=<span class="string">"idCard"</span> <span class="attr">javaType</span>=<span class="string">"IdCard"</span>&gt;</span></span><br><span class="line">           <span class="comment">&lt;!--</span></span><br><span class="line"><span class="comment">              从表记录映射配置</span></span><br><span class="line"><span class="comment">                id 标签配置id_card 表记录 到IdCard 对象唯一标识 通常为主键的映射配置</span></span><br><span class="line"><span class="comment">           --&gt;</span></span><br><span class="line">           <span class="tag">&lt;<span class="name">id</span> <span class="attr">column</span>=<span class="string">"cid"</span> <span class="attr">property</span>=<span class="string">"id"</span>&gt;</span><span class="tag">&lt;/<span class="name">id</span>&gt;</span></span><br><span class="line">           <span class="tag">&lt;<span class="name">result</span> <span class="attr">column</span>=<span class="string">"num"</span> <span class="attr">property</span>=<span class="string">"num"</span>&gt;</span><span class="tag">&lt;/<span class="name">result</span>&gt;</span></span><br><span class="line">       <span class="tag">&lt;/<span class="name">association</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;/<span class="name">resultMap</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>一对多关系映射查询</p>
+</li>
+<li><p>ResultMap</p>
+</li>
+</ul>
+<p>声明接口方法</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> User  <span class="title">queryUserAccountsInfoByUserIdResultMap</span><span class="params">(Integer userId)</span></span>;</span><br></pre></td></tr></table></figure>
+
+<p>实体间对应关系配置</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">User</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> Integer id;</span><br><span class="line">    <span class="keyword">private</span> String userName;</span><br><span class="line">    <span class="keyword">private</span> String userPwd;</span><br><span class="line">    <span class="keyword">private</span> Integer flag;</span><br><span class="line">    <span class="keyword">private</span> Date createTime;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> IdCard idCard;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> List&lt;Account&gt; accounts;<span class="comment">// 一对多</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Account</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> Integer id;</span><br><span class="line">    <span class="keyword">private</span> String aname;</span><br><span class="line">    <span class="keyword">private</span> String remark;</span><br><span class="line">    <span class="keyword">private</span> Integer type;</span><br><span class="line">    <span class="keyword">private</span> BigDecimal money;</span><br><span class="line">    <span class="keyword">private</span> Date createTime;</span><br><span class="line">    <span class="keyword">private</span> Date updateTime;</span><br><span class="line">    <span class="keyword">private</span> Integer userId;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> User user;<span class="comment">// 多对一</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>xml 配置</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">resultMap</span> <span class="attr">id</span>=<span class="string">"userAccountsMap"</span> <span class="attr">type</span>=<span class="string">"User"</span>&gt;</span></span><br><span class="line">        <span class="comment">&lt;!--</span></span><br><span class="line"><span class="comment">          id 标签配置user 表记录 到User 对象唯一标识 通常为主键的映射配置</span></span><br><span class="line"><span class="comment">       --&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">id</span> <span class="attr">column</span>=<span class="string">"id"</span> <span class="attr">property</span>=<span class="string">"id"</span>&gt;</span><span class="tag">&lt;/<span class="name">id</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">result</span> <span class="attr">column</span>=<span class="string">"user_name"</span> <span class="attr">property</span>=<span class="string">"userName"</span>&gt;</span><span class="tag">&lt;/<span class="name">result</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">result</span> <span class="attr">column</span>=<span class="string">"user_pwd"</span> <span class="attr">property</span>=<span class="string">"userPwd"</span>&gt;</span><span class="tag">&lt;/<span class="name">result</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">result</span> <span class="attr">column</span>=<span class="string">"flag"</span> <span class="attr">property</span>=<span class="string">"flag"</span>&gt;</span><span class="tag">&lt;/<span class="name">result</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">result</span> <span class="attr">column</span>=<span class="string">"create_time"</span> <span class="attr">property</span>=<span class="string">"createTime"</span>&gt;</span><span class="tag">&lt;/<span class="name">result</span>&gt;</span></span><br><span class="line"></span><br><span class="line">        <span class="comment">&lt;!--</span></span><br><span class="line"><span class="comment">          一对多标签配置 collection</span></span><br><span class="line"><span class="comment">              property:多的一方属性名</span></span><br><span class="line"><span class="comment">              ofType:accounts集合中元素的类型</span></span><br><span class="line"><span class="comment">        --&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">collection</span> <span class="attr">property</span>=<span class="string">"accounts"</span>  <span class="attr">ofType</span>=<span class="string">"Account"</span>&gt;</span></span><br><span class="line">            <span class="comment">&lt;!--从表记录映射配置</span></span><br><span class="line"><span class="comment">            id 标签配置account 表记录 到Account 对象唯一标识 通常为主键的映射配置--&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">id</span> <span class="attr">column</span>=<span class="string">"aid"</span> <span class="attr">property</span>=<span class="string">"id"</span>&gt;</span><span class="tag">&lt;/<span class="name">id</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">result</span> <span class="attr">column</span>=<span class="string">"aname"</span> <span class="attr">property</span>=<span class="string">"aname"</span>&gt;</span><span class="tag">&lt;/<span class="name">result</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">result</span> <span class="attr">column</span>=<span class="string">"type"</span> <span class="attr">property</span>=<span class="string">"type"</span>&gt;</span><span class="tag">&lt;/<span class="name">result</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">result</span> <span class="attr">column</span>=<span class="string">"money"</span> <span class="attr">property</span>=<span class="string">"money"</span>&gt;</span><span class="tag">&lt;/<span class="name">result</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">result</span> <span class="attr">column</span>=<span class="string">"ctime"</span> <span class="attr">property</span>=<span class="string">"createTime"</span>&gt;</span><span class="tag">&lt;/<span class="name">result</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">result</span> <span class="attr">column</span>=<span class="string">"utime"</span> <span class="attr">property</span>=<span class="string">"updateTime"</span>&gt;</span><span class="tag">&lt;/<span class="name">result</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">result</span> <span class="attr">column</span>=<span class="string">"remark"</span> <span class="attr">property</span>=<span class="string">"remark"</span>&gt;</span><span class="tag">&lt;/<span class="name">result</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">collection</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">resultMap</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">select</span> <span class="attr">id</span>=<span class="string">"queryUserAccountsInfoByUserIdResultMap"</span> <span class="attr">resultMap</span>=<span class="string">"userAccountsMap"</span>&gt;</span></span><br><span class="line">        SELECT</span><br><span class="line">            u.*,</span><br><span class="line">            a.id AS aid,</span><br><span class="line">            a.aname,</span><br><span class="line">            a.type,</span><br><span class="line">            a.money,</span><br><span class="line">            a.create_time AS ctime,</span><br><span class="line">            a.update_time AS utime,</span><br><span class="line">            a.remark</span><br><span class="line">        FROM</span><br><span class="line">            USER u</span><br><span class="line">        LEFT JOIN account a ON u.id = a.user_id</span><br><span class="line">        WHERE</span><br><span class="line">            u.id = #&#123;userId&#125;</span><br><span class="line">    <span class="tag">&lt;/<span class="name">select</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>多对多关系映射查询</li>
+</ul>
+<p>​    一对多实现</p>
+<ul>
+<li><p>Mybatis 缓存(熟悉)</p>
+<p> 缓存:目的–&gt;提高应用程序查询效率</p>
+</li>
+</ul>
+<p>一级缓存:同一个SqlSession 默认存在一级缓存   默认开启 (基于内存)</p>
+<p>​      session 关闭|调用清空缓存方法(clearCache)  一级缓存数据被清空</p>
+<p>二级缓存:同一个namespace  默认不开启 如果使用二级缓存  需要手动开启 (内存+磁盘)</p>
+<p>Mybatis 缓存数据的查找顺序?   从小到大</p>
+<p>​    先从一级缓存查找 </p>
+<p>​        未找到   到二级缓存查找</p>
+<p>​       未找到   到数据库查找</p>
+<p>实现：  </p>
+<p>​    框架实现</p>
+<p>​     第三方实现(Ehcache):存储的数据结构有限(JavaBean   List  Map )  </p>
+<p>​    Memcached  基于key-value 实现</p>
+<p>​    Redis 支持的数据结构更灵活(String   List    Set  Hash) </p>
+<p>什么样的数据适合做二级缓存?</p>
+<p>​      变化频率不高的数据适合做二级缓存? (省市县数据   常量数据   商品详情 )</p>
 
       
     </div>
@@ -433,6 +538,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/09/11/mybatis红包/" rel="prev" title="mybatis红包">
+                mybatis红包 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -502,7 +611,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">43</span>
+                  <span class="site-state-item-count">44</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
