@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://detailmk.github.io/"/>
-  <updated>2019-09-17T10:46:05.166Z</updated>
+  <updated>2019-09-30T07:37:44.215Z</updated>
   <id>https://detailmk.github.io/</id>
   
   <author>
@@ -15,6 +15,29 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>ssm项目笔记</title>
+    <link href="https://detailmk.github.io/2019/09/26/ssm%E6%A1%86%E6%9E%B6-%E5%AE%A2%E6%88%B7%E5%85%B3%E7%B3%BB%E5%90%8E%E5%8F%B0%E7%AE%A1%E7%90%86%E7%B3%BB%E7%BB%9F/"/>
+    <id>https://detailmk.github.io/2019/09/26/ssm框架-客户关系后台管理系统/</id>
+    <published>2019-09-26T10:49:45.000Z</published>
+    <updated>2019-09-30T07:37:44.215Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="ssm框架-客户关系后台管理系统"><a href="#ssm框架-客户关系后台管理系统" class="headerlink" title="ssm框架-客户关系后台管理系统"></a>ssm框架-客户关系后台管理系统</h1><h2 id="项目开始"><a href="#项目开始" class="headerlink" title="项目开始"></a>项目开始</h2><p>导入表</p><p>搭建环境</p><p>项目分层</p><p>测试是否正确显示</p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Controller</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MainController</span> </span>&#123;</span><br><span class="line">    <span class="meta">@RequestMapping</span>(<span class="string">"main"</span>)</span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">index</span><span class="params">(HttpServletRequest request)</span></span>&#123;</span><br><span class="line">        request.setAttribute(<span class="string">"ctx"</span>, request.getContextPath());<span class="comment">// 当前项目路径</span></span><br><span class="line">        <span class="keyword">return</span> <span class="string">"main"</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h2 id="用户模块"><a href="#用户模块" class="headerlink" title="用户模块"></a>用户模块</h2><h3 id="登录功能"><a href="#登录功能" class="headerlink" title="登录功能"></a>登录功能</h3><ul><li>流程:<ul><li>后台</li></ul></li></ul><ol><li><p>输入用户名密码 发送请求 </p></li><li><p>后台接收参数校验(非空校验和唯一性校验)</p></li><li><p>通过用户名查询用户,查看密码是否匹配</p></li><li><p>返回登录结果 前台接收信息</p><ul><li>前台</li></ul></li><li><p>引入jq,js</p></li><li><p>前台获取表单参数</p></li><li><p>校验参数非空</p></li><li><p>发送ajax请求</p></li></ol><p>登录后台userService代码优化</p><p>—-&gt;通过assertutil工具类抛异常简化业务层代码</p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">AssertUtil.isTrue(StringUtils.isBlank(userName),<span class="string">"用户名不能为空"</span>);</span><br><span class="line">AssertUtil.isTrue(StringUtils.isBlank(userPwd),<span class="string">"密码不能为空"</span>);</span><br><span class="line">User user=userMapper.queryUserByName(userName);</span><br><span class="line">AssertUtil.isTrue(<span class="keyword">null</span>==user,<span class="string">"用户不存在"</span>);</span><br><span class="line">String encodePwd= Md5Util.encode(userPwd);</span><br><span class="line">AssertUtil.isTrue(!encodePwd.equals(user.getUserPwd()),<span class="string">"密码不正确"</span>);</span><br></pre></td></tr></table></figure><p>controller层</p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@RequestMapping</span>(<span class="string">"login"</span>)</span><br><span class="line"><span class="meta">@ResponseBody</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> ResultInfo <span class="title">userlogin</span><span class="params">(String userName, String userPwd)</span> </span>&#123;</span><br><span class="line">    ResultInfo info = <span class="keyword">new</span> ResultInfo();</span><br><span class="line">    <span class="keyword">try</span> &#123;</span><br><span class="line">        userService.useLogin(userName, userPwd);</span><br><span class="line">        info.setCode(<span class="number">200</span>);</span><br><span class="line">    &#125; <span class="keyword">catch</span> (ParamsException p) &#123;</span><br><span class="line">        p.printStackTrace();</span><br><span class="line">        info.setCode(<span class="number">300</span>);</span><br><span class="line">        info.setMsg(p.getMsg());</span><br><span class="line">    &#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">        e.printStackTrace();</span><br><span class="line">        info.setCode(<span class="number">300</span>);</span><br><span class="line">        info.setMsg(e.getMessage());</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> info;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h3 id="用户登录状态"><a href="#用户登录状态" class="headerlink" title="用户登录状态"></a>用户登录状态</h3><p>技术:采用cookie</p><ul><li>流程</li></ul><p>用户登录成功后,把用户id进行加密处理存入cookie中</p><p>后台负责加密userId存到存储信息中</p><p>前台取到数据进行存储</p><h3 id="修改密码功能"><a href="#修改密码功能" class="headerlink" title="修改密码功能"></a>修改密码功能</h3><ul><li>流程</li></ul><ol><li>接收前台用户旧密码新密码</li><li>参数校验(非空)</li><li>校验旧密码是否正确</li><li>正确用新密码修改 修改成功返回登录页面</li></ol><h3 id="优化用户模块-全局异常处理-控制层重复代码处理"><a href="#优化用户模块-全局异常处理-控制层重复代码处理" class="headerlink" title="优化用户模块(全局异常处理,控制层重复代码处理)"></a>优化用户模块(全局异常处理,控制层重复代码处理)</h3><ul><li>流程</li></ul><p>处理异常,如果页面报错,统一返回报错页面</p><p>​                如果数据报错,统一返回报错的JSON数据</p><ul><li>全局处理异常思路</li></ul><p>通过方法上是否有@ResponseBody注解来区分</p><p>视图的话设置错误返回视图</p><p>json的话通过流返回json错误信息</p><p>控制层重复代码处理1. 返回视图 2. 对于设置返回json数据的处理</p><h3 id="注册功能"><a href="#注册功能" class="headerlink" title="注册功能"></a>注册功能</h3><ul><li>流程</li></ul><ol><li>接收前台用户注册信息</li><li>对前台接收参数进行校验(**用户名唯一性检验)</li><li>返回校验结果,成功执行用户添加操作并跳转到登录页面,失败返回校验失败的原因</li></ol><h3 id="非法登录拦截"><a href="#非法登录拦截" class="headerlink" title="非法登录拦截"></a>非法登录拦截</h3><ul><li>流程</li></ul><p>拦截器获取cookie中的userid</p><p>如果userid存在,则则放行</p><p>如果不存在跳转登录页面</p><ul><li>出现bug</li></ul><p>样式丢失–没配置放行文件</p><p>类型转换异常–若未登录返回</p><p>error视图–没有uri请求地址</p><p>防止错误页面嵌套–window.parent.location.href</p><h2 id="营销模块"><a href="#营销模块" class="headerlink" title="营销模块"></a>营销模块</h2><h3 id="营销机会模块"><a href="#营销机会模块" class="headerlink" title="营销机会模块"></a>营销机会模块</h3><h4 id="分页查询"><a href="#分页查询" class="headerlink" title="分页查询"></a>分页查询</h4><ul><li>流程</li></ul><h4 id="添加"><a href="#添加" class="headerlink" title="添加"></a>添加</h4><h4 id="更新"><a href="#更新" class="headerlink" title="更新"></a>更新</h4><h4 id="删除"><a href="#删除" class="headerlink" title="删除"></a>删除</h4><h3 id="营销计划模块"><a href="#营销计划模块" class="headerlink" title="营销计划模块"></a>营销计划模块</h3>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;ssm框架-客户关系后台管理系统&quot;&gt;&lt;a href=&quot;#ssm框架-客户关系后台管理系统&quot; class=&quot;headerlink&quot; title=&quot;ssm框架-客户关系后台管理系统&quot;&gt;&lt;/a&gt;ssm框架-客户关系后台管理系统&lt;/h1&gt;&lt;h2 id=&quot;项目开始&quot;&gt;&lt;a 
+      
+    
+    </summary>
+    
+    
+      <category term="java框架" scheme="https://detailmk.github.io/tags/java%E6%A1%86%E6%9E%B6/"/>
+    
+  </entry>
   
   <entry>
     <title>springmvc</title>
@@ -33,31 +56,6 @@
 &lt;li&gt;mvc思想&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;模型-视图-控制
-      
-    
-    </summary>
-    
-    
-      <category term="java框架" scheme="https://detailmk.github.io/tags/java%E6%A1%86%E6%9E%B6/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>mybatis红包</title>
-    <link href="https://detailmk.github.io/2019/09/11/mybatis%E7%BA%A2%E5%8C%85/"/>
-    <id>https://detailmk.github.io/2019/09/11/mybatis红包/</id>
-    <published>2019-09-11T11:27:42.000Z</published>
-    <updated>2019-09-12T03:43:29.343Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="表设计"><a href="#表设计" class="headerlink" title="表设计"></a>表设计</h2><p>（1）用户信息数据表user</p><p>userID、红包ID、红包个数、红包金额</p><p>（2）用户钱包数据表userwallet</p><p>userID、money</p><p>（3）发送红包数据表redsend</p><p>红包ID,senderID,红包个数,红包金额,发出时间</p><p>（4）接收红包数据表red_receive</p><p>红包ID、receiver、接收时间、接收金额</p><h2 id="Spring-Mybatis搭建"><a href="#Spring-Mybatis搭建" class="headerlink" title="Spring,Mybatis搭建"></a>Spring,Mybatis搭建</h2>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h2 id=&quot;表设计&quot;&gt;&lt;a href=&quot;#表设计&quot; class=&quot;headerlink&quot; title=&quot;表设计&quot;&gt;&lt;/a&gt;表设计&lt;/h2&gt;&lt;p&gt;（1）用户信息数据表user&lt;/p&gt;
-&lt;p&gt;userID、红包ID、红包个数、红包金额&lt;/p&gt;
-&lt;p&gt;（2）用户钱包数据表userw
       
     
     </summary>

@@ -1,0 +1,857 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link href="/lib/pace/pace-theme-mac-osx.min.css?v=1.0.2" rel="stylesheet">
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="java框架,">
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="coder--编写代码,制造魔法" type="application/atom+xml">
+
+
+
+
+
+
+<meta name="description" content="ssm框架-客户关系后台管理系统项目开始导入表 搭建环境 项目分层 测试是否正确显示 12345678@Controllerpublic class MainController &amp;#123;    @RequestMapping(&quot;main&quot;)    public String index(HttpServletRequest request)&amp;#123;        request.setA">
+<meta name="keywords" content="java框架">
+<meta property="og:type" content="article">
+<meta property="og:title" content="ssm项目笔记">
+<meta property="og:url" content="https://detailmk.github.io/2019/09/26/ssm框架-客户关系后台管理系统/index.html">
+<meta property="og:site_name" content="coder--编写代码,制造魔法">
+<meta property="og:description" content="ssm框架-客户关系后台管理系统项目开始导入表 搭建环境 项目分层 测试是否正确显示 12345678@Controllerpublic class MainController &amp;#123;    @RequestMapping(&quot;main&quot;)    public String index(HttpServletRequest request)&amp;#123;        request.setA">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-09-30T07:37:44.215Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="ssm项目笔记">
+<meta name="twitter:description" content="ssm框架-客户关系后台管理系统项目开始导入表 搭建环境 项目分层 测试是否正确显示 12345678@Controllerpublic class MainController &amp;#123;    @RequestMapping(&quot;main&quot;)    public String index(HttpServletRequest request)&amp;#123;        request.setA">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'detailmk'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://detailmk.github.io/2019/09/26/ssm框架-客户关系后台管理系统/">
+
+
+
+
+
+  <title>ssm项目笔记 | coder--编写代码,制造魔法</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">coder--编写代码,制造魔法</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">Talk is cheap. Show me the code.</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br>
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://detailmk.github.io/2019/09/26/ssm框架-客户关系后台管理系统/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Meng Kai">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/mengkai.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="coder--编写代码,制造魔法">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">ssm项目笔记</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-09-26T18:49:45+08:00">
+                2019-09-26
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">更新于&#58;</span>
+              
+              <time title="更新于" itemprop="dateModified" datetime="2019-09-30T15:37:44+08:00">
+                2019-09-30
+              </time>
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="ssm框架-客户关系后台管理系统"><a href="#ssm框架-客户关系后台管理系统" class="headerlink" title="ssm框架-客户关系后台管理系统"></a>ssm框架-客户关系后台管理系统</h1><h2 id="项目开始"><a href="#项目开始" class="headerlink" title="项目开始"></a>项目开始</h2><p>导入表</p>
+<p>搭建环境</p>
+<p>项目分层</p>
+<p>测试是否正确显示</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Controller</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MainController</span> </span>&#123;</span><br><span class="line">    <span class="meta">@RequestMapping</span>(<span class="string">"main"</span>)</span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">index</span><span class="params">(HttpServletRequest request)</span></span>&#123;</span><br><span class="line">        request.setAttribute(<span class="string">"ctx"</span>, request.getContextPath());<span class="comment">// 当前项目路径</span></span><br><span class="line">        <span class="keyword">return</span> <span class="string">"main"</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="用户模块"><a href="#用户模块" class="headerlink" title="用户模块"></a>用户模块</h2><h3 id="登录功能"><a href="#登录功能" class="headerlink" title="登录功能"></a>登录功能</h3><ul>
+<li>流程:<ul>
+<li>后台</li>
+</ul>
+</li>
+</ul>
+<ol>
+<li><p>输入用户名密码 发送请求 </p>
+</li>
+<li><p>后台接收参数校验(非空校验和唯一性校验)</p>
+</li>
+<li><p>通过用户名查询用户,查看密码是否匹配</p>
+</li>
+<li><p>返回登录结果 前台接收信息</p>
+<ul>
+<li>前台</li>
+</ul>
+</li>
+<li><p>引入jq,js</p>
+</li>
+<li><p>前台获取表单参数</p>
+</li>
+<li><p>校验参数非空</p>
+</li>
+<li><p>发送ajax请求</p>
+</li>
+</ol>
+<p>登录后台userService代码优化</p>
+<p>—-&gt;通过assertutil工具类抛异常简化业务层代码</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">AssertUtil.isTrue(StringUtils.isBlank(userName),<span class="string">"用户名不能为空"</span>);</span><br><span class="line">AssertUtil.isTrue(StringUtils.isBlank(userPwd),<span class="string">"密码不能为空"</span>);</span><br><span class="line">User user=userMapper.queryUserByName(userName);</span><br><span class="line">AssertUtil.isTrue(<span class="keyword">null</span>==user,<span class="string">"用户不存在"</span>);</span><br><span class="line">String encodePwd= Md5Util.encode(userPwd);</span><br><span class="line">AssertUtil.isTrue(!encodePwd.equals(user.getUserPwd()),<span class="string">"密码不正确"</span>);</span><br></pre></td></tr></table></figure>
+
+<p>controller层</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@RequestMapping</span>(<span class="string">"login"</span>)</span><br><span class="line"><span class="meta">@ResponseBody</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> ResultInfo <span class="title">userlogin</span><span class="params">(String userName, String userPwd)</span> </span>&#123;</span><br><span class="line">    ResultInfo info = <span class="keyword">new</span> ResultInfo();</span><br><span class="line">    <span class="keyword">try</span> &#123;</span><br><span class="line">        userService.useLogin(userName, userPwd);</span><br><span class="line">        info.setCode(<span class="number">200</span>);</span><br><span class="line">    &#125; <span class="keyword">catch</span> (ParamsException p) &#123;</span><br><span class="line">        p.printStackTrace();</span><br><span class="line">        info.setCode(<span class="number">300</span>);</span><br><span class="line">        info.setMsg(p.getMsg());</span><br><span class="line">    &#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">        e.printStackTrace();</span><br><span class="line">        info.setCode(<span class="number">300</span>);</span><br><span class="line">        info.setMsg(e.getMessage());</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> info;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="用户登录状态"><a href="#用户登录状态" class="headerlink" title="用户登录状态"></a>用户登录状态</h3><p>技术:采用cookie</p>
+<ul>
+<li>流程</li>
+</ul>
+<p>用户登录成功后,把用户id进行加密处理存入cookie中</p>
+<p>后台负责加密userId存到存储信息中</p>
+<p>前台取到数据进行存储</p>
+<h3 id="修改密码功能"><a href="#修改密码功能" class="headerlink" title="修改密码功能"></a>修改密码功能</h3><ul>
+<li>流程</li>
+</ul>
+<ol>
+<li>接收前台用户旧密码新密码</li>
+<li>参数校验(非空)</li>
+<li>校验旧密码是否正确</li>
+<li>正确用新密码修改 修改成功返回登录页面</li>
+</ol>
+<h3 id="优化用户模块-全局异常处理-控制层重复代码处理"><a href="#优化用户模块-全局异常处理-控制层重复代码处理" class="headerlink" title="优化用户模块(全局异常处理,控制层重复代码处理)"></a>优化用户模块(全局异常处理,控制层重复代码处理)</h3><ul>
+<li>流程</li>
+</ul>
+<p>处理异常,如果页面报错,统一返回报错页面</p>
+<p>​                如果数据报错,统一返回报错的JSON数据</p>
+<ul>
+<li>全局处理异常思路</li>
+</ul>
+<p>通过方法上是否有@ResponseBody注解来区分</p>
+<p>视图的话设置错误返回视图</p>
+<p>json的话通过流返回json错误信息</p>
+<p>控制层重复代码处理1. 返回视图 2. 对于设置返回json数据的处理</p>
+<h3 id="注册功能"><a href="#注册功能" class="headerlink" title="注册功能"></a>注册功能</h3><ul>
+<li>流程</li>
+</ul>
+<ol>
+<li>接收前台用户注册信息</li>
+<li>对前台接收参数进行校验(**用户名唯一性检验)</li>
+<li>返回校验结果,成功执行用户添加操作并跳转到登录页面,失败返回校验失败的原因</li>
+</ol>
+<h3 id="非法登录拦截"><a href="#非法登录拦截" class="headerlink" title="非法登录拦截"></a>非法登录拦截</h3><ul>
+<li>流程</li>
+</ul>
+<p>拦截器获取cookie中的userid</p>
+<p>如果userid存在,则则放行</p>
+<p>如果不存在跳转登录页面</p>
+<ul>
+<li>出现bug</li>
+</ul>
+<p>样式丢失–没配置放行文件</p>
+<p>类型转换异常–若未登录返回</p>
+<p>error视图–没有uri请求地址</p>
+<p>防止错误页面嵌套–window.parent.location.href</p>
+<h2 id="营销模块"><a href="#营销模块" class="headerlink" title="营销模块"></a>营销模块</h2><h3 id="营销机会模块"><a href="#营销机会模块" class="headerlink" title="营销机会模块"></a>营销机会模块</h3><h4 id="分页查询"><a href="#分页查询" class="headerlink" title="分页查询"></a>分页查询</h4><ul>
+<li>流程</li>
+</ul>
+<h4 id="添加"><a href="#添加" class="headerlink" title="添加"></a>添加</h4><h4 id="更新"><a href="#更新" class="headerlink" title="更新"></a>更新</h4><h4 id="删除"><a href="#删除" class="headerlink" title="删除"></a>删除</h4><h3 id="营销计划模块"><a href="#营销计划模块" class="headerlink" title="营销计划模块"></a>营销计划模块</h3>
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/java框架/" rel="tag"># java框架</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/09/16/springmvc/" rel="next" title="springmvc">
+                <i class="fa fa-chevron-left"></i> springmvc
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/mengkai.jpg" alt="Meng Kai">
+            
+              <p class="site-author-name" itemprop="name">Meng Kai</p>
+              <p class="site-description motion-element" itemprop="description">孟凯个人站主要涉及java开发基础知识</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">45</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+
+          
+          
+
+          
+          
+          <div id="music163player">
+         <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="330" height="86" src="//music.163.com/outchain/player?type=2&id=415786851&auto=1&height=66"></iframe>
+         </div>
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#ssm框架-客户关系后台管理系统"><span class="nav-number">1.</span> <span class="nav-text">ssm框架-客户关系后台管理系统</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#项目开始"><span class="nav-number">1.1.</span> <span class="nav-text">项目开始</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#用户模块"><span class="nav-number">1.2.</span> <span class="nav-text">用户模块</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#登录功能"><span class="nav-number">1.2.1.</span> <span class="nav-text">登录功能</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#用户登录状态"><span class="nav-number">1.2.2.</span> <span class="nav-text">用户登录状态</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#修改密码功能"><span class="nav-number">1.2.3.</span> <span class="nav-text">修改密码功能</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#优化用户模块-全局异常处理-控制层重复代码处理"><span class="nav-number">1.2.4.</span> <span class="nav-text">优化用户模块(全局异常处理,控制层重复代码处理)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#注册功能"><span class="nav-number">1.2.5.</span> <span class="nav-text">注册功能</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#非法登录拦截"><span class="nav-number">1.2.6.</span> <span class="nav-text">非法登录拦截</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#营销模块"><span class="nav-number">1.3.</span> <span class="nav-text">营销模块</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#营销机会模块"><span class="nav-number">1.3.1.</span> <span class="nav-text">营销机会模块</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#分页查询"><span class="nav-number">1.3.1.1.</span> <span class="nav-text">分页查询</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#添加"><span class="nav-number">1.3.1.2.</span> <span class="nav-text">添加</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#更新"><span class="nav-number">1.3.1.3.</span> <span class="nav-text">更新</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#删除"><span class="nav-number">1.3.1.4.</span> <span class="nav-text">删除</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#营销计划模块"><span class="nav-number">1.3.2.</span> <span class="nav-text">营销计划模块</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Meng Kai</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/three/three.min.js"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/three/canvas_lines.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+  <script type="text/javascript" src="/js/src/js.cookie.js?v=5.1.4"></script>
+  <script type="text/javascript" src="/js/src/scroll-cookie.js?v=5.1.4"></script>
+
+
+  
+
+</body>
+</html>
