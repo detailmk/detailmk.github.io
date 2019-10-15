@@ -96,7 +96,7 @@
 <meta property="og:site_name" content="coder--编写代码,制造魔法">
 <meta property="og:description" content="ssm框架-客户关系后台管理系统项目开始导入表 搭建环境 项目分层 测试是否正确显示 12345678@Controllerpublic class MainController &amp;#123;    @RequestMapping(&quot;main&quot;)    public String index(HttpServletRequest request)&amp;#123;        request.setA">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-09-30T07:37:44.215Z">
+<meta property="og:updated_time" content="2019-10-11T13:33:46.829Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="ssm项目笔记">
 <meta name="twitter:description" content="ssm框架-客户关系后台管理系统项目开始导入表 搭建环境 项目分层 测试是否正确显示 12345678@Controllerpublic class MainController &amp;#123;    @RequestMapping(&quot;main&quot;)    public String index(HttpServletRequest request)&amp;#123;        request.setA">
@@ -317,12 +317,34 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2019-09-30T15:37:44+08:00">
-                2019-09-30
+              <time title="更新于" itemprop="dateModified" datetime="2019-10-11T21:33:46+08:00">
+                2019-10-11
               </time>
             
           </span>
 
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/ssm/" itemprop="url" rel="index">
+                    <span itemprop="name">ssm</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
           
 
           
@@ -440,10 +462,75 @@
 <p>类型转换异常–若未登录返回</p>
 <p>error视图–没有uri请求地址</p>
 <p>防止错误页面嵌套–window.parent.location.href</p>
-<h2 id="营销模块"><a href="#营销模块" class="headerlink" title="营销模块"></a>营销模块</h2><h3 id="营销机会模块"><a href="#营销机会模块" class="headerlink" title="营销机会模块"></a>营销机会模块</h3><h4 id="分页查询"><a href="#分页查询" class="headerlink" title="分页查询"></a>分页查询</h4><ul>
+<h2 id="营销模块"><a href="#营销模块" class="headerlink" title="营销模块"></a>营销模块</h2><h3 id="营销机会模块"><a href="#营销机会模块" class="headerlink" title="营销机会模块"></a>营销机会模块</h3><p>描述:对市场营销机会进行编辑操作</p>
+<h4 id="分页查询"><a href="#分页查询" class="headerlink" title="分页查询"></a>分页查询</h4><ul>
 <li>流程</li>
 </ul>
-<h4 id="添加"><a href="#添加" class="headerlink" title="添加"></a>添加</h4><h4 id="更新"><a href="#更新" class="headerlink" title="更新"></a>更新</h4><h4 id="删除"><a href="#删除" class="headerlink" title="删除"></a>删除</h4><h3 id="营销计划模块"><a href="#营销计划模块" class="headerlink" title="营销计划模块"></a>营销计划模块</h3>
+<p>后台:mapper-&gt;service-&gt;controller</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">select</span> <span class="attr">id</span>=<span class="string">"queryByParams"</span> <span class="attr">parameterType</span>=<span class="string">"SaleChanceQuery"</span> <span class="attr">resultMap</span>=<span class="string">"BaseResultMap"</span>&gt;</span></span><br><span class="line">    select * from t_sale_chance</span><br><span class="line">   <span class="tag">&lt;<span class="name">where</span>&gt;</span></span><br><span class="line">     is_valid=1</span><br><span class="line">      <span class="tag">&lt;<span class="name">if</span> <span class="attr">test</span>=<span class="string">"null!= customerName and ''!=customerName"</span>&gt;</span></span><br><span class="line">        and  customer_name like concat('%',#&#123;customerName&#125;,'%')</span><br><span class="line">      <span class="tag">&lt;/<span class="name">if</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">if</span> <span class="attr">test</span>=<span class="string">"null!=state"</span>&gt;</span></span><br><span class="line">        and state=#&#123;state&#125;</span><br><span class="line">      <span class="tag">&lt;/<span class="name">if</span>&gt;</span></span><br><span class="line">     <span class="tag">&lt;<span class="name">if</span> <span class="attr">test</span>=<span class="string">"null!=devResult"</span>&gt;</span></span><br><span class="line">       and dev_result=#&#123;devResult&#125;</span><br><span class="line">     <span class="tag">&lt;/<span class="name">if</span>&gt;</span></span><br><span class="line">     <span class="tag">&lt;<span class="name">if</span> <span class="attr">test</span>=<span class="string">"null!=createDate"</span>&gt;</span></span><br><span class="line">       and create_date&amp;lt;=#&#123;createDate&#125;</span><br><span class="line">     <span class="tag">&lt;/<span class="name">if</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;/<span class="name">where</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">select</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="添加"><a href="#添加" class="headerlink" title="添加"></a>添加</h4><p>正常添加操作,对必要参数进行校验</p>
+<p>主要处理指派人 通过三表查询显示指派人下拉框</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">select</span> <span class="attr">id</span>=<span class="string">"queryCustomerManagers"</span> <span class="attr">resultType</span>=<span class="string">"java.util.Map"</span>&gt;</span></span><br><span class="line">    SELECT</span><br><span class="line">    u.id,</span><br><span class="line">    u.true_name as trueName</span><br><span class="line">    FROM</span><br><span class="line">    t_user AS u</span><br><span class="line">    INNER JOIN t_user_role AS ur ON u.id = ur.user_id</span><br><span class="line">    INNER JOIN t_role AS r ON r.id = ur.role_id</span><br><span class="line">    WHERE</span><br><span class="line">    u.is_valid = 1 AND</span><br><span class="line">    r.role_name = '客户经理'</span><br><span class="line"><span class="tag">&lt;/<span class="name">select</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>前台表单获取指派人姓名交由后台做添加或者更新处理</p>
+<h4 id="更新"><a href="#更新" class="headerlink" title="更新"></a>更新</h4><p>更新和添加使用同一个弹出框里的表单</p>
+<p>在业务层添加区分更新还是添加的逻辑(是否存在id)</p>
+<ul>
+<li>共用一个窗口出现问题</li>
+</ul>
+<p>执行完更新操作,点击添加,添加框出现数据回显bug</p>
+<p>–&gt;解决方式:对话框执行关闭时就执行清空表单操作</p>
+<h4 id="删除"><a href="#删除" class="headerlink" title="删除"></a>删除</h4><ul>
+<li>流程</li>
+</ul>
+<p>后台base假删除通过修改有效值属性</p>
+<p>前台:判断是否选中单个或多个记录</p>
+<p>​        通过发送ajax请求进行单条或多条记录删除</p>
+<h4 id="优化增删改查"><a href="#优化增删改查" class="headerlink" title="优化增删改查"></a>优化增删改查</h4><p>由于增删改前台代码大多重复,进行封装js代码</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 基本crud 通用的js 代码</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 打开对话框</span></span><br><span class="line"><span class="comment"> * @param dlgId</span></span><br><span class="line"><span class="comment"> * @param title</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function"><span class="keyword">function</span>  <span class="title">openAddOrUpdateDlg</span>(<span class="params">dlgId,title</span>) </span>&#123;</span><br><span class="line">    $(<span class="string">"#"</span>+dlgId).dialog(<span class="string">"open"</span>).dialog(<span class="string">"setTitle"</span>,title);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span>  <span class="title">closeDlgData</span>(<span class="params">dlgId</span>) </span>&#123;</span><br><span class="line">    $(<span class="string">"#"</span>+dlgId).dialog(<span class="string">"close"</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 保存与更新方法封装</span></span><br><span class="line"><span class="comment"> * @param formId</span></span><br><span class="line"><span class="comment"> * @param saveOrUpdateUrl</span></span><br><span class="line"><span class="comment"> * @param dialogId</span></span><br><span class="line"><span class="comment"> * @param searchByParams</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">saveOrUpdateData</span>(<span class="params">formId,saveOrUpdateUrl,dialogId,searchByParams</span>) </span>&#123;</span><br><span class="line">    $(<span class="string">"#"</span>+formId).form(<span class="string">"submit"</span>,&#123;</span><br><span class="line">        url:saveOrUpdateUrl,</span><br><span class="line">        onSubmit:<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">            <span class="keyword">return</span> $(<span class="keyword">this</span>).form(<span class="string">"validate"</span>);</span><br><span class="line">        &#125;,</span><br><span class="line">        success:<span class="function"><span class="keyword">function</span> (<span class="params">data</span>) </span>&#123;</span><br><span class="line">            <span class="comment">/**</span></span><br><span class="line"><span class="comment">             * data 为原始的json 字符串</span></span><br><span class="line"><span class="comment">             *   需要转换为js 对象</span></span><br><span class="line"><span class="comment">             */</span></span><br><span class="line">            data=<span class="built_in">JSON</span>.parse(data);</span><br><span class="line">            <span class="keyword">if</span>(data.code==<span class="number">200</span>)&#123;</span><br><span class="line">                closeDlgData(dialogId);</span><br><span class="line">                searchByParams();</span><br><span class="line">            &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                $.messager.alert(<span class="string">"来自crm"</span>,data.msg,<span class="string">"error"</span>);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span>  <span class="title">openModifyDialog</span>(<span class="params">dataGrdidId,formId,dialogId,title</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> rows=$(<span class="string">"#"</span>+dataGrdidId).datagrid(<span class="string">"getSelections"</span>);</span><br><span class="line">    <span class="keyword">if</span>(rows.length==<span class="number">0</span>)&#123;</span><br><span class="line">        $.messager.alert(<span class="string">"来自crm"</span>,<span class="string">"请选择一条记录进行更新!"</span>);</span><br><span class="line">        <span class="keyword">return</span> ;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span>(rows.length&gt;<span class="number">1</span>)&#123;</span><br><span class="line">        $.messager.alert(<span class="string">"来自crm"</span>,<span class="string">"只能选择一条记录进行更新!"</span>);</span><br><span class="line">        <span class="keyword">return</span> ;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 更新操作</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    $(<span class="string">"#"</span>+formId).form(<span class="string">"load"</span>,rows[<span class="number">0</span>]);<span class="comment">//填充表单数据  数据回显</span></span><br><span class="line">    openAddOrUpdateDlg(dialogId,title);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">deleteData</span>(<span class="params">dataGridId,deleteUrl,searchByParams</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> rows=$(<span class="string">"#"</span>+dataGridId).datagrid(<span class="string">"getSelections"</span>);</span><br><span class="line">    <span class="keyword">if</span>(rows.length==<span class="number">0</span>)&#123;</span><br><span class="line">        $.messager.alert(<span class="string">"来自crm"</span>,<span class="string">"请至少选中一条记录进行删除!"</span>);</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    $.messager.confirm(<span class="string">"来自crm"</span>,<span class="string">"确定删除选中的"</span>+rows.length+<span class="string">"条记录?"</span>,<span class="function"><span class="keyword">function</span> (<span class="params">r</span>) </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(r)&#123;</span><br><span class="line">            <span class="keyword">var</span> ids=<span class="string">"ids="</span>;</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">0</span>;i&lt;rows.length;i++)&#123;</span><br><span class="line">                <span class="keyword">if</span>(i&lt;=rows.length<span class="number">-2</span>)&#123;</span><br><span class="line">                    ids=ids+rows[i].id+<span class="string">"&amp;ids="</span>;</span><br><span class="line">                &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                    ids=ids+rows[i].id;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            $.ajax(&#123;</span><br><span class="line">                type:<span class="string">"post"</span>,</span><br><span class="line">                url:deleteUrl,</span><br><span class="line">                data:ids,</span><br><span class="line">                dataType:<span class="string">"json"</span>,</span><br><span class="line">                success:<span class="function"><span class="keyword">function</span> (<span class="params">data</span>) </span>&#123;</span><br><span class="line">                    <span class="keyword">if</span>(data.code==<span class="number">200</span>)&#123;</span><br><span class="line">                        <span class="comment">// 刷新datagrid</span></span><br><span class="line">                        searchByParams();</span><br><span class="line">                    &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                        $.messager.alert(<span class="string">"来自crm"</span>,data.msg,<span class="string">"error"</span>);</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="营销计划模块"><a href="#营销计划模块" class="headerlink" title="营销计划模块"></a>营销计划模块</h3><p>描述:对营销机会里中的客户进行营销操作</p>
+<p>显示两块内容</p>
+<p>第一块显示需要采取营销计划的客户(通过作用域存储到后台查询用户信息),</p>
+<p>第二块显示具体营销计划内容(通过ajax请求对计划进行编辑)</p>
+<p>在编辑营销计划时修改营销状态</p>
+<p>出现bug:在一个从未开发的客户中执行开发计划,开发状态还是为未开发状态</p>
+<p>解决:完善业务层判断,当执行一次添加计划操作,判断状态,如果为未开发状态则修改,如果不是开发状态,则不用修改</p>
+<h2 id="客户模块"><a href="#客户模块" class="headerlink" title="客户模块"></a>客户模块</h2><h3 id="流失客户模块"><a href="#流失客户模块" class="headerlink" title="流失客户模块"></a>流失客户模块</h3><p>客户流失规则定义:<br>客户自创建超过六个月以来未与企业产生任何订单以及客户最后下单日期超过六个月的客户定位流失客户</p>
+<p>查询流失客户信息</p>
+<p>条件:客户创建超过六个月没有下过订单,</p>
+<p>​        距离最后下单超过六个月</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span></span><br><span class="line">   *</span><br><span class="line">   <span class="keyword">FROM</span></span><br><span class="line">   t_customer c</span><br><span class="line">   <span class="keyword">WHERE</span></span><br><span class="line">   is_valid = <span class="number">1</span></span><br><span class="line">   <span class="keyword">AND</span> state = <span class="number">0</span></span><br><span class="line">   <span class="keyword">AND</span> <span class="keyword">DATE_ADD</span>(</span><br><span class="line">   c.create_date,</span><br><span class="line">   <span class="built_in">INTERVAL</span> <span class="number">6</span> <span class="keyword">MONTH</span></span><br><span class="line">   ) &lt; <span class="keyword">NOW</span>()</span><br><span class="line">   <span class="keyword">AND</span> c.id <span class="keyword">NOT</span> <span class="keyword">IN</span> (</span><br><span class="line">   <span class="keyword">SELECT</span> <span class="keyword">DISTINCT</span></span><br><span class="line">   cus_id</span><br><span class="line">   <span class="keyword">FROM</span></span><br><span class="line">   t_customer_order</span><br><span class="line">   <span class="keyword">WHERE</span></span><br><span class="line">   is_valid = <span class="number">1</span></span><br><span class="line">   <span class="keyword">AND</span> <span class="keyword">date_add</span>(create_date, <span class="built_in">INTERVAL</span> <span class="number">6</span> <span class="keyword">MONTH</span>) &gt;= <span class="keyword">NOW</span>()</span><br><span class="line">   )</span><br></pre></td></tr></table></figure>
+
+<p>流程</p>
+<p>根据流失客户定义查询流失客户</p>
+<p>查询的客户存在容器里批量添加到流失客户中</p>
+<p>获取客户id,批量更新流失客户的流失状态</p>
+<h2 id="权限模块"><a href="#权限模块" class="headerlink" title="权限模块"></a>权限模块</h2><p>权限管理(RBAC)-基于角色的权限管理系统(*****)<br>   1.表结构<br>      用户      角色     菜单(资源)<br>      用户-角色:多对多<br>      角色-菜单:多对多</p>
+<pre><code>t_user   用户表
+t_user_role （id,user_role,role_id,is_valid,create_date,update_date）
+t_role   角色表
+t_permission(id,role_id,module_id,aclValue,is_valid,create_date,update_date)
+t_module  资源表
+
+三种对应关系(关系库)
+    一对一   一对多  多对多</code></pre><p>   2.功能实现<br>        用户管理模块<br>            查询、用户添加、更新、删除用户、<br>            关联角色(添加用户关联角色、更新用户关联角色，删除用户级联删除用户角色记录):<br>              后台: 添加用户|更新用户:删除原始的用户角色记录(如果存在时)，加入新的角色记录(t_user_role)<br>              前台:使用下拉框(支持多选)<br>        角色管理模块<br>             查询、添加、更新、删除(级联权限记录)<br>                授权:给角色配置操作菜单的权限(t_permission)<br>                    前端:<br>                       菜单资源展示(zTree插件  展示父子关联表数据)<br>                       获取选中的菜单记录(定义zTree callback 事件+方法)<br>                       原始权限的回显(zTree 数据属性-checked=true)</p>
+<pre><code>后端:删除原始的权限记录(如果存在时)，加入新的权限记录(roleId,mid[])
+
+认证:对角色操作的菜单做校验
+    前端菜单显示的控制:
+            用户登录成功 根据用户分配角色 查询角色的权限(List&lt;String&gt;) 放入session
+            视图中判断菜单权限码是否被session  中存放的权限列表包含  &lt;#if permissions?seq_contains(&quot;10&quot;)&gt;&lt;/#if&gt;
+
+                 后端方法控制:AOP+自定义注解
+                      自定义注解配置权限码
+                      AOP 拦截指定注解 借助环绕通知(目标方法执行前判断拦截到的注解的权限码  session 中存在该权限码 方法放行 不存在 方法抛出异常)
+     资源管理模块
+          查询、添加、修改、删除
+             二、三级菜单:  菜单的添加|修改(需要关注上级菜单)  
+             资源名  权限码  唯一校验
+             删除资源 级联权限(t_permission)</code></pre>
       
     </div>
     
@@ -482,6 +569,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/10/11/redis/" rel="prev" title="redis">
+                redis <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -560,7 +651,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">45</span>
+                  <span class="site-state-item-count">47</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -571,7 +662,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-count">5</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -625,7 +716,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#ssm框架-客户关系后台管理系统"><span class="nav-number">1.</span> <span class="nav-text">ssm框架-客户关系后台管理系统</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#项目开始"><span class="nav-number">1.1.</span> <span class="nav-text">项目开始</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#用户模块"><span class="nav-number">1.2.</span> <span class="nav-text">用户模块</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#登录功能"><span class="nav-number">1.2.1.</span> <span class="nav-text">登录功能</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#用户登录状态"><span class="nav-number">1.2.2.</span> <span class="nav-text">用户登录状态</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#修改密码功能"><span class="nav-number">1.2.3.</span> <span class="nav-text">修改密码功能</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#优化用户模块-全局异常处理-控制层重复代码处理"><span class="nav-number">1.2.4.</span> <span class="nav-text">优化用户模块(全局异常处理,控制层重复代码处理)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#注册功能"><span class="nav-number">1.2.5.</span> <span class="nav-text">注册功能</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#非法登录拦截"><span class="nav-number">1.2.6.</span> <span class="nav-text">非法登录拦截</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#营销模块"><span class="nav-number">1.3.</span> <span class="nav-text">营销模块</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#营销机会模块"><span class="nav-number">1.3.1.</span> <span class="nav-text">营销机会模块</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#分页查询"><span class="nav-number">1.3.1.1.</span> <span class="nav-text">分页查询</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#添加"><span class="nav-number">1.3.1.2.</span> <span class="nav-text">添加</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#更新"><span class="nav-number">1.3.1.3.</span> <span class="nav-text">更新</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#删除"><span class="nav-number">1.3.1.4.</span> <span class="nav-text">删除</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#营销计划模块"><span class="nav-number">1.3.2.</span> <span class="nav-text">营销计划模块</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#ssm框架-客户关系后台管理系统"><span class="nav-number">1.</span> <span class="nav-text">ssm框架-客户关系后台管理系统</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#项目开始"><span class="nav-number">1.1.</span> <span class="nav-text">项目开始</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#用户模块"><span class="nav-number">1.2.</span> <span class="nav-text">用户模块</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#登录功能"><span class="nav-number">1.2.1.</span> <span class="nav-text">登录功能</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#用户登录状态"><span class="nav-number">1.2.2.</span> <span class="nav-text">用户登录状态</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#修改密码功能"><span class="nav-number">1.2.3.</span> <span class="nav-text">修改密码功能</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#优化用户模块-全局异常处理-控制层重复代码处理"><span class="nav-number">1.2.4.</span> <span class="nav-text">优化用户模块(全局异常处理,控制层重复代码处理)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#注册功能"><span class="nav-number">1.2.5.</span> <span class="nav-text">注册功能</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#非法登录拦截"><span class="nav-number">1.2.6.</span> <span class="nav-text">非法登录拦截</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#营销模块"><span class="nav-number">1.3.</span> <span class="nav-text">营销模块</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#营销机会模块"><span class="nav-number">1.3.1.</span> <span class="nav-text">营销机会模块</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#分页查询"><span class="nav-number">1.3.1.1.</span> <span class="nav-text">分页查询</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#添加"><span class="nav-number">1.3.1.2.</span> <span class="nav-text">添加</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#更新"><span class="nav-number">1.3.1.3.</span> <span class="nav-text">更新</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#删除"><span class="nav-number">1.3.1.4.</span> <span class="nav-text">删除</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#优化增删改查"><span class="nav-number">1.3.1.5.</span> <span class="nav-text">优化增删改查</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#营销计划模块"><span class="nav-number">1.3.2.</span> <span class="nav-text">营销计划模块</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#客户模块"><span class="nav-number">1.4.</span> <span class="nav-text">客户模块</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#流失客户模块"><span class="nav-number">1.4.1.</span> <span class="nav-text">流失客户模块</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#权限模块"><span class="nav-number">1.5.</span> <span class="nav-text">权限模块</span></a></li></ol></li></ol></div>
             
 
           </div>

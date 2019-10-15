@@ -96,14 +96,14 @@
 <meta property="og:site_name" content="coder--编写代码,制造魔法">
 <meta property="og:description" content="ioc(控制反转和依赖注入)实现静态代理-三要素 1.共同的行为(结婚)-接口2.目标角色(新郎) 实现行为 3.代理角色 实现行为 增强目标角色行为特点:在程序运行前应用程序提供代理角色增强目标角色行为代理角色代理的目标角色类型固定缺陷–&amp;gt;有可能代理类数量不可控 引擎 “类爆炸” 定义**控制反转:借助于“第三方”实现具有依赖关系的对象之间的解耦   依赖注入:由IOC容器在运行期间，动态">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="https://detailmk.github.io/2019/09/09/初识spring/%E5%88%9D%E8%AF%86spring%5C2011052709391014.jpg">
-<meta property="og:image" content="https://detailmk.github.io/2019/09/09/初识spring/%E5%88%9D%E8%AF%86spring%5C2011052709392670.jpg">
-<meta property="og:image" content="https://detailmk.github.io/2019/09/09/初识spring/%E5%88%9D%E8%AF%86spring%5C2011052709393897.jpg">
-<meta property="og:updated_time" content="2019-09-09T13:37:14.178Z">
+<meta property="og:image" content="https://i.loli.net/2019/10/15/lIJaLxVFv7dUrwk.jpg">
+<meta property="og:image" content="https://i.loli.net/2019/10/15/OBtGamw67kIX8qn.jpg">
+<meta property="og:image" content="https://i.loli.net/2019/10/15/a3659xnZle2JtEj.jpg">
+<meta property="og:updated_time" content="2019-10-15T13:03:07.626Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="初识spring">
 <meta name="twitter:description" content="ioc(控制反转和依赖注入)实现静态代理-三要素 1.共同的行为(结婚)-接口2.目标角色(新郎) 实现行为 3.代理角色 实现行为 增强目标角色行为特点:在程序运行前应用程序提供代理角色增强目标角色行为代理角色代理的目标角色类型固定缺陷–&amp;gt;有可能代理类数量不可控 引擎 “类爆炸” 定义**控制反转:借助于“第三方”实现具有依赖关系的对象之间的解耦   依赖注入:由IOC容器在运行期间，动态">
-<meta name="twitter:image" content="https://detailmk.github.io/2019/09/09/初识spring/%E5%88%9D%E8%AF%86spring%5C2011052709391014.jpg">
+<meta name="twitter:image" content="https://i.loli.net/2019/10/15/lIJaLxVFv7dUrwk.jpg">
 
 
 
@@ -321,8 +321,8 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2019-09-09T21:37:14+08:00">
-                2019-09-09
+              <time title="更新于" itemprop="dateModified" datetime="2019-10-15T21:03:07+08:00">
+                2019-10-15
               </time>
             
           </span>
@@ -357,10 +357,10 @@
       
         <h1 id="ioc-控制反转和依赖注入"><a href="#ioc-控制反转和依赖注入" class="headerlink" title="ioc(控制反转和依赖注入)"></a>ioc(控制反转和依赖注入)</h1><p>实现静态代理-三要素 1.共同的行为(结婚)-接口<br>2.目标角色(新郎) 实现行为 3.代理角色 实现行为 增强目标角色行为<br>特点:<br>在程序运行前应用程序提供代理角色<br>增强目标角色行为<br>代理角色代理的目标角色类型固定<br>缺陷–&gt;有可能代理类数量不可控 引擎 “类爆炸”</p>
 <h2 id="定义"><a href="#定义" class="headerlink" title="定义**"></a>定义**</h2><p>控制反转:借助于“第三方”实现具有依赖关系的对象之间的解耦</p>
-<p><img src="//detailmk.github.io/2019/09/09/初识spring/%E5%88%9D%E8%AF%86spring%5C2011052709391014.jpg" alt></p>
-<p><img src="//detailmk.github.io/2019/09/09/初识spring/%E5%88%9D%E8%AF%86spring%5C2011052709392670.jpg" alt></p>
+<p><img src="https://i.loli.net/2019/10/15/lIJaLxVFv7dUrwk.jpg" alt="bb.jpg"></p>
+<p><img src="https://i.loli.net/2019/10/15/OBtGamw67kIX8qn.jpg" alt="ee.jpg"></p>
 <p>依赖注入:由IOC容器在运行期间，动态地将某种依赖关系注入到对象之中。</p>
-<p><img src="//detailmk.github.io/2019/09/09/初识spring/%E5%88%9D%E8%AF%86spring%5C2011052709393897.jpg" alt></p>
+<p><img src="https://i.loli.net/2019/10/15/a3659xnZle2JtEj.jpg" alt="dd.jpg"></p>
 <h2 id="使用"><a href="#使用" class="headerlink" title="使用"></a><strong>使用</strong></h2><h3 id="实例化bean对象"><a href="#实例化bean对象" class="headerlink" title="实例化bean对象"></a>实例化bean对象</h3><ol>
 <li><p>构造器实例化对象</p>
 <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">"userServiceImpl"</span> <span class="attr">class</span>=<span class="string">"com.mk.service.impl.UserServiceImpl"</span>&gt;</span><span class="tag">&lt;/<span class="name">bean</span>&gt;</span></span><br></pre></td></tr></table></figure>
@@ -575,7 +575,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">45</span>
+                  <span class="site-state-item-count">47</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -586,7 +586,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-count">5</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>

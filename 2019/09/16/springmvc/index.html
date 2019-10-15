@@ -96,7 +96,7 @@
 <meta property="og:site_name" content="coder--编写代码,制造魔法">
 <meta property="og:description" content="springmvc定义 mvc思想  模型-视图-控制器（MVC）是一个众所周知的以设计界面应用程序为基础的设计思想。它主要通过分离模型、视图及控制器在应用程序中的角色将业务逻辑从界面中解耦。通常，模型负责封装应用程序数据在视图层展示。视图仅仅只是展示这些数据，不包含任何业务逻辑。控制器负责接收来自用户的请求，并调用后台服务（service或者dao）来处理业务逻辑。处理后，后台业务层可能会返回了">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-09-17T10:46:05.166Z">
+<meta property="og:updated_time" content="2019-10-15T12:50:50.431Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="springmvc">
 <meta name="twitter:description" content="springmvc定义 mvc思想  模型-视图-控制器（MVC）是一个众所周知的以设计界面应用程序为基础的设计思想。它主要通过分离模型、视图及控制器在应用程序中的角色将业务逻辑从界面中解耦。通常，模型负责封装应用程序数据在视图层展示。视图仅仅只是展示这些数据，不包含任何业务逻辑。控制器负责接收来自用户的请求，并调用后台服务（service或者dao）来处理业务逻辑。处理后，后台业务层可能会返回了">
@@ -317,12 +317,34 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2019-09-17T18:46:05+08:00">
-                2019-09-17
+              <time title="更新于" itemprop="dateModified" datetime="2019-10-15T20:50:50+08:00">
+                2019-10-15
               </time>
             
           </span>
 
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/ssm/" itemprop="url" rel="index">
+                    <span itemprop="name">ssm</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
           
 
           
@@ -430,7 +452,7 @@
 <p>实现</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Controller</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">FileController</span> </span>&#123;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="meta">@RequestMapping</span>(<span class="string">"uploadFile"</span>)</span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">uploadFile</span><span class="params">(HttpServletRequest request)</span></span>&#123;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            MultipartHttpServletRequest mhsr = (MultipartHttpServletRequest) request;</span><br><span class="line">            MultipartFile mf =  mhsr.getFile(<span class="string">"file"</span>);</span><br><span class="line">            <span class="keyword">if</span>(<span class="keyword">null</span> !=mf &amp;&amp; mf.getSize()&gt;<span class="number">0</span>)&#123;</span><br><span class="line">                String basePath  =  request.getSession().getServletContext().getRealPath(<span class="string">"/"</span>);</span><br><span class="line">                <span class="comment">/**</span></span><br><span class="line"><span class="comment">                 * 文件格式 为 jpg|jpeg|png|gif</span></span><br><span class="line"><span class="comment">                 *   判断文件后缀</span></span><br><span class="line"><span class="comment">                 *</span></span><br><span class="line"><span class="comment">                 *</span></span><br><span class="line"><span class="comment">                 * 如何限制用户上传的文件格式</span></span><br><span class="line"><span class="comment">                 *   xxx.bat--&gt;xxx.jpg</span></span><br><span class="line"><span class="comment">                 *</span></span><br><span class="line"><span class="comment">                 */</span></span><br><span class="line">                File file =<span class="keyword">new</span> File(basePath+<span class="string">"/upload"</span>);</span><br><span class="line">                <span class="keyword">if</span>(!(file.exists()))&#123;</span><br><span class="line">                    <span class="comment">// 创建目录</span></span><br><span class="line">                    file.mkdir();</span><br><span class="line">                &#125;</span><br><span class="line">                String fileName=mf.getOriginalFilename();</span><br><span class="line">                mf.transferTo(<span class="keyword">new</span> File(file,fileName));</span><br><span class="line">                request.setAttribute(<span class="string">"msg"</span>,<span class="string">"文件上传成功!"</span>);</span><br><span class="line">            &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                request.setAttribute(<span class="string">"msg"</span>,<span class="string">"文件不能为空!"</span>);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">            request.setAttribute(<span class="string">"msg"</span>,<span class="string">"文件上传错误!"</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">"result"</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<h3 id="ssm环境搭建"><a href="#ssm环境搭建" class="headerlink" title="ssm环境搭建"></a>ssm环境搭建</h3>
+
       
     </div>
     
@@ -551,7 +573,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">45</span>
+                  <span class="site-state-item-count">47</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -562,7 +584,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-count">5</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -616,7 +638,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#springmvc定义"><span class="nav-number">1.</span> <span class="nav-text">springmvc定义</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#springmvc"><span class="nav-number">2.</span> <span class="nav-text">springmvc</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#搭建使用"><span class="nav-number">2.1.</span> <span class="nav-text">搭建使用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#注解特性"><span class="nav-number">2.2.</span> <span class="nav-text">注解特性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#请求转发与重定向"><span class="nav-number">2.3.</span> <span class="nav-text">请求转发与重定向</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#获取request-response对象"><span class="nav-number">2.4.</span> <span class="nav-text">获取request,response对象</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#json数据开发"><span class="nav-number">2.5.</span> <span class="nav-text">json数据开发</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#拦截器"><span class="nav-number">2.6.</span> <span class="nav-text">拦截器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#文件上传"><span class="nav-number">2.7.</span> <span class="nav-text">文件上传</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ssm环境搭建"><span class="nav-number">2.8.</span> <span class="nav-text">ssm环境搭建</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#springmvc定义"><span class="nav-number">1.</span> <span class="nav-text">springmvc定义</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#springmvc"><span class="nav-number">2.</span> <span class="nav-text">springmvc</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#搭建使用"><span class="nav-number">2.1.</span> <span class="nav-text">搭建使用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#注解特性"><span class="nav-number">2.2.</span> <span class="nav-text">注解特性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#请求转发与重定向"><span class="nav-number">2.3.</span> <span class="nav-text">请求转发与重定向</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#获取request-response对象"><span class="nav-number">2.4.</span> <span class="nav-text">获取request,response对象</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#json数据开发"><span class="nav-number">2.5.</span> <span class="nav-text">json数据开发</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#拦截器"><span class="nav-number">2.6.</span> <span class="nav-text">拦截器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#文件上传"><span class="nav-number">2.7.</span> <span class="nav-text">文件上传</span></a></li></ol></li></ol></div>
             
 
           </div>
