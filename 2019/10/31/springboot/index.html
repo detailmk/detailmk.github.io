@@ -97,7 +97,8 @@
 <meta property="og:description" content="springboot定义  它使用 “习惯优于配置” （项目中存在大量的配置，此外还内置一个习惯性的配置，让你无须）的理念让你的项目快速运行起来。 它并不是什么新的框架，而是默认配置了很多框架的使用方式，就像 Maven 整合了所有的 jar 包一样，Spring Boot 整合了所有框架   核心特性 极低学习成本 可独立运行spring项目 “习惯优于配置”,极大提高开发效率 极其简单的组件依">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://i.loli.net/2019/11/05/RxLpnCohuy6l54V.png">
-<meta property="og:updated_time" content="2019-11-05T13:43:54.330Z">
+<meta property="og:image" content="https://i.loli.net/2019/11/06/U2rfIX3Y9hO8ZjB.jpg">
+<meta property="og:updated_time" content="2019-11-06T02:55:25.660Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="springboot">
 <meta name="twitter:description" content="springboot定义  它使用 “习惯优于配置” （项目中存在大量的配置，此外还内置一个习惯性的配置，让你无须）的理念让你的项目快速运行起来。 它并不是什么新的框架，而是默认配置了很多框架的使用方式，就像 Maven 整合了所有的 jar 包一样，Spring Boot 整合了所有框架   核心特性 极低学习成本 可独立运行spring项目 “习惯优于配置”,极大提高开发效率 极其简单的组件依">
@@ -319,8 +320,8 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2019-11-05T21:43:54+08:00">
-                2019-11-05
+              <time title="更新于" itemprop="dateModified" datetime="2019-11-06T10:55:25+08:00">
+                2019-11-06
               </time>
             
           </span>
@@ -423,7 +424,7 @@
 <h2 id="基于Restful的API接口设计针对http请求的规范"><a href="#基于Restful的API接口设计针对http请求的规范" class="headerlink" title="基于Restful的API接口设计针对http请求的规范"></a>基于Restful的API接口设计针对http请求的规范</h2><blockquote>
 <p>基于Restful的API请求就是对资源的操作（增删改查CRUD）</p>
 <p>增删改查操作对Http请求有要求：</p>
-<p> 新增资源 — PUT请求  —– </p>
+<p> 新增资源 — POST请求  —– </p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt; <span class="meta">@RequestMapping</span>(value=”add”, method= RequestMethod.PUT) === <span class="meta">@PutMapping</span>(“add”)</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
 </blockquote>
 <blockquote>
@@ -431,7 +432,7 @@
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt; <span class="meta">@RequestMapping</span>(value=”delete”, method= RequestMethod.DELETE) === <span class="meta">@DeleteMapping</span>(“delete”)</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
 </blockquote>
 <blockquote>
-<p>修改资源 – Post请求—– </p>
+<p>修改资源 –PUT请求| Post请求</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt; <span class="meta">@RequestMapping</span>(value=”update”, method= RequestMethod.POST) === <span class="meta">@PutMapping</span>(“update”)</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
 </blockquote>
 <blockquote>
@@ -472,6 +473,28 @@
 <p>通过request 寻找对应的Handler处理器的方法调用getHandler() –&gt;</p>
 <p>寻找到对应的适配器getHandlerAdapter()寻找到对应的适配器  执行适配器的handler()方法获取ModelAndView –&gt; </p>
 <p>调用processDispatchResult()处理分发结果的方法，通过不同的视图技术（寻找对应的视图解析器）render()到浏览器</p>
+</blockquote>
+<h2 id="Spring-Boot视图"><a href="#Spring-Boot视图" class="headerlink" title="Spring Boot视图"></a>Spring Boot视图</h2><h3 id="回顾Restful"><a href="#回顾Restful" class="headerlink" title="回顾Restful"></a>回顾Restful</h3><blockquote>
+<p>终端（用户端）怎样去获取数据：通过API数据接口进行交互，数据目前一般使用基于Restful的规范进行标准化。</p>
+<p><u>1、怎样理解Restful？</u></p>
+<p>Restful表述一个<strong>资源状态</strong>的<strong>表现形式转移。</strong></p>
+<p><strong>资源：</strong>可以是文本、图片、数据等等</p>
+<p><strong>状态转移</strong>：使用URL定位资源，通过HTTP的操作（GET、DELETE、POST、PUT）进行描述操作</p>
+<p>表现形式：使用媒体类型进行展示</p>
+<p><u>2、设计的规范</u></p>
+<p> a) 资源的展示，一般使用json进行输出</p>
+<p> b) 统一接口规范，采用Http的请求方式规范（GET:获取数据，POST：添加、修改数据、PUT：修改数据， DELETE：删除数据）</p>
+<p>c) 不要编写重复的URI，所有的资源都必须通过URI进行定位</p>
+<p>d) 版本的迭代开发</p>
+<p>e) URI中尽量使用名词进行描述</p>
+<p>f) 分页展示多条数据</p>
+<p>g) 使用Restful进行接口设计时，接口必须是无状态，能够清晰知道这个接口返回的接口</p>
+<p><img src="https://i.loli.net/2019/11/06/U2rfIX3Y9hO8ZjB.jpg" alt="bb.jpg"></p>
+<h2 id="基于Restful-API接口设计例子"><a href="#基于Restful-API接口设计例子" class="headerlink" title="基于Restful API接口设计例子"></a>基于Restful API接口设计例子</h2><p>请求的路径 — 对应的操作 — 功能</p>
+<p>/course/1       get 获取某个课程</p>
+<p>/course     post 添加某个课程</p>
+<p>/course/1       put 修改某个课程</p>
+<p>/course/1       delete   删除某个课程</p>
 </blockquote>
 <h1 id="bug"><a href="#bug" class="headerlink" title="bug"></a>bug</h1><p> <strong>This application has no explicit mapping for /error, so you are seeing this as a fallback.</strong> </p>
 <p>解决:运行文件位置放错了</p>
@@ -517,6 +540,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/11/06/设计模式/" rel="prev" title="设计模式">
+                设计模式 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -595,7 +622,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">48</span>
+                  <span class="site-state-item-count">49</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -660,7 +687,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#springboot"><span class="nav-number">1.</span> <span class="nav-text">springboot</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#定义"><span class="nav-number">1.1.</span> <span class="nav-text">定义</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#核心特性"><span class="nav-number">1.2.</span> <span class="nav-text">核心特性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#启动流程"><span class="nav-number">1.3.</span> <span class="nav-text">启动流程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Spring-Boot是什么？"><span class="nav-number">1.4.</span> <span class="nav-text">Spring Boot是什么？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Spring-优缺点"><span class="nav-number">1.5.</span> <span class="nav-text">Spring 优缺点?</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Spring优点"><span class="nav-number">1.5.1.</span> <span class="nav-text">Spring优点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Spring缺点"><span class="nav-number">1.5.2.</span> <span class="nav-text">Spring缺点</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Spring-Boot启动流程"><span class="nav-number">1.6.</span> <span class="nav-text">Spring Boot启动流程</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#掌握-SpringBootApplication启动类注解"><span class="nav-number">1.6.1.</span> <span class="nav-text">掌握@SpringBootApplication启动类注解</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#初始化Spring的上下文ApplicationContext"><span class="nav-number">1.6.2.</span> <span class="nav-text">初始化Spring的上下文ApplicationContext</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#启动Tomcat服务器"><span class="nav-number">1.6.3.</span> <span class="nav-text">启动Tomcat服务器</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#基于Restful的API接口设计针对http请求的规范"><span class="nav-number">1.7.</span> <span class="nav-text">基于Restful的API接口设计针对http请求的规范</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Spring-Boot单元测试"><span class="nav-number">1.8.</span> <span class="nav-text">Spring Boot单元测试</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Mock测试"><span class="nav-number">1.8.1.</span> <span class="nav-text">Mock测试</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#随机端口测试"><span class="nav-number">1.8.2.</span> <span class="nav-text">随机端口测试</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#区别"><span class="nav-number">1.8.3.</span> <span class="nav-text">区别</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#MVC和三层架构"><span class="nav-number">2.</span> <span class="nav-text">MVC和三层架构</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#SpringMVC请求处理流程"><span class="nav-number">2.1.</span> <span class="nav-text">SpringMVC请求处理流程</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#bug"><span class="nav-number">3.</span> <span class="nav-text">bug</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#springboot"><span class="nav-number">1.</span> <span class="nav-text">springboot</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#定义"><span class="nav-number">1.1.</span> <span class="nav-text">定义</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#核心特性"><span class="nav-number">1.2.</span> <span class="nav-text">核心特性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#启动流程"><span class="nav-number">1.3.</span> <span class="nav-text">启动流程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Spring-Boot是什么？"><span class="nav-number">1.4.</span> <span class="nav-text">Spring Boot是什么？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Spring-优缺点"><span class="nav-number">1.5.</span> <span class="nav-text">Spring 优缺点?</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Spring优点"><span class="nav-number">1.5.1.</span> <span class="nav-text">Spring优点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Spring缺点"><span class="nav-number">1.5.2.</span> <span class="nav-text">Spring缺点</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Spring-Boot启动流程"><span class="nav-number">1.6.</span> <span class="nav-text">Spring Boot启动流程</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#掌握-SpringBootApplication启动类注解"><span class="nav-number">1.6.1.</span> <span class="nav-text">掌握@SpringBootApplication启动类注解</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#初始化Spring的上下文ApplicationContext"><span class="nav-number">1.6.2.</span> <span class="nav-text">初始化Spring的上下文ApplicationContext</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#启动Tomcat服务器"><span class="nav-number">1.6.3.</span> <span class="nav-text">启动Tomcat服务器</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#基于Restful的API接口设计针对http请求的规范"><span class="nav-number">1.7.</span> <span class="nav-text">基于Restful的API接口设计针对http请求的规范</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Spring-Boot单元测试"><span class="nav-number">1.8.</span> <span class="nav-text">Spring Boot单元测试</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Mock测试"><span class="nav-number">1.8.1.</span> <span class="nav-text">Mock测试</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#随机端口测试"><span class="nav-number">1.8.2.</span> <span class="nav-text">随机端口测试</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#区别"><span class="nav-number">1.8.3.</span> <span class="nav-text">区别</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#MVC和三层架构"><span class="nav-number">2.</span> <span class="nav-text">MVC和三层架构</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#SpringMVC请求处理流程"><span class="nav-number">2.1.</span> <span class="nav-text">SpringMVC请求处理流程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Spring-Boot视图"><span class="nav-number">2.2.</span> <span class="nav-text">Spring Boot视图</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#回顾Restful"><span class="nav-number">2.2.1.</span> <span class="nav-text">回顾Restful</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#基于Restful-API接口设计例子"><span class="nav-number">2.3.</span> <span class="nav-text">基于Restful API接口设计例子</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#bug"><span class="nav-number">3.</span> <span class="nav-text">bug</span></a></li></ol></div>
             
 
           </div>

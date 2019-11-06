@@ -88,18 +88,21 @@
 
 
 
+<meta name="description" content="问题场景:轻松方便地构造对象实例,而不必关心构造对象实例的细节和复杂过程 解决方式:建立工厂来创建对象  1）还没有工厂时代：假如还没有工业革命，如果一个客户要一款宝马车,一般的做法是客户去创建一款宝马车，然后拿来用。2）简单工厂模式：后来出现工业革命。用户不用去创建宝马车。因为客户有一个工厂来帮他创建宝马.想要什么车，这个工厂就可以建。比如想要320i系列车。工厂就创建这个系列的车。即工厂可以创">
 <meta name="keywords" content="javase">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Java初识">
-<meta property="og:url" content="https://detailmk.github.io/2019/07/03/Java初识/index.html">
+<meta property="og:title" content="设计模式">
+<meta property="og:url" content="https://detailmk.github.io/2019/11/06/设计模式/index.html">
 <meta property="og:site_name" content="coder--编写代码,制造魔法">
+<meta property="og:description" content="问题场景:轻松方便地构造对象实例,而不必关心构造对象实例的细节和复杂过程 解决方式:建立工厂来创建对象  1）还没有工厂时代：假如还没有工业革命，如果一个客户要一款宝马车,一般的做法是客户去创建一款宝马车，然后拿来用。2）简单工厂模式：后来出现工业革命。用户不用去创建宝马车。因为客户有一个工厂来帮他创建宝马.想要什么车，这个工厂就可以建。比如想要320i系列车。工厂就创建这个系列的车。即工厂可以创">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="https://detailmk.github.io/2019/07/03/Java初识/Java%E5%88%9D%E8%AF%86%5CJava%E5%88%9D%E8%AF%86.png">
-<meta property="og:image" content="https://i.loli.net/2019/08/04/pzDuvVetKfFG7ow.png">
-<meta property="og:updated_time" content="2019-08-07T09:26:14.390Z">
+<meta property="og:image" content="https://i.loli.net/2019/11/06/9RCiplKY5Ngrqkz.jpg">
+<meta property="og:image" content="https://i.loli.net/2019/11/06/DB5Ar8on6RhmqKF.jpg">
+<meta property="og:updated_time" content="2019-11-06T13:44:10.584Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Java初识">
-<meta name="twitter:image" content="https://detailmk.github.io/2019/07/03/Java初识/Java%E5%88%9D%E8%AF%86%5CJava%E5%88%9D%E8%AF%86.png">
+<meta name="twitter:title" content="设计模式">
+<meta name="twitter:description" content="问题场景:轻松方便地构造对象实例,而不必关心构造对象实例的细节和复杂过程 解决方式:建立工厂来创建对象  1）还没有工厂时代：假如还没有工业革命，如果一个客户要一款宝马车,一般的做法是客户去创建一款宝马车，然后拿来用。2）简单工厂模式：后来出现工业革命。用户不用去创建宝马车。因为客户有一个工厂来帮他创建宝马.想要什么车，这个工厂就可以建。比如想要320i系列车。工厂就创建这个系列的车。即工厂可以创">
+<meta name="twitter:image" content="https://i.loli.net/2019/11/06/9RCiplKY5Ngrqkz.jpg">
 
 
 
@@ -129,13 +132,13 @@
 
 
 
-  <link rel="canonical" href="https://detailmk.github.io/2019/07/03/Java初识/">
+  <link rel="canonical" href="https://detailmk.github.io/2019/11/06/设计模式/">
 
 
 
 
 
-  <title>Java初识 | coder--编写代码,制造魔法</title>
+  <title>设计模式 | coder--编写代码,制造魔法</title>
   
 
 
@@ -272,7 +275,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://detailmk.github.io/2019/07/03/Java初识/">
+    <link itemprop="mainEntityOfPage" href="https://detailmk.github.io/2019/11/06/设计模式/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Meng Kai">
@@ -289,7 +292,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Java初识</h1>
+          <h1 class="post-title" itemprop="name headline">设计模式</h1>
         
 
         <div class="post-meta">
@@ -301,8 +304,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-07-03T11:43:10+08:00">
-                2019-07-03
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-11-06T20:12:01+08:00">
+                2019-11-06
               </time>
             
 
@@ -317,8 +320,8 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2019-08-07T17:26:14+08:00">
-                2019-08-07
+              <time title="更新于" itemprop="dateModified" datetime="2019-11-06T21:44:10+08:00">
+                2019-11-06
               </time>
             
           </span>
@@ -373,8 +376,50 @@
       
 
       
-        <p><img src="//detailmk.github.io/2019/07/03/Java初识/Java%E5%88%9D%E8%AF%86%5CJava%E5%88%9D%E8%AF%86.png" alt></p>
-<p><img src="https://i.loli.net/2019/08/04/pzDuvVetKfFG7ow.png" alt="Java初识.png"></p>
+        <h2 id="问题场景"><a href="#问题场景" class="headerlink" title="问题场景:"></a>问题场景:</h2><p>轻松方便地构造对象实例,而不必关心构造对象实例的细节和复杂过程</p>
+<p>解决方式:建立工厂来创建对象</p>
+<blockquote>
+<p>1）还没有工厂时代：假如还没有工业革命，如果一个客户要一款宝马车,一般的做法是<u>客户去创建</u>一款宝马车，然后拿来用。<br>2）简单工厂模式：后来出现工业革命。用户不用去创建宝马车。因为客户有一个<u>工厂来帮他创建宝马</u>.想要什么车，这个工厂就可以建。比如想要320i系列车。工厂就创建这个系列的车。即工厂可以创建产品。<br>3）工厂方法模式时代：为了满足客户，宝马车系列越来越多，如320i，523i,30li等系列一个工厂无法创建所有的宝马系列。于是由单独分出来多个具体的工厂。<u>每个具体工厂创建一种系列</u>。即具体工厂类只能创建一个具体产品。但是宝马工厂还是个抽象。你需要指定某个具体的工厂才能生产车出来。</p>
+<p>4）抽象工厂模式时代：随着客户的要求越来越高，宝马车必须配置空调。于是这个工厂开始生产宝马车和需要的空调。</p>
+<p>最终是客户<u>只要对宝马的销售员说</u>：我要523i空调车，销售员就直接给他523i空调车了。而不用自己去创建523i空调车宝马车.</p>
+<p>这就是<strong>工厂模式</strong>。</p>
+</blockquote>
+<h2 id="工厂模式"><a href="#工厂模式" class="headerlink" title="工厂模式"></a>工厂模式</h2><p>分析围绕 <strong>开闭原则（对扩展开放；对修改封闭）</strong> </p>
+<p>目的: 为创建对象提供过渡接口,以便将创建对象的具体过程屏蔽隔离,达到提高灵活性的目的</p>
+<p>分类:</p>
+<p> 1）简单工厂模式（Simple Factory）<br> 2）工厂方法模式（Factory Method） </p>
+<blockquote>
+<p> 一个抽象产品类，可以派生出多个具体产品类。<br>一个抽象工厂类，可以派生出多个具体工厂类。<br><strong>每个具体工厂类只能创建一个具体产品类的实例。</strong> </p>
+</blockquote>
+<ul>
+<li><p>组成</p>
+<ul>
+<li>工厂类角色：这是本模式的核心，含有一定的商业逻辑和判断逻辑，用来创建产品 </li>
+<li>抽象产品角色：它一般是具体产品继承的父类或者实现的接口。  </li>
+<li>具体产品角色：工厂类所创建的对象就是此角色的实例。在java中由一个具体类实现。  </li>
+</ul>
+<p><img src="https://i.loli.net/2019/11/06/9RCiplKY5Ngrqkz.jpg" alt="tt.JPG"></p>
+<p>该模式的不足:</p>
+<p>如果增加新的产品,就得对应的工厂增加创建新产品的方法,违背开闭原则.</p>
+</li>
+<li><p>组成(<strong>优化</strong>)</p>
+<p>  1)抽象工厂角色： 这是工厂方法模式的核心，它与应用程序无关。是具体工厂角色必须实现的接口或者必须继承      的父类。在java中它由抽象类或者接口来实现。<br>  2)具体工厂角色：它含有和具体业务逻辑有关的代码。由应用程序调用以创建对应的具体产品的对象。<br>  3)抽象产品角色：它是具体产品继承的父类或者是实现的接口。在java中一般有抽象类或者接口来实现。<br>  4)具体产品角色：具体工厂角色所创建的对象就是此角色的实例。在java中由具体的类来实现。</p>
+<p> <img src="https://i.loli.net/2019/11/06/DB5Ar8on6RhmqKF.jpg" alt="at.JPG"></p>
+<p>根据用户需求添加商品,每次增加一个新产品,抽象工厂就创建一个生产该商品的重写方法</p>
+<p>3）抽象工厂模式（Abstract Factory）  </p>
+</li>
+</ul>
+<p>场景</p>
+<blockquote>
+<p> 随着客户的要求越来越高，宝马车需要不同配置的空调和发动机等配件。于是这个工厂开始生产空调和发动机，用来组装汽车。这时候工厂有两个系列的产品:空调和发动机。宝马320系列配置A型号空调和A型号发动机，宝马230系列配置B型号空调和B型号发动机。 </p>
+</blockquote>
+<blockquote>
+<p>  概念:  抽象工厂模式是工厂方法模式的升级版本，他用来创建一组相关或者相互依赖的对象。 </p>
+<p> 多个抽象产品类，每个抽象产品类可以派生出多个具体产品类。<br> 一个抽象工厂类，可以派生出多个具体工厂类。<br> <strong>每个具体工厂类可以创建多个具体产品类的实例。</strong>   </p>
+</blockquote>
+<p>为了满足用户更高的需求, 产品抽象类创建具体产品,工厂类创建满足用户需求的附带用户特殊需求的产品组装的具体方法</p>
+<p>参考:</p>
+<p>代理模式</p>
 
       
     </div>
@@ -405,8 +450,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/07/02/学习规划/" rel="next" title="学习规划">
-                <i class="fa fa-chevron-left"></i> 学习规划
+              <a href="/2019/10/31/springboot/" rel="next" title="springboot">
+                <i class="fa fa-chevron-left"></i> springboot
               </a>
             
           </div>
@@ -414,10 +459,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/07/04/类与对象/" rel="prev" title="类与对象">
-                类与对象 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -469,8 +510,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -542,6 +592,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#问题场景"><span class="nav-number">1.</span> <span class="nav-text">问题场景:</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#工厂模式"><span class="nav-number">2.</span> <span class="nav-text">工厂模式</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
